@@ -71,7 +71,7 @@ namespace FTPbox
                 if (CheckArgs(args))
                 {
                     KillUnecessaryDLLs();
-                    CheckForPreviousInstances();
+                    //CheckForPreviousInstances(); //commented out temporarily by Titan
                     Application.Run(new fMain());
                 }
             }

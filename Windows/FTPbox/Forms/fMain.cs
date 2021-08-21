@@ -27,6 +27,7 @@ using Microsoft.Win32;
 using Newtonsoft.Json;
 using Settings = FTPboxLib.Settings;
 using Squirrel;
+using Microsoft.Extensions.DependencyInjection; // Titan
 
 namespace FTPbox.Forms
 {
@@ -56,6 +57,11 @@ namespace FTPbox.Forms
 
         private async void fMain_Load(object sender, EventArgs e)
         {
+            button1.FlatStyle = FlatStyle.Flat; // Titan
+            button1.FlatAppearance.BorderSize = 0; // Titan
+            button2.Enabled = false; // Titan
+            totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
+
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
 
             //TODO: Should this stay?
@@ -69,7 +75,7 @@ namespace FTPbox.Forms
                 Link = Program.Account.LinkToRecent();
                 tray.ShowBalloonTip(100, n.Title, n.Text, ToolTipIcon.Info);
             };
-
+            /* Commented out by Titan
             Program.Account.WebInterface.UpdateFound += async (o, n) =>
             {
                 const string msg = "A new version of the web interface is available, do you want to upgrade to it?";
@@ -93,7 +99,7 @@ namespace FTPbox.Forms
                 labViewInBrowser.Enabled = true;
                 Link = Program.Account.WebInterfaceLink;
             };
-
+            */
             Notifications.TrayTextNotification += (o, n) => SetTray(o, n);
 
             _fSetup = new Setup {Tag = this};
@@ -103,6 +109,8 @@ namespace FTPbox.Forms
             if (!string.IsNullOrEmpty(Settings.General.Language))
                 Set_Language(Settings.General.Language);
 
+
+            button2.Enabled = true;
             await StartUpWork();
 
             while (OfflineMode)
@@ -112,10 +120,10 @@ namespace FTPbox.Forms
                 // retry
                 await StartUpWork();
             }
-
+            totalSizeLabel.Text = "Please click Check to start checking for updated!";
             _fTrayForm = new fTrayForm { Tag = this };
 
-            await CheckForUpdate();
+            //await CheckForUpdate(); // Commented out by Titan, uncessary check
 
             // Check local folder for changes
             var cpath = Program.Account.GetCommonPath(Program.Account.Paths.Local, true);
@@ -137,6 +145,14 @@ namespace FTPbox.Forms
         /// </summary>
         private async Task StartUpWork()
         {
+
+            tabControl1.TabPages.Remove(tabAbout);
+            tabControl1.TabPages.Remove(tabGeneral);
+            tabControl1.TabPages.Remove(tabBandwidth);
+            tabControl1.TabPages.Remove(tabFilters);
+            tabControl1.TabPages.Remove(tabAccount);
+            tabControl1.TabPages.Remove(tabCredits);
+
             Log.Write(l.Debug, "Internet connection available: {0}", Win32.ConnectedToInternet());
             OfflineMode = false;
 
@@ -146,8 +162,8 @@ namespace FTPbox.Forms
                 {
                     UpdateDetails();
 
-                    ShowInTaskbar = false;
-                    Hide();
+                    //ShowInTaskbar = false;
+                    //Hide();
                     ShowInTaskbar = true;
                 }
 
@@ -178,25 +194,14 @@ namespace FTPbox.Forms
             }
 
             //////////////// this block added by CSP  //////////////////
-            Show();   // CSP force show main form.
-
-            tabControl1.Selecting += tabControl1_Selecting;  // CSP register tab selecting event
-
             FTPboxLib.SyncQueue.totalSizeLabel = totalSizeLabel;  // CSP
             FTPboxLib.SyncQueue.progressBar1 = progressBar1;
             FTPboxLib.SyncQueue.label2 = label2;  // progress % text
             FTPboxLib.SyncQueue.button1 = button1;   // play button
-
+            FTPboxLib.SyncQueue.logtext = files_info; // Titan - add textbox to display log-like info
             Program.Account.SyncQueue.CancelAutoSync();
-            await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+            // await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
             //////////////////////////////////////////////////////////////
-        }
-
-        // this method added by CSP to disallow changing tabs on main form.
-        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //if (e.TabPage == tabPage2)
-            e.Cancel = true;
         }
 
         /// <summary>
@@ -1135,16 +1140,6 @@ namespace FTPbox.Forms
             //totalSizeLabel.Text = FTPboxLib.SyncQueue.totalSize.ToString();  // CSP
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             // CSP launch SHSO game here....
@@ -1158,6 +1153,95 @@ namespace FTPbox.Forms
             Process myProcess = Process.Start(_processStartInfo);
         }
 
+        // Titan
+        //private async Task startSync()
+        //{
+        //    // Start syncing from the queue
+        //    //FTPboxLib.SyncQueue.startsync = true;
+        //    //await Program.Account.SyncQueue.CheckRemoteToLocal();
+        //    await Program.Account.SyncQueue.StartQueue();
+        //}
 
+
+
+        private static IServiceProvider _services;
+
+    static async Task<string> getpatchnotesfromdiscord() // Titan
+    {
+        _services = new ServiceCollection()
+            .AddOptions()
+            .Configure<DiscordServiceOptions>(options =>
+            {
+                options.BotToken = "NzkyODI3MDYxNzEwNDg3NTUz.X-jXvQ.rg0cTYPQHpBs12eNClmha8r95wU";
+            })
+            .AddSingleton<IDiscordService, DiscordService>()
+            .AddLogging()
+            .BuildServiceProvider();
+
+        Task discordReady = _services.GetService<IDiscordService>()
+            .Ready();
+
+        await discordReady;
+
+        // maybe call other methods here?
+        // write a discord message?
+        var channel = _services.GetService<IDiscordService>()
+            .GetSocketTextChannel(878583516319875092);
+            var patchnotes = await channel.GetMessagesAsync(1).FirstOrDefaultAsync();
+            //files_info.Text = patchnotes.ToString();
+            string patchtxt = patchnotes.Last().ToString().Replace("\n", "\r\n");
+            return patchtxt;//patchnotes.Last().ToString();
+
+            //await channel.SendMessageAsync("Hello World!");
+
+            //await Task.Delay(-1);
+    }
+
+
+
+        private async void button2_Click(object sender, EventArgs e)   // Titan
+        {
+            button2.Enabled = false;
+            button2.Text = "Checking...";
+            panel1.Visible = false;
+            files_info.Visible = true;
+            files_info.Text = await getpatchnotesfromdiscord();
+            files_info.Refresh();
+
+            totalSizeLabel.Text = "Getting Remote FIle Info...Please Wait";
+            //FTPboxLib.SyncQueue.startsync = true;
+            FTPboxLib.SyncQueue.folderchecked = false;
+            FTPboxLib.SyncQueue.startsync = false;
+            FTPboxLib.SyncQueue.totaldownloadsize = 0;
+            FTPboxLib.SyncQueue.totalSize = 0;
+            await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+            /////////// Titan ////////////
+            //await Program.Account.SyncQueue.StartQueue();
+            files_info.AppendText("\r\n---Total download size: " + FTPboxLib.SyncQueue.totaldownloadsize / 1024 + " KB = " 
+                                                        + FTPboxLib.SyncQueue.totaldownloadsize / (1024 * 1024) + " MB---");
+            if(FTPboxLib.SyncQueue.totaldownloadsize == 0)
+            {
+                button1.Enabled = true;
+                button3.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+            }
+            //panel1.Visible = false;
+            //files_info.Visible = true;
+            //await getpatchnotesfromdiscord();
+            button2.Text = "Check";
+            button2.Enabled = true;
+            //////////////////////////////
+
+        }
+
+        private async void button3_Click(object sender, EventArgs e) // Titan
+        {
+            FTPboxLib.SyncQueue.folderchecked = true;
+            FTPboxLib.SyncQueue.startsync = true;
+            await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+        }
     }
 }

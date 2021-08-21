@@ -27,12 +27,20 @@ namespace FTPboxLib
         private readonly AccountController _controller;
 
         int totalCnt = 0;   // CSP
-        public static long totalSize = 0; // CSP
-        public static long currSize = 0; // CSP
+        public static float totalSize = 0; // CSP
+        public static float currSize = 0; // CSP
         public static Label totalSizeLabel = null;  // CSP
         public static Label label2 = null;  // CSP
         public static ProgressBar progressBar1 = null; // CSP
         public static Button button1 = null; // CSP
+        public static bool startsync = false; // Titan
+        public static TextBox logtext = null; // Titan
+        public static float totaldownloadsize = 0; // Titan
+        public static bool folderchecked = false; // Titan
+        long sizeunit = 1048576; // Titan
+        long gbsize = 1073741824; // Titan
+        string sizeunitstring = " MB"; // Titan
+        List<ClientItem> newlist = Enumerable.Empty<ClientItem>().ToList(); // Titan
 
 
         public SyncQueue(AccountController account)
@@ -522,8 +530,24 @@ namespace FTPboxLib
                 return StatusType.Failure;
             }
 
-            var list = await _controller.Client.ListRecursive(item.CommonPath);
-
+            /////////// Titan ////////////
+            List<ClientItem> list;
+            if (startsync)
+            {
+                if (totalSize == 0)
+                {
+                    button1.Enabled = true;
+                    return StatusType.Success;
+                }
+                list = newlist;
+                totalSize = 0;
+                currSize = 0;
+            }
+            else
+            {
+                list = (List<ClientItem>)await _controller.Client.ListRecursive(item.CommonPath);
+            }
+            //////////////////////////////
             if (_controller.Client.ListingFailed)
             {
                 await _controller.Client.Reconnect();
@@ -537,9 +561,26 @@ namespace FTPboxLib
             }
             Console.WriteLine("totalSize = " + totalSize);  // CSP
             if (totalSizeLabel != null)
-                totalSizeLabel.Text = "";  // "Total Size: " + (totalSize / 1000000).ToString() + " MB";
+                totalSizeLabel.Text = "";  // "Total Size: " + (totalSize / 1048576).ToString() + " MB";
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = (int)(totalSize / 1000000);
+            /////////// Titan ////////////
+            if (totalSize < 1048576)
+            {
+                sizeunit = 1024;
+                sizeunitstring = " KB";
+                if (totalSize < 1024)
+                {
+                    sizeunit = 1;
+                    sizeunitstring = " B";
+                }
+            }
+            else if(totalSize > gbsize‬)
+            {
+                sizeunit = gbsize;
+                sizeunitstring = " GB";
+            }
+            //////////////////////////////
+            progressBar1.Maximum = (int)(totalSize / sizeunit);
             ///////////////////////////////////////////
 
             foreach (var f in list)
@@ -565,10 +606,10 @@ namespace FTPboxLib
                 /////////// block added by CSP ////////////////////
                 //totalSizeLabel.Text = "Processing file: " + f.Name;
                 //currSize += f.Size;
-                //progressBar1.Value = (int)(currSize / 1000000);   
+                //progressBar1.Value = (int)(currSize / 1048576);   
                 //int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                //label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB"; //percentVal.ToString() + "%";
-                //Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB");
+                //label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1048576) + " MB"; //percentVal.ToString() + "%";
+                //Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1048576) + " MB");
                 ///////////////////////////////////////////////////////////
 
                 var sqi = new SyncQueueItem(_controller)
@@ -581,7 +622,7 @@ namespace FTPboxLib
                     SyncTo = SyncTo.Local
                 };
 
-                if (f.Type == ClientItemType.Folder && !Directory.Exists(lpath))
+                if (f.Type == ClientItemType.Folder && !Directory.Exists(lpath) && startsync)
                 {
                     _controller.FolderWatcher.Pause();
                     Directory.CreateDirectory(lpath);
@@ -600,21 +641,35 @@ namespace FTPboxLib
                     //    : await CheckExistingFile(sqi);
                     //////////////////////////////////////////////
 
-                    ////////// block by CSP   //////////
+                    ////////// block by CSP, edited by Titan   //////////
+                    status = TransferStatus.None;
                     if (!File.Exists(lpath))
                     {
-                        status = await _controller.Client.SafeDownload(sqi);
+                        if (!folderchecked)
+                        {
+                            //string newLine = Environment.NewLine;
+                            logtext.AppendText("\r\nNew file to download: " + sqi.Item.Name);
+                            totaldownloadsize += sqi.Item.Size;
+                            //logtext.Text += newLine + "Total download size: " + totaldownloadsize / 1024 + " KB = " + totaldownloadsize / (1024 * 1024) + " MB";
+                            logtext.Refresh();
+                            //Console.WriteLine("\nTotal download size: " + totaldownloadsize / 1024 + " KB = " + totaldownloadsize / (1024 * 1024) + " MB");
+                            newlist.Add(sqi.Item);
+                        }
+                        else if (startsync)
+                        {
+                            status = await _controller.Client.SafeDownload(sqi);
 
-                        /////////// block added by CSP ////////////////////
-                        totalSizeLabel.Text = "New file: " + f.Name;
-                        totalSizeLabel.Refresh();
-                        currSize += f.Size;
-                        progressBar1.Value = (int)(currSize / 1000000);   
-                        int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                        label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB"; //percentVal.ToString() + "%";
-                        label2.Refresh();
-                        Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB");
-                        ///////////////////////////////////////////////////////////
+                            /////////// block added by CSP ////////////////////
+                            totalSizeLabel.Text = "New file: " + f.Name;
+                            totalSizeLabel.Refresh();
+                            currSize += f.Size;
+                            progressBar1.Value = (int)(currSize / sizeunit);
+                            int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
+                            label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
+                            label2.Refresh();
+                            Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
+                            ///////////////////////////////////////////////////////////
+                        }
                     }
                     else
                     {
@@ -635,65 +690,68 @@ namespace FTPboxLib
             }
 
             var dInfo = new DirectoryInfo(item.LocalPath);
-
-            // Look for local files that should be deleted
-            foreach (var local in dInfo.GetFiles("*", SearchOption.AllDirectories))
+            if (!folderchecked) // Titan
             {
-                var cpath = _controller.GetCommonPath(local.FullName, true);
-                // continue if the file is ignored
-                if (_controller.ItemSkipped(local)) continue;
-                // continue if the file was found in the remote list
-                if (allItems.Any(x => _controller.GetCommonPath(x.FullPath, false) == cpath)) continue;
-                // continue if the file is not in the log, or is changed compared to the logged data TODO: Maybe send to remote folder?
-                var tbaItem = new SyncQueueItem(_controller)
+                // Look for local files that should be deleted
+                foreach (var local in dInfo.GetFiles("*", SearchOption.AllDirectories))
                 {
-                    Item = new ClientItem(local),
-                    ActionType = ChangeAction.created
-                };
+                    var cpath = _controller.GetCommonPath(local.FullName, true);
+                    // continue if the file is ignored
+                    if (_controller.ItemSkipped(local)) continue;
+                    // continue if the file was found in the remote list
+                    if (allItems.Any(x => _controller.GetCommonPath(x.FullPath, false) == cpath)) continue;
+                    // continue if the file is not in the log, or is changed compared to the logged data TODO: Maybe send to remote folder?
+                    var tbaItem = new SyncQueueItem(_controller)
+                    {
+                        Item = new ClientItem(local),
+                        ActionType = ChangeAction.created
+                    };
 
-                Log.Write(l.Info, $"File was not found on server: {cpath}");
-                Log.Write(l.Info, $"Contained in file log: {_controller.FileLog.Contains(cpath)}");
+                    Log.Write(l.Info, $"File was not found on server: {cpath}");
+                    Log.Write(l.Info, $"Contained in file log: {_controller.FileLog.Contains(cpath)}");
 
-                if (!_controller.FileLog.Contains(cpath) || _controller.FileLog.GetLocal(cpath) != local.LastWriteTime)
-                {
-                    Log.Write(l.Info, $"The file should be uploaded");
-                    // The file has not been uploaded yet
-                    tbaItem.Item.FullPath = local.FullName;
-                    tbaItem.ActionType = ChangeAction.created;
-                    tbaItem.SyncTo = SyncTo.Remote;
+                    if (!_controller.FileLog.Contains(cpath) || _controller.FileLog.GetLocal(cpath) != local.LastWriteTime)
+                    {
+                        Log.Write(l.Info, $"The file should be uploaded");
+                        // The file has not been uploaded yet
+                        tbaItem.Item.FullPath = local.FullName;
+                        tbaItem.ActionType = ChangeAction.created;
+                        tbaItem.SyncTo = SyncTo.Remote;
+                    }
+                    else
+                    {
+                        Log.Write(l.Info, $"The file should be deleted");
+                        // Seems like the file was deleted from the remote folder
+                        tbaItem.Item.FullPath = cpath;
+                        tbaItem.ActionType = ChangeAction.deleted;
+                        tbaItem.SyncTo = SyncTo.Local;
+                    }
+                    await Add(tbaItem);
                 }
-                else
+                // Look for local folders that should be deleted
+                foreach (var local in dInfo.GetDirectories("*", SearchOption.AllDirectories))
                 {
-                    Log.Write(l.Info, $"The file should be deleted");
-                    // Seems like the file was deleted from the remote folder
-                    tbaItem.Item.FullPath = cpath;
-                    tbaItem.ActionType = ChangeAction.deleted;
-                    tbaItem.SyncTo = SyncTo.Local;
+                    var cpath = _controller.GetCommonPath(local.FullName, true);
+                    // continue if the folder is ignored
+                    if (_controller.ItemSkipped(local)) continue;
+                    // continue if the folder was found in the remote list
+                    if (allItems.Any(x => _controller.GetCommonPath(x.FullPath, false) == cpath)) continue;
+                    // continue if the folder is not in the log TODO: Maybe send to remote folder?
+                    if (!_controller.FileLog.Folders.Contains(cpath)) continue;
+
+                    // Seems like the folder was deleted from the remote folder
+                    await Add(new SyncQueueItem(_controller)
+                    {
+                        Item = new ClientItem(local) { FullPath = _controller.GetCommonPath(local.FullName, true) },
+                        ActionType = ChangeAction.deleted,
+                        SyncTo = SyncTo.Local
+                    });
                 }
-                await Add(tbaItem);
-            }
-            // Look for local folders that should be deleted
-            foreach (var local in dInfo.GetDirectories("*", SearchOption.AllDirectories))
-            {
-                var cpath = _controller.GetCommonPath(local.FullName, true);
-                // continue if the folder is ignored
-                if (_controller.ItemSkipped(local)) continue;
-                // continue if the folder was found in the remote list
-                if (allItems.Any(x => _controller.GetCommonPath(x.FullPath, false) == cpath)) continue;
-                // continue if the folder is not in the log TODO: Maybe send to remote folder?
-                if (!_controller.FileLog.Folders.Contains(cpath)) continue;
-
-                // Seems like the folder was deleted from the remote folder
-                await Add(new SyncQueueItem(_controller)
+                if (startsync) // Titan
                 {
-                    Item = new ClientItem(local) { FullPath = _controller.GetCommonPath(local.FullName, true) },
-                    ActionType = ChangeAction.deleted,
-                    SyncTo = SyncTo.Local
-                });
+                    button1.Enabled = true;  // CSP enable play button when all files are synced.
+                }
             }
-
-            button1.Enabled = true;  // CSP enable play button when all files are synced.
-
             return StatusType.Success;
         }
 
@@ -730,15 +788,15 @@ namespace FTPboxLib
             {
                 status = await _controller.Client.SafeDownload(item);
 
-                /////////// block added by CSP ////////////////////
+                /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
                 currSize += item.Item.Size;
-                progressBar1.Value = (int)(currSize / 1000000);   
+                progressBar1.Value = (int)(currSize / sizeunit);   
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB"; //percentVal.ToString() + "%";
+                label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();
-                Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB");
+                Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                 ///////////////////////////////////////////////////////////
             }
             //////////////////// block commented out by CSP
@@ -762,15 +820,15 @@ namespace FTPboxLib
             //}
             else  // else block added by CSP
             {
-                /////////// block added by CSP ////////////////////
+                /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Skipping file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
                 currSize += item.Item.Size;
-                progressBar1.Value = (int)(currSize / 1000000);
+                progressBar1.Value = (int)(currSize / sizeunit);
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB"; //percentVal.ToString() + "%";
+                label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();
-                Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1000000) + " MB");
+                Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                 ///////////////////////////////////////////////////////////
             }
 

@@ -38,7 +38,7 @@ namespace FTPboxLib
         public static float totaldownloadsize = 0; // Titan
         public static bool folderchecked = false; // Titan
         long sizeunit = 1048576; // Titan
-        long gbsize = 1073741824; // Titan
+        //long gbsize = 1073741824; // Titan
         string sizeunitstring = " MB"; // Titan
         List<ClientItem> newlist = Enumerable.Empty<ClientItem>().ToList(); // Titan
 
@@ -574,11 +574,11 @@ namespace FTPboxLib
                     sizeunitstring = " B";
                 }
             }
-            else if(totalSize > gbsize‬)
+            /*else if(totalSize > gbsize‬)
             {
                 sizeunit = gbsize;
                 sizeunitstring = " GB";
-            }
+            }*/
             //////////////////////////////
             progressBar1.Maximum = (int)(totalSize / sizeunit);
             ///////////////////////////////////////////

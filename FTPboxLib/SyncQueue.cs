@@ -589,7 +589,7 @@ namespace FTPboxLib
 
                 totalCnt++;  // CSP
                 Console.WriteLine("CheckUpdateItem: (" + totalCnt + ") " + f.Name + " " + f.Size);  // CSP
-                
+
 
                 var cpath = _controller.GetCommonPath(f.FullPath, false);
                 var lpath = Path.Combine(_controller.Paths.Local, cpath);
@@ -687,11 +687,17 @@ namespace FTPboxLib
                     if (sqi.Status == StatusType.Success)
                         _controller.FileLog.PutFile(sqi);
                 }
+                else if (f.Type == ClientItemType.Folder && !Directory.Exists(lpath) && !startsync)
+                {
+                    newlist.Add(f);
+                }
             }
 
             var dInfo = new DirectoryInfo(item.LocalPath);
             if (!folderchecked) // Titan
             {
+                totalSizeLabel.Text = "Launcher will not be responding for up to 15 minutes, please do NOT close it.";
+                totalSizeLabel.Refresh();
                 // Look for local files that should be deleted
                 foreach (var local in dInfo.GetFiles("*", SearchOption.AllDirectories))
                 {
@@ -747,10 +753,12 @@ namespace FTPboxLib
                         SyncTo = SyncTo.Local
                     });
                 }
+                /*
                 if (startsync) // Titan
                 {
                     button1.Enabled = true;  // CSP enable play button when all files are synced.
                 }
+                */
             }
             return StatusType.Success;
         }

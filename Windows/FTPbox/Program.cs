@@ -1,4 +1,4 @@
-﻿/* License
+/* License
  * This file is part of FTPbox - Copyright (C) 2012 ftpbox.org
  * FTPbox is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published 
  * by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed 
@@ -71,7 +71,7 @@ namespace FTPbox
                 if (CheckArgs(args))
                 {
                     KillUnecessaryDLLs();
-                    //CheckForPreviousInstances(); //commented out temporarily by Titan
+                    CheckForPreviousInstances();
                     Application.Run(new fMain());
                 }
             }
@@ -160,7 +160,7 @@ namespace FTPbox
                             p.WaitForExit(3000);
                             if (!p.HasExited)
                             {
-                                MessageBox.Show("Another instance of FTPbox is already running.", "FTPbox",
+                                MessageBox.Show("Another instance of SHSO Launcher is already running.", "SHSO Launcher",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Process.GetCurrentProcess().Kill();
                             }

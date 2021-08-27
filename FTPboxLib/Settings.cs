@@ -229,6 +229,6 @@ namespace FTPboxLib
 
         public bool EnableLogging = true;
 
-        public bool AddContextMenu = true;
+        public bool AddContextMenu = false;
     }
 }

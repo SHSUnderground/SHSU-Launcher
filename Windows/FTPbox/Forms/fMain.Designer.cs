@@ -32,6 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.main_tab = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.files_info = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,6 +50,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.totalSizeLabel = new System.Windows.Forms.Label();
             this.tabCredits = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -135,18 +145,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label26 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.main_tab.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabCredits.SuspendLayout();
             this.tabBandwidth.SuspendLayout();
@@ -168,7 +169,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gNotes.SuspendLayout();
             this.trayMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -185,7 +185,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(629, 571);
+            this.tabControl1.Size = new System.Drawing.Size(629, 630);
             this.tabControl1.TabIndex = 12;
             // 
             // main_tab
@@ -203,11 +203,116 @@
             this.main_tab.Margin = new System.Windows.Forms.Padding(4);
             this.main_tab.Name = "main_tab";
             this.main_tab.Padding = new System.Windows.Forms.Padding(4);
-            this.main_tab.Size = new System.Drawing.Size(621, 542);
+            this.main_tab.Size = new System.Drawing.Size(621, 601);
             this.main_tab.TabIndex = 6;
             this.main_tab.Text = "Status";
             this.main_tab.UseVisualStyleBackColor = true;
             this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.label30);
+            this.panel1.Location = new System.Drawing.Point(315, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(289, 267);
+            this.panel1.TabIndex = 17;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label22.ForeColor = System.Drawing.Color.Crimson;
+            this.label22.Location = new System.Drawing.Point(45, 136);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(194, 23);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "A The Bad Doggo";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label23.ForeColor = System.Drawing.Color.Crimson;
+            this.label23.Location = new System.Drawing.Point(78, 103);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(129, 23);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "FireAndIce";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label24.ForeColor = System.Drawing.Color.Crimson;
+            this.label24.Location = new System.Drawing.Point(63, 235);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(159, 23);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "BoocerSmash";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label25.ForeColor = System.Drawing.Color.Crimson;
+            this.label25.Location = new System.Drawing.Point(110, 202);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(65, 23);
+            this.label25.TabIndex = 26;
+            this.label25.Text = "Remy";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label27.ForeColor = System.Drawing.Color.Crimson;
+            this.label27.Location = new System.Drawing.Point(98, 37);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(88, 23);
+            this.label27.TabIndex = 27;
+            this.label27.Text = "CrabFu";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label28.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label28.Location = new System.Drawing.Point(85, 169);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(115, 23);
+            this.label28.TabIndex = 28;
+            this.label28.Text = "--Assets--";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label29.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label29.Location = new System.Drawing.Point(101, 70);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(83, 23);
+            this.label29.TabIndex = 29;
+            this.label29.Text = "--Dev--";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label30.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label30.Location = new System.Drawing.Point(20, 4);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(245, 23);
+            this.label30.TabIndex = 30;
+            this.label30.Text = "--Project Lead/Dev--";
             // 
             // button3
             // 
@@ -252,10 +357,10 @@
             this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(4, 416);
+            this.button1.Location = new System.Drawing.Point(-4, 360);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 113);
+            this.button1.Size = new System.Drawing.Size(319, 245);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -320,6 +425,17 @@
             this.tabCredits.TabIndex = 7;
             this.tabCredits.Text = "Credits";
             this.tabCredits.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Zooom BB", 16F);
+            this.label26.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label26.Location = new System.Drawing.Point(99, 195);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(88, 23);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "CrabFu";
             // 
             // label9
             // 
@@ -1451,127 +1567,11 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label26.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label26.Location = new System.Drawing.Point(99, 195);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 23);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "CrabFu";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.label28);
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.label30);
-            this.panel1.Location = new System.Drawing.Point(315, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(289, 267);
-            this.panel1.TabIndex = 17;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label22.ForeColor = System.Drawing.Color.Crimson;
-            this.label22.Location = new System.Drawing.Point(45, 136);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(194, 23);
-            this.label22.TabIndex = 23;
-            this.label22.Text = "A The Bad Doggo";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label23.ForeColor = System.Drawing.Color.Crimson;
-            this.label23.Location = new System.Drawing.Point(78, 103);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(129, 23);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "FireAndIce";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label24.ForeColor = System.Drawing.Color.Crimson;
-            this.label24.Location = new System.Drawing.Point(63, 235);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(159, 23);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "BoocerSmash";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label25.ForeColor = System.Drawing.Color.Crimson;
-            this.label25.Location = new System.Drawing.Point(110, 202);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 23);
-            this.label25.TabIndex = 26;
-            this.label25.Text = "Remy";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label27.ForeColor = System.Drawing.Color.Crimson;
-            this.label27.Location = new System.Drawing.Point(98, 37);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(88, 23);
-            this.label27.TabIndex = 27;
-            this.label27.Text = "CrabFu";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label28.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label28.Location = new System.Drawing.Point(85, 169);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(115, 23);
-            this.label28.TabIndex = 28;
-            this.label28.Text = "--Assets--";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label29.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label29.Location = new System.Drawing.Point(101, 70);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(83, 23);
-            this.label29.TabIndex = 29;
-            this.label29.Text = "--Dev--";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label30.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label30.Location = new System.Drawing.Point(20, 4);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(245, 23);
-            this.label30.TabIndex = 30;
-            this.label30.Text = "--Project Lead/Dev--";
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 567);
+            this.ClientSize = new System.Drawing.Size(632, 629);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1587,6 +1587,8 @@
             this.tabControl1.ResumeLayout(false);
             this.main_tab.ResumeLayout(false);
             this.main_tab.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabCredits.ResumeLayout(false);
             this.tabCredits.PerformLayout();
@@ -1612,8 +1614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gNotes.ResumeLayout(false);
             this.trayMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -110,8 +110,8 @@ namespace FTPbox.Forms
                 Set_Language(Settings.General.Language);
 
 
-            button2.Enabled = true;
             await StartUpWork();
+            button2.Enabled = true;
 
             while (OfflineMode)
             {
@@ -120,7 +120,7 @@ namespace FTPbox.Forms
                 // retry
                 await StartUpWork();
             }
-            totalSizeLabel.Text = "Please click Check to start checking for updated!";
+            totalSizeLabel.Text = "Please click Check to start checking for updated files!";
             _fTrayForm = new fTrayForm { Tag = this };
 
             //await CheckForUpdate(); // Commented out by Titan, uncessary check

@@ -772,6 +772,9 @@ namespace FTPboxLib
 
             var remDif = remLwt - remLog;
             var locDif = locLwt - locLog;
+            //FileInfo tmpfile = new FileInfo(item.PathToFile);
+            var locSize = File.OpenRead(item.LocalPath).Length;
+            var remSize = item.Item.Size;
 
             // Set to TransferStatus.None by default, incase none of the following
             // conditions are met (which means the file is up-to-date already)
@@ -784,15 +787,24 @@ namespace FTPboxLib
             var remoteChangedMore = (remDif.TotalSeconds > locDif.TotalSeconds);
 
             //  CSP commented out  //if ((remoteChanged && localChanged && remoteChangedMore) || (!localChanged && remoteChanged))
-            if (remLwt > locLwt)  // added by CSP
+            if (remLwt > locLwt || locSize != remSize)  // added by CSP, edited by Titan
             {
-                status = await _controller.Client.SafeDownload(item);
-
+                if (startsync) // Titan
+                {
+                    status = await _controller.Client.SafeDownload(item);
+                }
+                else
+                {
+                    newlist.Add(item.Item);
+                    logtext.AppendText("\r\nFile update found: " + item.Item.Name);
+                    logtext.Refresh();
+                    totaldownloadsize += item.Item.Size;
+                }
                 /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
                 currSize += item.Item.Size;
-                progressBar1.Value = (int)(currSize / sizeunit);   
+                progressBar1.Value = (int)(currSize / sizeunit);
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
                 label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();

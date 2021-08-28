@@ -7,7 +7,7 @@ param (
 
 # Names of files that will be added to zip file
 
-[array]$fileNames = Get-ChildItem *.dll, translations.xml, FTPbox.exe -Name
+[array]$fileNames = Get-ChildItem *.dll, translations.xml, SHSO_Launcher.exe, ZOOOBRG.tts, *.config -Name
 
 # Version
 

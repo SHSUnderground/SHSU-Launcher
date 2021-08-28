@@ -48,7 +48,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;PORTABLE</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -196,9 +196,9 @@
     <Compile Include="Forms\fSelectiveSync.Designer.cs">
       <DependentUpon>fSelectiveSync.cs</DependentUpon>
     </Compile>
-    <None Include="Forms\fTrayForm.cs">
+    <Compile Include="Forms\fTrayForm.cs">
       <SubType>Form</SubType>
-    </None>
+    </Compile>
     <Compile Include="Forms\fTrayForm.Designer.cs">
       <DependentUpon>fTrayForm.cs</DependentUpon>
     </Compile>
@@ -208,9 +208,9 @@
     <Compile Include="Forms\newversion.designer.cs">
       <DependentUpon>newversion.cs</DependentUpon>
     </Compile>
-    <None Include="Forms\Setup.cs">
+    <Compile Include="Forms\Setup.cs">
       <SubType>Form</SubType>
-    </None>
+    </Compile>
     <Compile Include="Forms\Setup.Designer.cs">
       <DependentUpon>Setup.cs</DependentUpon>
     </Compile>

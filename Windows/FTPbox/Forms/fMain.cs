@@ -228,7 +228,6 @@ namespace FTPbox.Forms
 
 
             await StartUpWork();
-            button2.Enabled = true;
 
             while (OfflineMode)
             {
@@ -243,7 +242,7 @@ namespace FTPbox.Forms
             //await CheckForUpdate(); // Commented out by Titan, uncessary check
 
             // Check local folder for changes
-            var cpath = Program.Account.GetCommonPath(Program.Account.Paths.Local, true);
+            /*var cpath = Program.Account.GetCommonPath(Program.Account.Paths.Local, true);
             await Program.Account.SyncQueue.Add(
                 new SyncQueueItem(Program.Account)
                 {
@@ -251,8 +250,9 @@ namespace FTPbox.Forms
                     ActionType = ChangeAction.changed,
                     SyncTo = SyncTo.Remote
                 });
-
+            */
             await ContextMenuManager.RunServer();
+            button2.Enabled = true;
         }
 
         /// <summary>

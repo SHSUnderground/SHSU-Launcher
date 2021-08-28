@@ -228,11 +228,11 @@ namespace FTPboxLib
         {
             get
             {
-                #if DEBUG || PORTABLE   // load settings from exe's folder?
+                //#if DEBUG || PORTABLE   // load settings from exe's folder?
                 return Environment.CurrentDirectory;
-                #else                   // load settings from appdata folder
-                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FTPbox");
-                #endif
+                //#else                   // load settings from appdata folder
+                //return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FTPbox");
+                //#endif
             }
         }
 

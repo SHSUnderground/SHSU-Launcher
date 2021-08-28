@@ -133,6 +133,16 @@ namespace FTPbox.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Playbutton {
+            get {
+                object obj = ResourceManager.GetObject("Playbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap playnow_green {
             get {
                 object obj = ResourceManager.GetObject("playnow_green", resourceCulture);
@@ -176,6 +186,16 @@ namespace FTPbox.Properties {
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SHSO_Launcher_Banner {
+            get {
+                object obj = ResourceManager.GetObject("SHSO_Launcher_Banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

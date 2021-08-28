@@ -48,7 +48,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -196,9 +196,9 @@
     <Compile Include="Forms\fSelectiveSync.Designer.cs">
       <DependentUpon>fSelectiveSync.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\fTrayForm.cs">
+    <None Include="Forms\fTrayForm.cs">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="Forms\fTrayForm.Designer.cs">
       <DependentUpon>fTrayForm.cs</DependentUpon>
     </Compile>
@@ -208,9 +208,9 @@
     <Compile Include="Forms\newversion.designer.cs">
       <DependentUpon>newversion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Setup.cs">
+    <None Include="Forms\Setup.cs">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="Forms\Setup.Designer.cs">
       <DependentUpon>Setup.cs</DependentUpon>
     </Compile>
@@ -294,7 +294,9 @@
     <None Include="Resources\playnow_green.png" />
     <None Include="Resources\playnow_hold.png" />
     <None Include="Resources\lnchbg.png" />
+    <None Include="Resources\Playbutton.png" />
     <Content Include="Resources\settings.jpg" />
+    <None Include="Resources\SHSO_Launcher_Banner.png" />
     <Content Include="shso__icon.ico" />
     <Content Include="translations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

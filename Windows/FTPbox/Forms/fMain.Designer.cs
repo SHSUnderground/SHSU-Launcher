@@ -30,92 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.main_tab = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.files_info = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.totalSizeLabel = new System.Windows.Forms.Label();
-            this.tabCredits = new System.Windows.Forms.TabPage();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabBandwidth = new System.Windows.Forms.TabPage();
-            this.gSyncing = new System.Windows.Forms.GroupBox();
-            this.labSeconds = new System.Windows.Forms.Label();
-            this.labSyncWhen = new System.Windows.Forms.Label();
-            this.nSyncFrequency = new System.Windows.Forms.NumericUpDown();
-            this.cAuto = new System.Windows.Forms.RadioButton();
-            this.cManually = new System.Windows.Forms.RadioButton();
-            this.gLimits = new System.Windows.Forms.GroupBox();
-            this.labNoLimits = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nUpLimit = new System.Windows.Forms.NumericUpDown();
-            this.nDownLimit = new System.Windows.Forms.NumericUpDown();
-            this.labUpSpeed = new System.Windows.Forms.Label();
-            this.labDownSpeed = new System.Windows.Forms.Label();
-            this.tabGeneral = new System.Windows.Forms.TabPage();
-            this.gLanguage = new System.Windows.Forms.GroupBox();
-            this.bTranslate = new System.Windows.Forms.Button();
-            this.cLanguages = new System.Windows.Forms.ComboBox();
-            this.gLinks = new System.Windows.Forms.GroupBox();
-            this.rOpenLocal = new System.Windows.Forms.RadioButton();
-            this.labLinkClicked = new System.Windows.Forms.Label();
-            this.rCopy2Clipboard = new System.Windows.Forms.RadioButton();
-            this.rOpenInBrowser = new System.Windows.Forms.RadioButton();
-            this.gApp = new System.Windows.Forms.GroupBox();
-            this.chkShellMenus = new System.Windows.Forms.CheckBox();
-            this.bBrowseLogs = new System.Windows.Forms.Button();
-            this.chkEnableLogging = new System.Windows.Forms.CheckBox();
-            this.chkShowNots = new System.Windows.Forms.CheckBox();
-            this.chkStartUp = new System.Windows.Forms.CheckBox();
-            this.tabAccount = new System.Windows.Forms.TabPage();
-            this.bRemoveAccount = new System.Windows.Forms.Button();
-            this.bAddAccount = new System.Windows.Forms.Button();
-            this.cProfiles = new System.Windows.Forms.ComboBox();
-            this.gAccount = new System.Windows.Forms.GroupBox();
-            this.tTempPrefix = new System.Windows.Forms.TextBox();
-            this.labTempPrefix = new System.Windows.Forms.Label();
-            this.rBothWaySync = new System.Windows.Forms.RadioButton();
-            this.labWayOfSync = new System.Windows.Forms.Label();
-            this.rRemoteToLocalOnly = new System.Windows.Forms.RadioButton();
-            this.rLocalToRemoteOnly = new System.Windows.Forms.RadioButton();
-            this.labViewInBrowser = new System.Windows.Forms.LinkLabel();
-            this.chkWebInt = new System.Windows.Forms.CheckBox();
-            this.bConfigureAccount = new System.Windows.Forms.Button();
-            this.labAccount = new System.Windows.Forms.Label();
-            this.tabFilters = new System.Windows.Forms.TabPage();
-            this.gFileFilters = new System.Windows.Forms.GroupBox();
-            this.bConfigureSelectiveSync = new System.Windows.Forms.Button();
-            this.bConfigureExtensions = new System.Windows.Forms.Button();
-            this.labSelectiveSync = new System.Windows.Forms.Label();
-            this.labAlsoIgnore = new System.Windows.Forms.Label();
-            this.cIgnoreOldFiles = new System.Windows.Forms.CheckBox();
-            this.dtpLastModTime = new System.Windows.Forms.DateTimePicker();
-            this.labSelectExtensions = new System.Windows.Forms.Label();
-            this.cIgnoreTempFiles = new System.Windows.Forms.CheckBox();
-            this.cIgnoreDotfiles = new System.Windows.Forms.CheckBox();
+            this.tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.SyncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.labSupportMail = new System.Windows.Forms.Label();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -137,1116 +59,186 @@
             this.label11 = new System.Windows.Forms.Label();
             this.labContactMe = new System.Windows.Forms.Label();
             this.labFree = new System.Windows.Forms.Label();
-            this.tray = new System.Windows.Forms.NotifyIcon(this.components);
-            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.SyncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1.SuspendLayout();
-            this.main_tab.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabCredits.SuspendLayout();
+            this.tabFilters = new System.Windows.Forms.TabPage();
+            this.gFileFilters = new System.Windows.Forms.GroupBox();
+            this.bConfigureSelectiveSync = new System.Windows.Forms.Button();
+            this.bConfigureExtensions = new System.Windows.Forms.Button();
+            this.labSelectiveSync = new System.Windows.Forms.Label();
+            this.labAlsoIgnore = new System.Windows.Forms.Label();
+            this.cIgnoreOldFiles = new System.Windows.Forms.CheckBox();
+            this.dtpLastModTime = new System.Windows.Forms.DateTimePicker();
+            this.labSelectExtensions = new System.Windows.Forms.Label();
+            this.cIgnoreTempFiles = new System.Windows.Forms.CheckBox();
+            this.cIgnoreDotfiles = new System.Windows.Forms.CheckBox();
+            this.tabAccount = new System.Windows.Forms.TabPage();
+            this.bRemoveAccount = new System.Windows.Forms.Button();
+            this.bAddAccount = new System.Windows.Forms.Button();
+            this.cProfiles = new System.Windows.Forms.ComboBox();
+            this.gAccount = new System.Windows.Forms.GroupBox();
+            this.tTempPrefix = new System.Windows.Forms.TextBox();
+            this.labTempPrefix = new System.Windows.Forms.Label();
+            this.rBothWaySync = new System.Windows.Forms.RadioButton();
+            this.labWayOfSync = new System.Windows.Forms.Label();
+            this.rRemoteToLocalOnly = new System.Windows.Forms.RadioButton();
+            this.rLocalToRemoteOnly = new System.Windows.Forms.RadioButton();
+            this.labViewInBrowser = new System.Windows.Forms.LinkLabel();
+            this.chkWebInt = new System.Windows.Forms.CheckBox();
+            this.bConfigureAccount = new System.Windows.Forms.Button();
+            this.labAccount = new System.Windows.Forms.Label();
+            this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.gLanguage = new System.Windows.Forms.GroupBox();
+            this.bTranslate = new System.Windows.Forms.Button();
+            this.cLanguages = new System.Windows.Forms.ComboBox();
+            this.gLinks = new System.Windows.Forms.GroupBox();
+            this.rOpenLocal = new System.Windows.Forms.RadioButton();
+            this.labLinkClicked = new System.Windows.Forms.Label();
+            this.rCopy2Clipboard = new System.Windows.Forms.RadioButton();
+            this.rOpenInBrowser = new System.Windows.Forms.RadioButton();
+            this.gApp = new System.Windows.Forms.GroupBox();
+            this.chkShellMenus = new System.Windows.Forms.CheckBox();
+            this.bBrowseLogs = new System.Windows.Forms.Button();
+            this.chkEnableLogging = new System.Windows.Forms.CheckBox();
+            this.chkShowNots = new System.Windows.Forms.CheckBox();
+            this.chkStartUp = new System.Windows.Forms.CheckBox();
+            this.tabBandwidth = new System.Windows.Forms.TabPage();
+            this.gSyncing = new System.Windows.Forms.GroupBox();
+            this.labSeconds = new System.Windows.Forms.Label();
+            this.labSyncWhen = new System.Windows.Forms.Label();
+            this.nSyncFrequency = new System.Windows.Forms.NumericUpDown();
+            this.cAuto = new System.Windows.Forms.RadioButton();
+            this.cManually = new System.Windows.Forms.RadioButton();
+            this.gLimits = new System.Windows.Forms.GroupBox();
+            this.labNoLimits = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nUpLimit = new System.Windows.Forms.NumericUpDown();
+            this.nDownLimit = new System.Windows.Forms.NumericUpDown();
+            this.labUpSpeed = new System.Windows.Forms.Label();
+            this.labDownSpeed = new System.Windows.Forms.Label();
+            this.tabCredits = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.main_tab = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.totalSizeLabel = new System.Windows.Forms.Label();
+            this.files_info = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.trayMenu.SuspendLayout();
+            this.tabAbout.SuspendLayout();
+            this.gContribute.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gNotes.SuspendLayout();
+            this.tabFilters.SuspendLayout();
+            this.gFileFilters.SuspendLayout();
+            this.tabAccount.SuspendLayout();
+            this.gAccount.SuspendLayout();
+            this.tabGeneral.SuspendLayout();
+            this.gLanguage.SuspendLayout();
+            this.gLinks.SuspendLayout();
+            this.gApp.SuspendLayout();
             this.tabBandwidth.SuspendLayout();
             this.gSyncing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nSyncFrequency)).BeginInit();
             this.gLimits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUpLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).BeginInit();
-            this.tabGeneral.SuspendLayout();
-            this.gLanguage.SuspendLayout();
-            this.gLinks.SuspendLayout();
-            this.gApp.SuspendLayout();
-            this.tabAccount.SuspendLayout();
-            this.gAccount.SuspendLayout();
-            this.tabFilters.SuspendLayout();
-            this.gFileFilters.SuspendLayout();
-            this.tabAbout.SuspendLayout();
-            this.gContribute.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gNotes.SuspendLayout();
-            this.trayMenu.SuspendLayout();
+            this.tabCredits.SuspendLayout();
+            this.main_tab.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
-            // 
-            this.tabControl1.AccessibleDescription = "";
-            this.tabControl1.Controls.Add(this.main_tab);
-            this.tabControl1.Controls.Add(this.tabCredits);
-            this.tabControl1.Controls.Add(this.tabBandwidth);
-            this.tabControl1.Controls.Add(this.tabGeneral);
-            this.tabControl1.Controls.Add(this.tabAccount);
-            this.tabControl1.Controls.Add(this.tabFilters);
-            this.tabControl1.Controls.Add(this.tabAbout);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(629, 630);
-            this.tabControl1.TabIndex = 12;
-            // 
-            // main_tab
-            // 
-            this.main_tab.Controls.Add(this.panel1);
-            this.main_tab.Controls.Add(this.button3);
-            this.main_tab.Controls.Add(this.files_info);
-            this.main_tab.Controls.Add(this.button2);
-            this.main_tab.Controls.Add(this.button1);
-            this.main_tab.Controls.Add(this.label2);
-            this.main_tab.Controls.Add(this.progressBar1);
-            this.main_tab.Controls.Add(this.pictureBox2);
-            this.main_tab.Controls.Add(this.totalSizeLabel);
-            this.main_tab.Location = new System.Drawing.Point(4, 25);
-            this.main_tab.Margin = new System.Windows.Forms.Padding(4);
-            this.main_tab.Name = "main_tab";
-            this.main_tab.Padding = new System.Windows.Forms.Padding(4);
-            this.main_tab.Size = new System.Drawing.Size(621, 601);
-            this.main_tab.TabIndex = 6;
-            this.main_tab.Text = "Status";
-            this.main_tab.UseVisualStyleBackColor = true;
-            this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.label28);
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.label30);
-            this.panel1.Location = new System.Drawing.Point(315, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(289, 267);
-            this.panel1.TabIndex = 17;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label22.ForeColor = System.Drawing.Color.Crimson;
-            this.label22.Location = new System.Drawing.Point(45, 136);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(194, 23);
-            this.label22.TabIndex = 23;
-            this.label22.Text = "A The Bad Doggo";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label23.ForeColor = System.Drawing.Color.Crimson;
-            this.label23.Location = new System.Drawing.Point(78, 103);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(129, 23);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "FireAndIce";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label24.ForeColor = System.Drawing.Color.Crimson;
-            this.label24.Location = new System.Drawing.Point(63, 235);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(159, 23);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "BoocerSmash";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label25.ForeColor = System.Drawing.Color.Crimson;
-            this.label25.Location = new System.Drawing.Point(110, 202);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 23);
-            this.label25.TabIndex = 26;
-            this.label25.Text = "Remy";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label27.ForeColor = System.Drawing.Color.Crimson;
-            this.label27.Location = new System.Drawing.Point(98, 37);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(88, 23);
-            this.label27.TabIndex = 27;
-            this.label27.Text = "CrabFu";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label28.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label28.Location = new System.Drawing.Point(85, 169);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(115, 23);
-            this.label28.TabIndex = 28;
-            this.label28.Text = "--Assets--";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label29.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label29.Location = new System.Drawing.Point(101, 70);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(83, 23);
-            this.label29.TabIndex = 29;
-            this.label29.Text = "--Dev--";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label30.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label30.Location = new System.Drawing.Point(20, 4);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(245, 23);
-            this.label30.TabIndex = 30;
-            this.label30.Text = "--Project Lead/Dev--";
-            // 
-            // button3
-            // 
-            this.button3.Enabled = false;
-            this.button3.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.button3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button3.Location = new System.Drawing.Point(299, 474);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(305, 56);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Download";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // files_info
-            // 
-            this.files_info.Location = new System.Drawing.Point(300, 7);
-            this.files_info.Multiline = true;
-            this.files_info.Name = "files_info";
-            this.files_info.ReadOnly = true;
-            this.files_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.files_info.Size = new System.Drawing.Size(314, 270);
-            this.files_info.TabIndex = 15;
-            this.files_info.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Zooom BB", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button2.Location = new System.Drawing.Point(299, 417);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(305, 56);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Check";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Enabled = false;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(-4, 360);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(319, 245);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 331);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "0%";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(8, 317);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(609, 42);
-            this.progressBar1.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(289, 270);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // totalSizeLabel
-            // 
-            this.totalSizeLabel.AutoSize = true;
-            this.totalSizeLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.totalSizeLabel.Location = new System.Drawing.Point(170, 297);
-            this.totalSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.totalSizeLabel.Name = "totalSizeLabel";
-            this.totalSizeLabel.Size = new System.Drawing.Size(293, 16);
-            this.totalSizeLabel.TabIndex = 0;
-            this.totalSizeLabel.Text = "Please click Check to start checking for updates!";
-            this.totalSizeLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // tabCredits
-            // 
-            this.tabCredits.Controls.Add(this.label26);
-            this.tabCredits.Controls.Add(this.label9);
-            this.tabCredits.Controls.Add(this.label8);
-            this.tabCredits.Controls.Add(this.label13);
-            this.tabCredits.Controls.Add(this.label12);
-            this.tabCredits.Controls.Add(this.label7);
-            this.tabCredits.Controls.Add(this.label5);
-            this.tabCredits.Controls.Add(this.label10);
-            this.tabCredits.Controls.Add(this.label6);
-            this.tabCredits.Controls.Add(this.label1);
-            this.tabCredits.Font = new System.Drawing.Font("Zooom BB", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCredits.Location = new System.Drawing.Point(4, 25);
-            this.tabCredits.Name = "tabCredits";
-            this.tabCredits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCredits.Size = new System.Drawing.Size(621, 542);
-            this.tabCredits.TabIndex = 7;
-            this.tabCredits.Text = "Credits";
-            this.tabCredits.UseVisualStyleBackColor = true;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Zooom BB", 16F);
-            this.label26.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label26.Location = new System.Drawing.Point(99, 195);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 23);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "CrabFu";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label9.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label9.Location = new System.Drawing.Point(167, 195);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(287, 34);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "A The Bad Doggo";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label8.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label8.Location = new System.Drawing.Point(215, 161);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(191, 34);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "FireAndIce";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label13.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label13.Location = new System.Drawing.Point(193, 297);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(235, 34);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "BoocerSmash";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label12.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label12.Location = new System.Drawing.Point(262, 263);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 34);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Remy";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label7.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label7.Location = new System.Drawing.Point(245, 127);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 34);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "CrabFu";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label5.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label5.Location = new System.Drawing.Point(245, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 34);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "CrabFu";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label10.ForeColor = System.Drawing.Color.Crimson;
-            this.label10.Location = new System.Drawing.Point(225, 229);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(170, 34);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "--Assets--";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(249, 93);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 34);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "--Dev--";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Zooom BB", 24F);
-            this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(167, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "--Project Lead--";
-            // 
-            // tabBandwidth
-            // 
-            this.tabBandwidth.Controls.Add(this.gSyncing);
-            this.tabBandwidth.Controls.Add(this.gLimits);
-            this.tabBandwidth.Location = new System.Drawing.Point(4, 25);
-            this.tabBandwidth.Margin = new System.Windows.Forms.Padding(4);
-            this.tabBandwidth.Name = "tabBandwidth";
-            this.tabBandwidth.Padding = new System.Windows.Forms.Padding(4);
-            this.tabBandwidth.Size = new System.Drawing.Size(621, 542);
-            this.tabBandwidth.TabIndex = 3;
-            this.tabBandwidth.Text = "Bandwidth";
-            this.tabBandwidth.UseVisualStyleBackColor = true;
-            // 
-            // gSyncing
-            // 
-            this.gSyncing.Controls.Add(this.labSeconds);
-            this.gSyncing.Controls.Add(this.labSyncWhen);
-            this.gSyncing.Controls.Add(this.nSyncFrequency);
-            this.gSyncing.Controls.Add(this.cAuto);
-            this.gSyncing.Controls.Add(this.cManually);
-            this.gSyncing.Location = new System.Drawing.Point(11, 7);
-            this.gSyncing.Margin = new System.Windows.Forms.Padding(4);
-            this.gSyncing.Name = "gSyncing";
-            this.gSyncing.Padding = new System.Windows.Forms.Padding(4);
-            this.gSyncing.Size = new System.Drawing.Size(596, 153);
-            this.gSyncing.TabIndex = 2;
-            this.gSyncing.TabStop = false;
-            this.gSyncing.Text = "Syncing";
-            // 
-            // labSeconds
-            // 
-            this.labSeconds.Location = new System.Drawing.Point(155, 112);
-            this.labSeconds.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labSeconds.Name = "labSeconds";
-            this.labSeconds.Size = new System.Drawing.Size(296, 16);
-            this.labSeconds.TabIndex = 5;
-            this.labSeconds.Text = "seconds";
-            // 
-            // labSyncWhen
-            // 
-            this.labSyncWhen.Location = new System.Drawing.Point(8, 27);
-            this.labSyncWhen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labSyncWhen.Name = "labSyncWhen";
-            this.labSyncWhen.Size = new System.Drawing.Size(580, 16);
-            this.labSyncWhen.TabIndex = 4;
-            this.labSyncWhen.Text = "Synchronize remote files:";
-            // 
-            // nSyncFrequency
-            // 
-            this.nSyncFrequency.AccessibleName = "synchronization interval in seconds";
-            this.nSyncFrequency.Location = new System.Drawing.Point(47, 110);
-            this.nSyncFrequency.Margin = new System.Windows.Forms.Padding(4);
-            this.nSyncFrequency.Maximum = new decimal(new int[] {
-            79228,
-            0,
-            0,
-            0});
-            this.nSyncFrequency.Name = "nSyncFrequency";
-            this.nSyncFrequency.Size = new System.Drawing.Size(100, 22);
-            this.nSyncFrequency.TabIndex = 2;
-            this.nSyncFrequency.ValueChanged += new System.EventHandler(this.nSyncFrequency_ValueChanged);
-            // 
-            // cAuto
-            // 
-            this.cAuto.AccessibleName = "synchronize automatically";
-            this.cAuto.Location = new System.Drawing.Point(29, 81);
-            this.cAuto.Margin = new System.Windows.Forms.Padding(4);
-            this.cAuto.Name = "cAuto";
-            this.cAuto.Size = new System.Drawing.Size(548, 21);
-            this.cAuto.TabIndex = 1;
-            this.cAuto.TabStop = true;
-            this.cAuto.Text = "automatically every";
-            this.cAuto.UseVisualStyleBackColor = true;
-            // 
-            // cManually
-            // 
-            this.cManually.AccessibleName = "synchronize manually";
-            this.cManually.Location = new System.Drawing.Point(29, 53);
-            this.cManually.Margin = new System.Windows.Forms.Padding(4);
-            this.cManually.Name = "cManually";
-            this.cManually.Size = new System.Drawing.Size(548, 21);
-            this.cManually.TabIndex = 0;
-            this.cManually.TabStop = true;
-            this.cManually.Text = "manually";
-            this.cManually.UseVisualStyleBackColor = true;
-            this.cManually.CheckedChanged += new System.EventHandler(this.cManually_CheckedChanged);
-            // 
-            // gLimits
-            // 
-            this.gLimits.Controls.Add(this.labNoLimits);
-            this.gLimits.Controls.Add(this.label4);
-            this.gLimits.Controls.Add(this.label3);
-            this.gLimits.Controls.Add(this.nUpLimit);
-            this.gLimits.Controls.Add(this.nDownLimit);
-            this.gLimits.Controls.Add(this.labUpSpeed);
-            this.gLimits.Controls.Add(this.labDownSpeed);
-            this.gLimits.Location = new System.Drawing.Point(11, 167);
-            this.gLimits.Margin = new System.Windows.Forms.Padding(4);
-            this.gLimits.Name = "gLimits";
-            this.gLimits.Padding = new System.Windows.Forms.Padding(4);
-            this.gLimits.Size = new System.Drawing.Size(596, 194);
-            this.gLimits.TabIndex = 1;
-            this.gLimits.TabStop = false;
-            this.gLimits.Text = "Speed Limits";
-            // 
-            // labNoLimits
-            // 
-            this.labNoLimits.Location = new System.Drawing.Point(29, 162);
-            this.labNoLimits.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labNoLimits.Name = "labNoLimits";
-            this.labNoLimits.Size = new System.Drawing.Size(548, 16);
-            this.labNoLimits.TabIndex = 14;
-            this.labNoLimits.Text = "( set to 0 for no limits )";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(159, 126);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(292, 16);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "KB/s";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(159, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(292, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "KB/s";
-            // 
-            // nUpLimit
-            // 
-            this.nUpLimit.AccessibleName = "upload speed limit";
-            this.nUpLimit.Location = new System.Drawing.Point(47, 123);
-            this.nUpLimit.Margin = new System.Windows.Forms.Padding(4);
-            this.nUpLimit.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nUpLimit.Name = "nUpLimit";
-            this.nUpLimit.Size = new System.Drawing.Size(100, 22);
-            this.nUpLimit.TabIndex = 9;
-            this.nUpLimit.ValueChanged += new System.EventHandler(this.nUpLimit_ValueChanged);
-            // 
-            // nDownLimit
-            // 
-            this.nDownLimit.AccessibleName = "download speed limit";
-            this.nDownLimit.Location = new System.Drawing.Point(47, 55);
-            this.nDownLimit.Margin = new System.Windows.Forms.Padding(4);
-            this.nDownLimit.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nDownLimit.Name = "nDownLimit";
-            this.nDownLimit.Size = new System.Drawing.Size(100, 22);
-            this.nDownLimit.TabIndex = 6;
-            this.nDownLimit.ValueChanged += new System.EventHandler(this.nDownLimit_ValueChanged);
-            // 
-            // labUpSpeed
-            // 
-            this.labUpSpeed.Location = new System.Drawing.Point(12, 95);
-            this.labUpSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labUpSpeed.Name = "labUpSpeed";
-            this.labUpSpeed.Size = new System.Drawing.Size(576, 16);
-            this.labUpSpeed.TabIndex = 6;
-            this.labUpSpeed.Text = "Limit Upload Speed:";
-            // 
-            // labDownSpeed
-            // 
-            this.labDownSpeed.Location = new System.Drawing.Point(8, 27);
-            this.labDownSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labDownSpeed.Name = "labDownSpeed";
-            this.labDownSpeed.Size = new System.Drawing.Size(580, 16);
-            this.labDownSpeed.TabIndex = 3;
-            this.labDownSpeed.Text = "Limit Download Speed:";
-            // 
-            // tabGeneral
-            // 
-            this.tabGeneral.AccessibleDescription = "";
-            this.tabGeneral.Controls.Add(this.gLanguage);
-            this.tabGeneral.Controls.Add(this.gLinks);
-            this.tabGeneral.Controls.Add(this.gApp);
-            this.tabGeneral.Location = new System.Drawing.Point(4, 25);
-            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4);
-            this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
-            this.tabGeneral.Size = new System.Drawing.Size(621, 542);
-            this.tabGeneral.TabIndex = 0;
-            this.tabGeneral.Text = "General";
-            this.tabGeneral.UseVisualStyleBackColor = true;
-            // 
-            // gLanguage
-            // 
-            this.gLanguage.Controls.Add(this.bTranslate);
-            this.gLanguage.Controls.Add(this.cLanguages);
-            this.gLanguage.Location = new System.Drawing.Point(11, 298);
-            this.gLanguage.Margin = new System.Windows.Forms.Padding(4);
-            this.gLanguage.Name = "gLanguage";
-            this.gLanguage.Padding = new System.Windows.Forms.Padding(4);
-            this.gLanguage.Size = new System.Drawing.Size(599, 66);
-            this.gLanguage.TabIndex = 13;
-            this.gLanguage.TabStop = false;
-            this.gLanguage.Text = "Language";
-            // 
-            // bTranslate
-            // 
-            this.bTranslate.Location = new System.Drawing.Point(255, 21);
-            this.bTranslate.Margin = new System.Windows.Forms.Padding(4);
-            this.bTranslate.Name = "bTranslate";
-            this.bTranslate.Size = new System.Drawing.Size(119, 28);
-            this.bTranslate.TabIndex = 11;
-            this.bTranslate.Text = "Translate";
-            this.bTranslate.UseVisualStyleBackColor = true;
-            this.bTranslate.Click += new System.EventHandler(this.bTranslate_Click);
-            // 
-            // cLanguages
-            // 
-            this.cLanguages.AccessibleDescription = "select the language of the application";
-            this.cLanguages.AccessibleName = "Language";
-            this.cLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cLanguages.FormattingEnabled = true;
-            this.cLanguages.Items.AddRange(new object[] {
-            "None",
-            "require explicit FTP over TLS",
-            "require implicit FTP over TLS"});
-            this.cLanguages.Location = new System.Drawing.Point(12, 23);
-            this.cLanguages.Margin = new System.Windows.Forms.Padding(4);
-            this.cLanguages.Name = "cLanguages";
-            this.cLanguages.Size = new System.Drawing.Size(233, 24);
-            this.cLanguages.TabIndex = 1;
-            // 
-            // gLinks
-            // 
-            this.gLinks.AccessibleDescription = "";
-            this.gLinks.Controls.Add(this.rOpenLocal);
-            this.gLinks.Controls.Add(this.labLinkClicked);
-            this.gLinks.Controls.Add(this.rCopy2Clipboard);
-            this.gLinks.Controls.Add(this.rOpenInBrowser);
-            this.gLinks.Location = new System.Drawing.Point(11, 7);
-            this.gLinks.Margin = new System.Windows.Forms.Padding(4);
-            this.gLinks.Name = "gLinks";
-            this.gLinks.Padding = new System.Windows.Forms.Padding(4);
-            this.gLinks.Size = new System.Drawing.Size(599, 137);
-            this.gLinks.TabIndex = 12;
-            this.gLinks.TabStop = false;
-            this.gLinks.Text = "Links";
-            // 
-            // rOpenLocal
-            // 
-            this.rOpenLocal.AccessibleDescription = "";
-            this.rOpenLocal.AccessibleName = "open the local file";
-            this.rOpenLocal.Location = new System.Drawing.Point(29, 106);
-            this.rOpenLocal.Margin = new System.Windows.Forms.Padding(4);
-            this.rOpenLocal.Name = "rOpenLocal";
-            this.rOpenLocal.Size = new System.Drawing.Size(544, 21);
-            this.rOpenLocal.TabIndex = 3;
-            this.rOpenLocal.Text = "open the local file";
-            this.rOpenLocal.UseVisualStyleBackColor = true;
-            this.rOpenLocal.CheckedChanged += new System.EventHandler(this.rOpenLocal_CheckedChanged);
-            // 
-            // labLinkClicked
-            // 
-            this.labLinkClicked.AccessibleDescription = "";
-            this.labLinkClicked.Location = new System.Drawing.Point(12, 23);
-            this.labLinkClicked.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labLinkClicked.Name = "labLinkClicked";
-            this.labLinkClicked.Size = new System.Drawing.Size(583, 16);
-            this.labLinkClicked.TabIndex = 18;
-            this.labLinkClicked.Text = "When tray notification or recent file is clicked:";
-            // 
-            // rCopy2Clipboard
-            // 
-            this.rCopy2Clipboard.AccessibleDescription = "";
-            this.rCopy2Clipboard.AccessibleName = "copy link to clipboard";
-            this.rCopy2Clipboard.Location = new System.Drawing.Point(29, 78);
-            this.rCopy2Clipboard.Margin = new System.Windows.Forms.Padding(4);
-            this.rCopy2Clipboard.Name = "rCopy2Clipboard";
-            this.rCopy2Clipboard.Size = new System.Drawing.Size(544, 21);
-            this.rCopy2Clipboard.TabIndex = 2;
-            this.rCopy2Clipboard.Text = "copy link to clipboard";
-            this.rCopy2Clipboard.UseVisualStyleBackColor = true;
-            this.rCopy2Clipboard.CheckedChanged += new System.EventHandler(this.rCopy2Clipboard_CheckedChanged);
-            // 
-            // rOpenInBrowser
-            // 
-            this.rOpenInBrowser.AccessibleDescription = "";
-            this.rOpenInBrowser.AccessibleName = "open link in default browser";
-            this.rOpenInBrowser.Checked = true;
-            this.rOpenInBrowser.Location = new System.Drawing.Point(29, 49);
-            this.rOpenInBrowser.Margin = new System.Windows.Forms.Padding(4);
-            this.rOpenInBrowser.Name = "rOpenInBrowser";
-            this.rOpenInBrowser.Size = new System.Drawing.Size(544, 21);
-            this.rOpenInBrowser.TabIndex = 1;
-            this.rOpenInBrowser.TabStop = true;
-            this.rOpenInBrowser.Text = "Open link in default browser";
-            this.rOpenInBrowser.UseVisualStyleBackColor = true;
-            this.rOpenInBrowser.CheckedChanged += new System.EventHandler(this.rOpenInBrowser_CheckedChanged);
-            // 
-            // gApp
-            // 
-            this.gApp.AccessibleDescription = "";
-            this.gApp.Controls.Add(this.chkShellMenus);
-            this.gApp.Controls.Add(this.bBrowseLogs);
-            this.gApp.Controls.Add(this.chkEnableLogging);
-            this.gApp.Controls.Add(this.chkShowNots);
-            this.gApp.Controls.Add(this.chkStartUp);
-            this.gApp.Location = new System.Drawing.Point(11, 151);
-            this.gApp.Margin = new System.Windows.Forms.Padding(4);
-            this.gApp.Name = "gApp";
-            this.gApp.Padding = new System.Windows.Forms.Padding(4);
-            this.gApp.Size = new System.Drawing.Size(599, 139);
-            this.gApp.TabIndex = 3;
-            this.gApp.TabStop = false;
-            this.gApp.Text = "Application";
-            // 
-            // chkShellMenus
-            // 
-            this.chkShellMenus.AccessibleName = "add program to windows right click menu";
-            this.chkShellMenus.Location = new System.Drawing.Point(12, 108);
-            this.chkShellMenus.Margin = new System.Windows.Forms.Padding(4);
-            this.chkShellMenus.Name = "chkShellMenus";
-            this.chkShellMenus.Size = new System.Drawing.Size(579, 21);
-            this.chkShellMenus.TabIndex = 11;
-            this.chkShellMenus.Text = "Add to context menu";
-            this.chkShellMenus.UseVisualStyleBackColor = true;
-            this.chkShellMenus.CheckedChanged += new System.EventHandler(this.chkShellMenus_CheckedChanged);
-            // 
-            // bBrowseLogs
-            // 
-            this.bBrowseLogs.AccessibleDescription = "opens the debug log file";
-            this.bBrowseLogs.Location = new System.Drawing.Point(255, 75);
-            this.bBrowseLogs.Margin = new System.Windows.Forms.Padding(4);
-            this.bBrowseLogs.Name = "bBrowseLogs";
-            this.bBrowseLogs.Size = new System.Drawing.Size(119, 28);
-            this.bBrowseLogs.TabIndex = 10;
-            this.bBrowseLogs.Text = "View Log";
-            this.bBrowseLogs.UseVisualStyleBackColor = true;
-            this.bBrowseLogs.Click += new System.EventHandler(this.bBrowseLogs_Click);
-            // 
-            // chkEnableLogging
-            // 
-            this.chkEnableLogging.AccessibleName = "enable logging";
-            this.chkEnableLogging.Location = new System.Drawing.Point(12, 80);
-            this.chkEnableLogging.Margin = new System.Windows.Forms.Padding(4);
-            this.chkEnableLogging.Name = "chkEnableLogging";
-            this.chkEnableLogging.Size = new System.Drawing.Size(579, 21);
-            this.chkEnableLogging.TabIndex = 9;
-            this.chkEnableLogging.Text = "Enable logging";
-            this.chkEnableLogging.UseVisualStyleBackColor = true;
-            this.chkEnableLogging.CheckedChanged += new System.EventHandler(this.chkEnableLogging_CheckedChanged);
-            // 
-            // chkShowNots
-            // 
-            this.chkShowNots.AccessibleDescription = "";
-            this.chkShowNots.AccessibleName = "show notifications";
-            this.chkShowNots.Checked = true;
-            this.chkShowNots.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowNots.Location = new System.Drawing.Point(12, 52);
-            this.chkShowNots.Margin = new System.Windows.Forms.Padding(4);
-            this.chkShowNots.Name = "chkShowNots";
-            this.chkShowNots.Size = new System.Drawing.Size(579, 21);
-            this.chkShowNots.TabIndex = 7;
-            this.chkShowNots.Text = "Show notifications";
-            this.chkShowNots.UseVisualStyleBackColor = true;
-            this.chkShowNots.CheckedChanged += new System.EventHandler(this.chkShowNots_CheckedChanged);
-            // 
-            // chkStartUp
-            // 
-            this.chkStartUp.AccessibleDescription = "";
-            this.chkStartUp.AccessibleName = "start on system startup";
-            this.chkStartUp.Location = new System.Drawing.Point(12, 23);
-            this.chkStartUp.Margin = new System.Windows.Forms.Padding(4);
-            this.chkStartUp.Name = "chkStartUp";
-            this.chkStartUp.Size = new System.Drawing.Size(579, 21);
-            this.chkStartUp.TabIndex = 6;
-            this.chkStartUp.Text = "Start on system start up";
-            this.chkStartUp.UseVisualStyleBackColor = true;
-            this.chkStartUp.CheckedChanged += new System.EventHandler(this.chkStartUp_CheckedChanged);
-            // 
-            // tabAccount
-            // 
-            this.tabAccount.AccessibleDescription = "";
-            this.tabAccount.Controls.Add(this.bRemoveAccount);
-            this.tabAccount.Controls.Add(this.bAddAccount);
-            this.tabAccount.Controls.Add(this.cProfiles);
-            this.tabAccount.Controls.Add(this.gAccount);
-            this.tabAccount.Location = new System.Drawing.Point(4, 25);
-            this.tabAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Padding = new System.Windows.Forms.Padding(4);
-            this.tabAccount.Size = new System.Drawing.Size(621, 542);
-            this.tabAccount.TabIndex = 1;
-            this.tabAccount.Text = "Account";
-            this.tabAccount.UseVisualStyleBackColor = true;
-            // 
-            // bRemoveAccount
-            // 
-            this.bRemoveAccount.AccessibleName = "Remove this account";
-            this.bRemoveAccount.Location = new System.Drawing.Point(507, 12);
-            this.bRemoveAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.bRemoveAccount.Name = "bRemoveAccount";
-            this.bRemoveAccount.Size = new System.Drawing.Size(100, 28);
-            this.bRemoveAccount.TabIndex = 17;
-            this.bRemoveAccount.Text = "Remove";
-            this.bRemoveAccount.UseVisualStyleBackColor = true;
-            this.bRemoveAccount.Click += new System.EventHandler(this.bRemoveAccount_Click);
-            // 
-            // bAddAccount
-            // 
-            this.bAddAccount.AccessibleName = "Add a new account";
-            this.bAddAccount.Location = new System.Drawing.Point(399, 12);
-            this.bAddAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.bAddAccount.Name = "bAddAccount";
-            this.bAddAccount.Size = new System.Drawing.Size(100, 28);
-            this.bAddAccount.TabIndex = 16;
-            this.bAddAccount.Text = "Add New";
-            this.bAddAccount.UseVisualStyleBackColor = true;
-            this.bAddAccount.Click += new System.EventHandler(this.bAddAccount_Click);
-            // 
-            // cProfiles
-            // 
-            this.cProfiles.AccessibleDescription = "Select the current account";
-            this.cProfiles.AccessibleName = "Profiles";
-            this.cProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cProfiles.FormattingEnabled = true;
-            this.cProfiles.Location = new System.Drawing.Point(11, 14);
-            this.cProfiles.Margin = new System.Windows.Forms.Padding(4);
-            this.cProfiles.Name = "cProfiles";
-            this.cProfiles.Size = new System.Drawing.Size(379, 24);
-            this.cProfiles.TabIndex = 15;
-            this.cProfiles.SelectedIndexChanged += new System.EventHandler(this.cProfiles_SelectedIndexChanged);
-            // 
-            // gAccount
-            // 
-            this.gAccount.AccessibleDescription = "";
-            this.gAccount.AccessibleName = "";
-            this.gAccount.Controls.Add(this.tTempPrefix);
-            this.gAccount.Controls.Add(this.labTempPrefix);
-            this.gAccount.Controls.Add(this.rBothWaySync);
-            this.gAccount.Controls.Add(this.labWayOfSync);
-            this.gAccount.Controls.Add(this.rRemoteToLocalOnly);
-            this.gAccount.Controls.Add(this.rLocalToRemoteOnly);
-            this.gAccount.Controls.Add(this.labViewInBrowser);
-            this.gAccount.Controls.Add(this.chkWebInt);
-            this.gAccount.Controls.Add(this.bConfigureAccount);
-            this.gAccount.Controls.Add(this.labAccount);
-            this.gAccount.Location = new System.Drawing.Point(11, 62);
-            this.gAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.gAccount.Name = "gAccount";
-            this.gAccount.Padding = new System.Windows.Forms.Padding(4);
-            this.gAccount.Size = new System.Drawing.Size(596, 262);
-            this.gAccount.TabIndex = 3;
-            this.gAccount.TabStop = false;
-            this.gAccount.Text = "Profile";
-            // 
-            // tTempPrefix
-            // 
-            this.tTempPrefix.AccessibleDescription = "the prefix added to temporary files created by the application";
-            this.tTempPrefix.Location = new System.Drawing.Point(28, 223);
-            this.tTempPrefix.Margin = new System.Windows.Forms.Padding(4);
-            this.tTempPrefix.Name = "tTempPrefix";
-            this.tTempPrefix.Size = new System.Drawing.Size(543, 22);
-            this.tTempPrefix.TabIndex = 24;
-            this.tTempPrefix.TextChanged += new System.EventHandler(this.tTempPrefix_TextChanged);
-            this.tTempPrefix.Leave += new System.EventHandler(this.tTempPrefix_Leave);
-            // 
-            // labTempPrefix
-            // 
-            this.labTempPrefix.AccessibleDescription = "";
-            this.labTempPrefix.Location = new System.Drawing.Point(11, 197);
-            this.labTempPrefix.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labTempPrefix.Name = "labTempPrefix";
-            this.labTempPrefix.Size = new System.Drawing.Size(583, 16);
-            this.labTempPrefix.TabIndex = 23;
-            this.labTempPrefix.Text = "Temporary file prefix:";
-            // 
-            // rBothWaySync
-            // 
-            this.rBothWaySync.AccessibleDescription = "both upload and download";
-            this.rBothWaySync.AccessibleName = "";
-            this.rBothWaySync.Checked = true;
-            this.rBothWaySync.Location = new System.Drawing.Point(28, 167);
-            this.rBothWaySync.Margin = new System.Windows.Forms.Padding(4);
-            this.rBothWaySync.Name = "rBothWaySync";
-            this.rBothWaySync.Size = new System.Drawing.Size(544, 21);
-            this.rBothWaySync.TabIndex = 21;
-            this.rBothWaySync.TabStop = true;
-            this.rBothWaySync.Text = "Both ways";
-            this.rBothWaySync.UseVisualStyleBackColor = true;
-            this.rBothWaySync.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
-            // 
-            // labWayOfSync
-            // 
-            this.labWayOfSync.AccessibleDescription = "";
-            this.labWayOfSync.Location = new System.Drawing.Point(11, 85);
-            this.labWayOfSync.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labWayOfSync.Name = "labWayOfSync";
-            this.labWayOfSync.Size = new System.Drawing.Size(583, 16);
-            this.labWayOfSync.TabIndex = 22;
-            this.labWayOfSync.Text = "Way of synchronization:";
-            // 
-            // rRemoteToLocalOnly
-            // 
-            this.rRemoteToLocalOnly.AccessibleDescription = "only download files to local machine";
-            this.rRemoteToLocalOnly.AccessibleName = "";
-            this.rRemoteToLocalOnly.Location = new System.Drawing.Point(28, 139);
-            this.rRemoteToLocalOnly.Margin = new System.Windows.Forms.Padding(4);
-            this.rRemoteToLocalOnly.Name = "rRemoteToLocalOnly";
-            this.rRemoteToLocalOnly.Size = new System.Drawing.Size(544, 21);
-            this.rRemoteToLocalOnly.TabIndex = 20;
-            this.rRemoteToLocalOnly.Text = "Remote to local only";
-            this.rRemoteToLocalOnly.UseVisualStyleBackColor = true;
-            this.rRemoteToLocalOnly.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
-            // 
-            // rLocalToRemoteOnly
-            // 
-            this.rLocalToRemoteOnly.AccessibleDescription = "only upload files to server";
-            this.rLocalToRemoteOnly.AccessibleName = "";
-            this.rLocalToRemoteOnly.Location = new System.Drawing.Point(28, 111);
-            this.rLocalToRemoteOnly.Margin = new System.Windows.Forms.Padding(4);
-            this.rLocalToRemoteOnly.Name = "rLocalToRemoteOnly";
-            this.rLocalToRemoteOnly.Size = new System.Drawing.Size(544, 21);
-            this.rLocalToRemoteOnly.TabIndex = 19;
-            this.rLocalToRemoteOnly.Text = "Local to remote only";
-            this.rLocalToRemoteOnly.UseVisualStyleBackColor = true;
-            this.rLocalToRemoteOnly.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
-            // 
-            // labViewInBrowser
-            // 
-            this.labViewInBrowser.AccessibleDescription = "opens the web interface in browser";
-            this.labViewInBrowser.AccessibleName = "View in browser";
-            this.labViewInBrowser.AutoSize = true;
-            this.labViewInBrowser.Location = new System.Drawing.Point(248, 57);
-            this.labViewInBrowser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labViewInBrowser.Name = "labViewInBrowser";
-            this.labViewInBrowser.Size = new System.Drawing.Size(108, 16);
-            this.labViewInBrowser.TabIndex = 16;
-            this.labViewInBrowser.TabStop = true;
-            this.labViewInBrowser.Text = "(View in browser)";
-            this.labViewInBrowser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labViewInBrowser_LinkClicked);
-            // 
-            // chkWebInt
-            // 
-            this.chkWebInt.AccessibleDescription = "";
-            this.chkWebInt.AccessibleName = "use the web interface?";
-            this.chkWebInt.Location = new System.Drawing.Point(11, 55);
-            this.chkWebInt.Margin = new System.Windows.Forms.Padding(4);
-            this.chkWebInt.Name = "chkWebInt";
-            this.chkWebInt.Size = new System.Drawing.Size(577, 21);
-            this.chkWebInt.TabIndex = 15;
-            this.chkWebInt.Text = "Use the web interface";
-            this.chkWebInt.UseVisualStyleBackColor = true;
-            this.chkWebInt.CheckedChanged += new System.EventHandler(this.chkWebInt_CheckedChanged);
-            // 
-            // bConfigureAccount
-            // 
-            this.bConfigureAccount.AccessibleDescription = "opens a form with details of this account";
-            this.bConfigureAccount.AccessibleName = "Account details";
-            this.bConfigureAccount.Location = new System.Drawing.Point(433, 20);
-            this.bConfigureAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.bConfigureAccount.Name = "bConfigureAccount";
-            this.bConfigureAccount.Size = new System.Drawing.Size(143, 28);
-            this.bConfigureAccount.TabIndex = 14;
-            this.bConfigureAccount.Text = "Details";
-            this.bConfigureAccount.UseVisualStyleBackColor = true;
-            this.bConfigureAccount.Click += new System.EventHandler(this.bConfigureAccount_Click);
-            // 
-            // labAccount
-            // 
-            this.labAccount.AccessibleDescription = "";
-            this.labAccount.Location = new System.Drawing.Point(8, 26);
-            this.labAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labAccount.Name = "labAccount";
-            this.labAccount.Size = new System.Drawing.Size(580, 16);
-            this.labAccount.TabIndex = 4;
-            this.labAccount.Text = "Account:";
-            // 
-            // tabFilters
-            // 
-            this.tabFilters.Controls.Add(this.gFileFilters);
-            this.tabFilters.Location = new System.Drawing.Point(4, 25);
-            this.tabFilters.Margin = new System.Windows.Forms.Padding(4);
-            this.tabFilters.Name = "tabFilters";
-            this.tabFilters.Padding = new System.Windows.Forms.Padding(4);
-            this.tabFilters.Size = new System.Drawing.Size(621, 542);
-            this.tabFilters.TabIndex = 5;
-            this.tabFilters.Text = "Filters";
-            this.tabFilters.UseVisualStyleBackColor = true;
-            // 
-            // gFileFilters
-            // 
-            this.gFileFilters.Controls.Add(this.bConfigureSelectiveSync);
-            this.gFileFilters.Controls.Add(this.bConfigureExtensions);
-            this.gFileFilters.Controls.Add(this.labSelectiveSync);
-            this.gFileFilters.Controls.Add(this.labAlsoIgnore);
-            this.gFileFilters.Controls.Add(this.cIgnoreOldFiles);
-            this.gFileFilters.Controls.Add(this.dtpLastModTime);
-            this.gFileFilters.Controls.Add(this.labSelectExtensions);
-            this.gFileFilters.Controls.Add(this.cIgnoreTempFiles);
-            this.gFileFilters.Controls.Add(this.cIgnoreDotfiles);
-            this.gFileFilters.Location = new System.Drawing.Point(11, 7);
-            this.gFileFilters.Margin = new System.Windows.Forms.Padding(4);
-            this.gFileFilters.Name = "gFileFilters";
-            this.gFileFilters.Padding = new System.Windows.Forms.Padding(4);
-            this.gFileFilters.Size = new System.Drawing.Size(596, 244);
-            this.gFileFilters.TabIndex = 5;
-            this.gFileFilters.TabStop = false;
-            this.gFileFilters.Text = "File Filters";
-            // 
-            // bConfigureSelectiveSync
-            // 
-            this.bConfigureSelectiveSync.AccessibleDescription = "Open form to configure selective sync";
-            this.bConfigureSelectiveSync.Location = new System.Drawing.Point(433, 23);
-            this.bConfigureSelectiveSync.Margin = new System.Windows.Forms.Padding(4);
-            this.bConfigureSelectiveSync.Name = "bConfigureSelectiveSync";
-            this.bConfigureSelectiveSync.Size = new System.Drawing.Size(143, 28);
-            this.bConfigureSelectiveSync.TabIndex = 13;
-            this.bConfigureSelectiveSync.Text = "Configure";
-            this.bConfigureSelectiveSync.UseVisualStyleBackColor = true;
-            this.bConfigureSelectiveSync.Click += new System.EventHandler(this.bConfigureSelectiveSync_Click);
-            // 
-            // bConfigureExtensions
-            // 
-            this.bConfigureExtensions.AccessibleDescription = "Open form to configure ignored extensions";
-            this.bConfigureExtensions.Location = new System.Drawing.Point(433, 59);
-            this.bConfigureExtensions.Margin = new System.Windows.Forms.Padding(4);
-            this.bConfigureExtensions.Name = "bConfigureExtensions";
-            this.bConfigureExtensions.Size = new System.Drawing.Size(143, 28);
-            this.bConfigureExtensions.TabIndex = 12;
-            this.bConfigureExtensions.Text = "Configure";
-            this.bConfigureExtensions.UseVisualStyleBackColor = true;
-            this.bConfigureExtensions.Click += new System.EventHandler(this.bConfigureExtensions_Click);
-            // 
-            // labSelectiveSync
-            // 
-            this.labSelectiveSync.Location = new System.Drawing.Point(8, 30);
-            this.labSelectiveSync.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labSelectiveSync.Name = "labSelectiveSync";
-            this.labSelectiveSync.Size = new System.Drawing.Size(580, 16);
-            this.labSelectiveSync.TabIndex = 11;
-            this.labSelectiveSync.Text = "Selective Sync";
-            // 
-            // labAlsoIgnore
-            // 
-            this.labAlsoIgnore.Location = new System.Drawing.Point(8, 101);
-            this.labAlsoIgnore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labAlsoIgnore.Name = "labAlsoIgnore";
-            this.labAlsoIgnore.Size = new System.Drawing.Size(580, 16);
-            this.labAlsoIgnore.TabIndex = 10;
-            this.labAlsoIgnore.Text = "Also Ignore:";
-            // 
-            // cIgnoreOldFiles
-            // 
-            this.cIgnoreOldFiles.Location = new System.Drawing.Point(29, 177);
-            this.cIgnoreOldFiles.Margin = new System.Windows.Forms.Padding(4);
-            this.cIgnoreOldFiles.Name = "cIgnoreOldFiles";
-            this.cIgnoreOldFiles.Size = new System.Drawing.Size(544, 21);
-            this.cIgnoreOldFiles.TabIndex = 9;
-            this.cIgnoreOldFiles.Text = "Files modified before:";
-            this.cIgnoreOldFiles.UseVisualStyleBackColor = true;
-            this.cIgnoreOldFiles.CheckedChanged += new System.EventHandler(this.cIgnoreOldFiles_CheckedChanged);
-            // 
-            // dtpLastModTime
-            // 
-            this.dtpLastModTime.CustomFormat = "d MMMM yyyy - HH:mm";
-            this.dtpLastModTime.Enabled = false;
-            this.dtpLastModTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLastModTime.Location = new System.Drawing.Point(53, 206);
-            this.dtpLastModTime.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpLastModTime.Name = "dtpLastModTime";
-            this.dtpLastModTime.Size = new System.Drawing.Size(307, 22);
-            this.dtpLastModTime.TabIndex = 8;
-            this.dtpLastModTime.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dtpLastModTime.ValueChanged += new System.EventHandler(this.dtpLastModTime_ValueChanged);
-            // 
-            // labSelectExtensions
-            // 
-            this.labSelectExtensions.Location = new System.Drawing.Point(8, 65);
-            this.labSelectExtensions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labSelectExtensions.Name = "labSelectExtensions";
-            this.labSelectExtensions.Size = new System.Drawing.Size(580, 16);
-            this.labSelectExtensions.TabIndex = 5;
-            this.labSelectExtensions.Text = "Ignored Extensions";
-            // 
-            // cIgnoreTempFiles
-            // 
-            this.cIgnoreTempFiles.AccessibleDescription = "Check to ignore temporary files";
-            this.cIgnoreTempFiles.Location = new System.Drawing.Point(29, 121);
-            this.cIgnoreTempFiles.Margin = new System.Windows.Forms.Padding(4);
-            this.cIgnoreTempFiles.Name = "cIgnoreTempFiles";
-            this.cIgnoreTempFiles.Size = new System.Drawing.Size(544, 21);
-            this.cIgnoreTempFiles.TabIndex = 0;
-            this.cIgnoreTempFiles.Text = "Temporary files";
-            this.cIgnoreTempFiles.UseVisualStyleBackColor = true;
-            this.cIgnoreTempFiles.CheckedChanged += new System.EventHandler(this.cIgnoreTempFiles_CheckedChanged);
-            // 
-            // cIgnoreDotfiles
-            // 
-            this.cIgnoreDotfiles.AccessibleDescription = "Check to ignore dotfiles";
-            this.cIgnoreDotfiles.Location = new System.Drawing.Point(29, 149);
-            this.cIgnoreDotfiles.Margin = new System.Windows.Forms.Padding(4);
-            this.cIgnoreDotfiles.Name = "cIgnoreDotfiles";
-            this.cIgnoreDotfiles.Size = new System.Drawing.Size(544, 21);
-            this.cIgnoreDotfiles.TabIndex = 1;
-            this.cIgnoreDotfiles.Text = "Dotfiles";
-            this.cIgnoreDotfiles.UseVisualStyleBackColor = true;
-            this.cIgnoreDotfiles.CheckedChanged += new System.EventHandler(this.cIgnoreDotfiles_CheckedChanged);
+            // tray
+            // 
+            this.tray.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tray.ContextMenuStrip = this.trayMenu;
+            this.tray.Icon = ((System.Drawing.Icon)(resources.GetObject("tray.Icon")));
+            this.tray.Text = "FTPbox";
+            this.tray.Visible = true;
+            this.tray.BalloonTipClicked += new System.EventHandler(this.tray_BalloonTipClicked);
+            this.tray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseClick);
+            this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            // 
+            // trayMenu
+            // 
+            this.trayMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.SyncToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.aboutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.trayMenu.Name = "trayMenu";
+            this.trayMenu.Size = new System.Drawing.Size(163, 112);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            // 
+            // SyncToolStripMenuItem
+            // 
+            this.SyncToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.SyncToolStripMenuItem.Name = "SyncToolStripMenuItem";
+            this.SyncToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.SyncToolStripMenuItem.Text = "Start syncing";
+            this.SyncToolStripMenuItem.Click += new System.EventHandler(this.SyncToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tabAbout
             // 
@@ -1268,7 +260,7 @@
             this.tabAbout.Margin = new System.Windows.Forms.Padding(4);
             this.tabAbout.Name = "tabAbout";
             this.tabAbout.Padding = new System.Windows.Forms.Padding(4);
-            this.tabAbout.Size = new System.Drawing.Size(621, 542);
+            this.tabAbout.Size = new System.Drawing.Size(745, 659);
             this.tabAbout.TabIndex = 2;
             this.tabAbout.Text = "About";
             this.tabAbout.UseVisualStyleBackColor = true;
@@ -1504,74 +496,1170 @@
             this.labFree.TabIndex = 0;
             this.labFree.Text = "- FTPbox is free and open-source";
             // 
-            // tray
+            // tabFilters
             // 
-            this.tray.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tray.ContextMenuStrip = this.trayMenu;
-            this.tray.Icon = ((System.Drawing.Icon)(resources.GetObject("tray.Icon")));
-            this.tray.Text = "FTPbox";
-            this.tray.Visible = true;
-            this.tray.BalloonTipClicked += new System.EventHandler(this.tray_BalloonTipClicked);
-            this.tray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseClick);
-            this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            this.tabFilters.Controls.Add(this.gFileFilters);
+            this.tabFilters.Location = new System.Drawing.Point(4, 25);
+            this.tabFilters.Margin = new System.Windows.Forms.Padding(4);
+            this.tabFilters.Name = "tabFilters";
+            this.tabFilters.Padding = new System.Windows.Forms.Padding(4);
+            this.tabFilters.Size = new System.Drawing.Size(745, 659);
+            this.tabFilters.TabIndex = 5;
+            this.tabFilters.Text = "Filters";
+            this.tabFilters.UseVisualStyleBackColor = true;
             // 
-            // trayMenu
+            // gFileFilters
             // 
-            this.trayMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.SyncToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.aboutToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.trayMenu.Name = "trayMenu";
-            this.trayMenu.Size = new System.Drawing.Size(163, 112);
+            this.gFileFilters.Controls.Add(this.bConfigureSelectiveSync);
+            this.gFileFilters.Controls.Add(this.bConfigureExtensions);
+            this.gFileFilters.Controls.Add(this.labSelectiveSync);
+            this.gFileFilters.Controls.Add(this.labAlsoIgnore);
+            this.gFileFilters.Controls.Add(this.cIgnoreOldFiles);
+            this.gFileFilters.Controls.Add(this.dtpLastModTime);
+            this.gFileFilters.Controls.Add(this.labSelectExtensions);
+            this.gFileFilters.Controls.Add(this.cIgnoreTempFiles);
+            this.gFileFilters.Controls.Add(this.cIgnoreDotfiles);
+            this.gFileFilters.Location = new System.Drawing.Point(11, 7);
+            this.gFileFilters.Margin = new System.Windows.Forms.Padding(4);
+            this.gFileFilters.Name = "gFileFilters";
+            this.gFileFilters.Padding = new System.Windows.Forms.Padding(4);
+            this.gFileFilters.Size = new System.Drawing.Size(596, 244);
+            this.gFileFilters.TabIndex = 5;
+            this.gFileFilters.TabStop = false;
+            this.gFileFilters.Text = "File Filters";
             // 
-            // optionsToolStripMenuItem
+            // bConfigureSelectiveSync
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            this.bConfigureSelectiveSync.AccessibleDescription = "Open form to configure selective sync";
+            this.bConfigureSelectiveSync.Location = new System.Drawing.Point(433, 23);
+            this.bConfigureSelectiveSync.Margin = new System.Windows.Forms.Padding(4);
+            this.bConfigureSelectiveSync.Name = "bConfigureSelectiveSync";
+            this.bConfigureSelectiveSync.Size = new System.Drawing.Size(143, 28);
+            this.bConfigureSelectiveSync.TabIndex = 13;
+            this.bConfigureSelectiveSync.Text = "Configure";
+            this.bConfigureSelectiveSync.UseVisualStyleBackColor = true;
+            this.bConfigureSelectiveSync.Click += new System.EventHandler(this.bConfigureSelectiveSync_Click);
             // 
-            // toolStripSeparator2
+            // bConfigureExtensions
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            this.bConfigureExtensions.AccessibleDescription = "Open form to configure ignored extensions";
+            this.bConfigureExtensions.Location = new System.Drawing.Point(433, 59);
+            this.bConfigureExtensions.Margin = new System.Windows.Forms.Padding(4);
+            this.bConfigureExtensions.Name = "bConfigureExtensions";
+            this.bConfigureExtensions.Size = new System.Drawing.Size(143, 28);
+            this.bConfigureExtensions.TabIndex = 12;
+            this.bConfigureExtensions.Text = "Configure";
+            this.bConfigureExtensions.UseVisualStyleBackColor = true;
+            this.bConfigureExtensions.Click += new System.EventHandler(this.bConfigureExtensions_Click);
             // 
-            // SyncToolStripMenuItem
+            // labSelectiveSync
             // 
-            this.SyncToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.SyncToolStripMenuItem.Name = "SyncToolStripMenuItem";
-            this.SyncToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.SyncToolStripMenuItem.Text = "Start syncing";
-            this.SyncToolStripMenuItem.Click += new System.EventHandler(this.SyncToolStripMenuItem_Click);
+            this.labSelectiveSync.Location = new System.Drawing.Point(8, 30);
+            this.labSelectiveSync.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSelectiveSync.Name = "labSelectiveSync";
+            this.labSelectiveSync.Size = new System.Drawing.Size(580, 16);
+            this.labSelectiveSync.TabIndex = 11;
+            this.labSelectiveSync.Text = "Selective Sync";
             // 
-            // toolStripSeparator1
+            // labAlsoIgnore
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            this.labAlsoIgnore.Location = new System.Drawing.Point(8, 101);
+            this.labAlsoIgnore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labAlsoIgnore.Name = "labAlsoIgnore";
+            this.labAlsoIgnore.Size = new System.Drawing.Size(580, 16);
+            this.labAlsoIgnore.TabIndex = 10;
+            this.labAlsoIgnore.Text = "Also Ignore:";
             // 
-            // aboutToolStripMenuItem
+            // cIgnoreOldFiles
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.cIgnoreOldFiles.Location = new System.Drawing.Point(29, 177);
+            this.cIgnoreOldFiles.Margin = new System.Windows.Forms.Padding(4);
+            this.cIgnoreOldFiles.Name = "cIgnoreOldFiles";
+            this.cIgnoreOldFiles.Size = new System.Drawing.Size(544, 21);
+            this.cIgnoreOldFiles.TabIndex = 9;
+            this.cIgnoreOldFiles.Text = "Files modified before:";
+            this.cIgnoreOldFiles.UseVisualStyleBackColor = true;
+            this.cIgnoreOldFiles.CheckedChanged += new System.EventHandler(this.cIgnoreOldFiles_CheckedChanged);
             // 
-            // exitToolStripMenuItem
+            // dtpLastModTime
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.dtpLastModTime.CustomFormat = "d MMMM yyyy - HH:mm";
+            this.dtpLastModTime.Enabled = false;
+            this.dtpLastModTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpLastModTime.Location = new System.Drawing.Point(53, 206);
+            this.dtpLastModTime.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpLastModTime.Name = "dtpLastModTime";
+            this.dtpLastModTime.Size = new System.Drawing.Size(307, 22);
+            this.dtpLastModTime.TabIndex = 8;
+            this.dtpLastModTime.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtpLastModTime.ValueChanged += new System.EventHandler(this.dtpLastModTime_ValueChanged);
+            // 
+            // labSelectExtensions
+            // 
+            this.labSelectExtensions.Location = new System.Drawing.Point(8, 65);
+            this.labSelectExtensions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSelectExtensions.Name = "labSelectExtensions";
+            this.labSelectExtensions.Size = new System.Drawing.Size(580, 16);
+            this.labSelectExtensions.TabIndex = 5;
+            this.labSelectExtensions.Text = "Ignored Extensions";
+            // 
+            // cIgnoreTempFiles
+            // 
+            this.cIgnoreTempFiles.AccessibleDescription = "Check to ignore temporary files";
+            this.cIgnoreTempFiles.Location = new System.Drawing.Point(29, 121);
+            this.cIgnoreTempFiles.Margin = new System.Windows.Forms.Padding(4);
+            this.cIgnoreTempFiles.Name = "cIgnoreTempFiles";
+            this.cIgnoreTempFiles.Size = new System.Drawing.Size(544, 21);
+            this.cIgnoreTempFiles.TabIndex = 0;
+            this.cIgnoreTempFiles.Text = "Temporary files";
+            this.cIgnoreTempFiles.UseVisualStyleBackColor = true;
+            this.cIgnoreTempFiles.CheckedChanged += new System.EventHandler(this.cIgnoreTempFiles_CheckedChanged);
+            // 
+            // cIgnoreDotfiles
+            // 
+            this.cIgnoreDotfiles.AccessibleDescription = "Check to ignore dotfiles";
+            this.cIgnoreDotfiles.Location = new System.Drawing.Point(29, 149);
+            this.cIgnoreDotfiles.Margin = new System.Windows.Forms.Padding(4);
+            this.cIgnoreDotfiles.Name = "cIgnoreDotfiles";
+            this.cIgnoreDotfiles.Size = new System.Drawing.Size(544, 21);
+            this.cIgnoreDotfiles.TabIndex = 1;
+            this.cIgnoreDotfiles.Text = "Dotfiles";
+            this.cIgnoreDotfiles.UseVisualStyleBackColor = true;
+            this.cIgnoreDotfiles.CheckedChanged += new System.EventHandler(this.cIgnoreDotfiles_CheckedChanged);
+            // 
+            // tabAccount
+            // 
+            this.tabAccount.AccessibleDescription = "";
+            this.tabAccount.Controls.Add(this.bRemoveAccount);
+            this.tabAccount.Controls.Add(this.bAddAccount);
+            this.tabAccount.Controls.Add(this.cProfiles);
+            this.tabAccount.Controls.Add(this.gAccount);
+            this.tabAccount.Location = new System.Drawing.Point(4, 25);
+            this.tabAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAccount.Name = "tabAccount";
+            this.tabAccount.Padding = new System.Windows.Forms.Padding(4);
+            this.tabAccount.Size = new System.Drawing.Size(745, 659);
+            this.tabAccount.TabIndex = 1;
+            this.tabAccount.Text = "Account";
+            this.tabAccount.UseVisualStyleBackColor = true;
+            // 
+            // bRemoveAccount
+            // 
+            this.bRemoveAccount.AccessibleName = "Remove this account";
+            this.bRemoveAccount.Location = new System.Drawing.Point(507, 12);
+            this.bRemoveAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.bRemoveAccount.Name = "bRemoveAccount";
+            this.bRemoveAccount.Size = new System.Drawing.Size(100, 28);
+            this.bRemoveAccount.TabIndex = 17;
+            this.bRemoveAccount.Text = "Remove";
+            this.bRemoveAccount.UseVisualStyleBackColor = true;
+            this.bRemoveAccount.Click += new System.EventHandler(this.bRemoveAccount_Click);
+            // 
+            // bAddAccount
+            // 
+            this.bAddAccount.AccessibleName = "Add a new account";
+            this.bAddAccount.Location = new System.Drawing.Point(399, 12);
+            this.bAddAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.bAddAccount.Name = "bAddAccount";
+            this.bAddAccount.Size = new System.Drawing.Size(100, 28);
+            this.bAddAccount.TabIndex = 16;
+            this.bAddAccount.Text = "Add New";
+            this.bAddAccount.UseVisualStyleBackColor = true;
+            this.bAddAccount.Click += new System.EventHandler(this.bAddAccount_Click);
+            // 
+            // cProfiles
+            // 
+            this.cProfiles.AccessibleDescription = "Select the current account";
+            this.cProfiles.AccessibleName = "Profiles";
+            this.cProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cProfiles.FormattingEnabled = true;
+            this.cProfiles.Location = new System.Drawing.Point(11, 14);
+            this.cProfiles.Margin = new System.Windows.Forms.Padding(4);
+            this.cProfiles.Name = "cProfiles";
+            this.cProfiles.Size = new System.Drawing.Size(379, 24);
+            this.cProfiles.TabIndex = 15;
+            this.cProfiles.SelectedIndexChanged += new System.EventHandler(this.cProfiles_SelectedIndexChanged);
+            // 
+            // gAccount
+            // 
+            this.gAccount.AccessibleDescription = "";
+            this.gAccount.AccessibleName = "";
+            this.gAccount.Controls.Add(this.tTempPrefix);
+            this.gAccount.Controls.Add(this.labTempPrefix);
+            this.gAccount.Controls.Add(this.rBothWaySync);
+            this.gAccount.Controls.Add(this.labWayOfSync);
+            this.gAccount.Controls.Add(this.rRemoteToLocalOnly);
+            this.gAccount.Controls.Add(this.rLocalToRemoteOnly);
+            this.gAccount.Controls.Add(this.labViewInBrowser);
+            this.gAccount.Controls.Add(this.chkWebInt);
+            this.gAccount.Controls.Add(this.bConfigureAccount);
+            this.gAccount.Controls.Add(this.labAccount);
+            this.gAccount.Location = new System.Drawing.Point(11, 62);
+            this.gAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.gAccount.Name = "gAccount";
+            this.gAccount.Padding = new System.Windows.Forms.Padding(4);
+            this.gAccount.Size = new System.Drawing.Size(596, 262);
+            this.gAccount.TabIndex = 3;
+            this.gAccount.TabStop = false;
+            this.gAccount.Text = "Profile";
+            // 
+            // tTempPrefix
+            // 
+            this.tTempPrefix.AccessibleDescription = "the prefix added to temporary files created by the application";
+            this.tTempPrefix.Location = new System.Drawing.Point(28, 223);
+            this.tTempPrefix.Margin = new System.Windows.Forms.Padding(4);
+            this.tTempPrefix.Name = "tTempPrefix";
+            this.tTempPrefix.Size = new System.Drawing.Size(543, 22);
+            this.tTempPrefix.TabIndex = 24;
+            this.tTempPrefix.TextChanged += new System.EventHandler(this.tTempPrefix_TextChanged);
+            this.tTempPrefix.Leave += new System.EventHandler(this.tTempPrefix_Leave);
+            // 
+            // labTempPrefix
+            // 
+            this.labTempPrefix.AccessibleDescription = "";
+            this.labTempPrefix.Location = new System.Drawing.Point(11, 197);
+            this.labTempPrefix.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labTempPrefix.Name = "labTempPrefix";
+            this.labTempPrefix.Size = new System.Drawing.Size(583, 16);
+            this.labTempPrefix.TabIndex = 23;
+            this.labTempPrefix.Text = "Temporary file prefix:";
+            // 
+            // rBothWaySync
+            // 
+            this.rBothWaySync.AccessibleDescription = "both upload and download";
+            this.rBothWaySync.AccessibleName = "";
+            this.rBothWaySync.Checked = true;
+            this.rBothWaySync.Location = new System.Drawing.Point(28, 167);
+            this.rBothWaySync.Margin = new System.Windows.Forms.Padding(4);
+            this.rBothWaySync.Name = "rBothWaySync";
+            this.rBothWaySync.Size = new System.Drawing.Size(544, 21);
+            this.rBothWaySync.TabIndex = 21;
+            this.rBothWaySync.TabStop = true;
+            this.rBothWaySync.Text = "Both ways";
+            this.rBothWaySync.UseVisualStyleBackColor = true;
+            this.rBothWaySync.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
+            // 
+            // labWayOfSync
+            // 
+            this.labWayOfSync.AccessibleDescription = "";
+            this.labWayOfSync.Location = new System.Drawing.Point(11, 85);
+            this.labWayOfSync.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labWayOfSync.Name = "labWayOfSync";
+            this.labWayOfSync.Size = new System.Drawing.Size(583, 16);
+            this.labWayOfSync.TabIndex = 22;
+            this.labWayOfSync.Text = "Way of synchronization:";
+            // 
+            // rRemoteToLocalOnly
+            // 
+            this.rRemoteToLocalOnly.AccessibleDescription = "only download files to local machine";
+            this.rRemoteToLocalOnly.AccessibleName = "";
+            this.rRemoteToLocalOnly.Location = new System.Drawing.Point(28, 139);
+            this.rRemoteToLocalOnly.Margin = new System.Windows.Forms.Padding(4);
+            this.rRemoteToLocalOnly.Name = "rRemoteToLocalOnly";
+            this.rRemoteToLocalOnly.Size = new System.Drawing.Size(544, 21);
+            this.rRemoteToLocalOnly.TabIndex = 20;
+            this.rRemoteToLocalOnly.Text = "Remote to local only";
+            this.rRemoteToLocalOnly.UseVisualStyleBackColor = true;
+            this.rRemoteToLocalOnly.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
+            // 
+            // rLocalToRemoteOnly
+            // 
+            this.rLocalToRemoteOnly.AccessibleDescription = "only upload files to server";
+            this.rLocalToRemoteOnly.AccessibleName = "";
+            this.rLocalToRemoteOnly.Location = new System.Drawing.Point(28, 111);
+            this.rLocalToRemoteOnly.Margin = new System.Windows.Forms.Padding(4);
+            this.rLocalToRemoteOnly.Name = "rLocalToRemoteOnly";
+            this.rLocalToRemoteOnly.Size = new System.Drawing.Size(544, 21);
+            this.rLocalToRemoteOnly.TabIndex = 19;
+            this.rLocalToRemoteOnly.Text = "Local to remote only";
+            this.rLocalToRemoteOnly.UseVisualStyleBackColor = true;
+            this.rLocalToRemoteOnly.CheckedChanged += new System.EventHandler(this.rWayOfSync_CheckedChanged);
+            // 
+            // labViewInBrowser
+            // 
+            this.labViewInBrowser.AccessibleDescription = "opens the web interface in browser";
+            this.labViewInBrowser.AccessibleName = "View in browser";
+            this.labViewInBrowser.AutoSize = true;
+            this.labViewInBrowser.Location = new System.Drawing.Point(248, 57);
+            this.labViewInBrowser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labViewInBrowser.Name = "labViewInBrowser";
+            this.labViewInBrowser.Size = new System.Drawing.Size(108, 16);
+            this.labViewInBrowser.TabIndex = 16;
+            this.labViewInBrowser.TabStop = true;
+            this.labViewInBrowser.Text = "(View in browser)";
+            this.labViewInBrowser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labViewInBrowser_LinkClicked);
+            // 
+            // chkWebInt
+            // 
+            this.chkWebInt.AccessibleDescription = "";
+            this.chkWebInt.AccessibleName = "use the web interface?";
+            this.chkWebInt.Location = new System.Drawing.Point(11, 55);
+            this.chkWebInt.Margin = new System.Windows.Forms.Padding(4);
+            this.chkWebInt.Name = "chkWebInt";
+            this.chkWebInt.Size = new System.Drawing.Size(577, 21);
+            this.chkWebInt.TabIndex = 15;
+            this.chkWebInt.Text = "Use the web interface";
+            this.chkWebInt.UseVisualStyleBackColor = true;
+            this.chkWebInt.CheckedChanged += new System.EventHandler(this.chkWebInt_CheckedChanged);
+            // 
+            // bConfigureAccount
+            // 
+            this.bConfigureAccount.AccessibleDescription = "opens a form with details of this account";
+            this.bConfigureAccount.AccessibleName = "Account details";
+            this.bConfigureAccount.Location = new System.Drawing.Point(433, 20);
+            this.bConfigureAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.bConfigureAccount.Name = "bConfigureAccount";
+            this.bConfigureAccount.Size = new System.Drawing.Size(143, 28);
+            this.bConfigureAccount.TabIndex = 14;
+            this.bConfigureAccount.Text = "Details";
+            this.bConfigureAccount.UseVisualStyleBackColor = true;
+            this.bConfigureAccount.Click += new System.EventHandler(this.bConfigureAccount_Click);
+            // 
+            // labAccount
+            // 
+            this.labAccount.AccessibleDescription = "";
+            this.labAccount.Location = new System.Drawing.Point(8, 26);
+            this.labAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labAccount.Name = "labAccount";
+            this.labAccount.Size = new System.Drawing.Size(580, 16);
+            this.labAccount.TabIndex = 4;
+            this.labAccount.Text = "Account:";
+            // 
+            // tabGeneral
+            // 
+            this.tabGeneral.AccessibleDescription = "";
+            this.tabGeneral.Controls.Add(this.gLanguage);
+            this.tabGeneral.Controls.Add(this.gLinks);
+            this.tabGeneral.Controls.Add(this.gApp);
+            this.tabGeneral.Location = new System.Drawing.Point(4, 25);
+            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4);
+            this.tabGeneral.Name = "tabGeneral";
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
+            this.tabGeneral.Size = new System.Drawing.Size(745, 659);
+            this.tabGeneral.TabIndex = 0;
+            this.tabGeneral.Text = "General";
+            this.tabGeneral.UseVisualStyleBackColor = true;
+            // 
+            // gLanguage
+            // 
+            this.gLanguage.Controls.Add(this.bTranslate);
+            this.gLanguage.Controls.Add(this.cLanguages);
+            this.gLanguage.Location = new System.Drawing.Point(11, 298);
+            this.gLanguage.Margin = new System.Windows.Forms.Padding(4);
+            this.gLanguage.Name = "gLanguage";
+            this.gLanguage.Padding = new System.Windows.Forms.Padding(4);
+            this.gLanguage.Size = new System.Drawing.Size(599, 66);
+            this.gLanguage.TabIndex = 13;
+            this.gLanguage.TabStop = false;
+            this.gLanguage.Text = "Language";
+            // 
+            // bTranslate
+            // 
+            this.bTranslate.Location = new System.Drawing.Point(255, 21);
+            this.bTranslate.Margin = new System.Windows.Forms.Padding(4);
+            this.bTranslate.Name = "bTranslate";
+            this.bTranslate.Size = new System.Drawing.Size(119, 28);
+            this.bTranslate.TabIndex = 11;
+            this.bTranslate.Text = "Translate";
+            this.bTranslate.UseVisualStyleBackColor = true;
+            this.bTranslate.Click += new System.EventHandler(this.bTranslate_Click);
+            // 
+            // cLanguages
+            // 
+            this.cLanguages.AccessibleDescription = "select the language of the application";
+            this.cLanguages.AccessibleName = "Language";
+            this.cLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cLanguages.FormattingEnabled = true;
+            this.cLanguages.Items.AddRange(new object[] {
+            "None",
+            "require explicit FTP over TLS",
+            "require implicit FTP over TLS"});
+            this.cLanguages.Location = new System.Drawing.Point(12, 23);
+            this.cLanguages.Margin = new System.Windows.Forms.Padding(4);
+            this.cLanguages.Name = "cLanguages";
+            this.cLanguages.Size = new System.Drawing.Size(233, 24);
+            this.cLanguages.TabIndex = 1;
+            // 
+            // gLinks
+            // 
+            this.gLinks.AccessibleDescription = "";
+            this.gLinks.Controls.Add(this.rOpenLocal);
+            this.gLinks.Controls.Add(this.labLinkClicked);
+            this.gLinks.Controls.Add(this.rCopy2Clipboard);
+            this.gLinks.Controls.Add(this.rOpenInBrowser);
+            this.gLinks.Location = new System.Drawing.Point(11, 7);
+            this.gLinks.Margin = new System.Windows.Forms.Padding(4);
+            this.gLinks.Name = "gLinks";
+            this.gLinks.Padding = new System.Windows.Forms.Padding(4);
+            this.gLinks.Size = new System.Drawing.Size(599, 137);
+            this.gLinks.TabIndex = 12;
+            this.gLinks.TabStop = false;
+            this.gLinks.Text = "Links";
+            // 
+            // rOpenLocal
+            // 
+            this.rOpenLocal.AccessibleDescription = "";
+            this.rOpenLocal.AccessibleName = "open the local file";
+            this.rOpenLocal.Location = new System.Drawing.Point(29, 106);
+            this.rOpenLocal.Margin = new System.Windows.Forms.Padding(4);
+            this.rOpenLocal.Name = "rOpenLocal";
+            this.rOpenLocal.Size = new System.Drawing.Size(544, 21);
+            this.rOpenLocal.TabIndex = 3;
+            this.rOpenLocal.Text = "open the local file";
+            this.rOpenLocal.UseVisualStyleBackColor = true;
+            this.rOpenLocal.CheckedChanged += new System.EventHandler(this.rOpenLocal_CheckedChanged);
+            // 
+            // labLinkClicked
+            // 
+            this.labLinkClicked.AccessibleDescription = "";
+            this.labLinkClicked.Location = new System.Drawing.Point(12, 23);
+            this.labLinkClicked.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labLinkClicked.Name = "labLinkClicked";
+            this.labLinkClicked.Size = new System.Drawing.Size(583, 16);
+            this.labLinkClicked.TabIndex = 18;
+            this.labLinkClicked.Text = "When tray notification or recent file is clicked:";
+            // 
+            // rCopy2Clipboard
+            // 
+            this.rCopy2Clipboard.AccessibleDescription = "";
+            this.rCopy2Clipboard.AccessibleName = "copy link to clipboard";
+            this.rCopy2Clipboard.Location = new System.Drawing.Point(29, 78);
+            this.rCopy2Clipboard.Margin = new System.Windows.Forms.Padding(4);
+            this.rCopy2Clipboard.Name = "rCopy2Clipboard";
+            this.rCopy2Clipboard.Size = new System.Drawing.Size(544, 21);
+            this.rCopy2Clipboard.TabIndex = 2;
+            this.rCopy2Clipboard.Text = "copy link to clipboard";
+            this.rCopy2Clipboard.UseVisualStyleBackColor = true;
+            this.rCopy2Clipboard.CheckedChanged += new System.EventHandler(this.rCopy2Clipboard_CheckedChanged);
+            // 
+            // rOpenInBrowser
+            // 
+            this.rOpenInBrowser.AccessibleDescription = "";
+            this.rOpenInBrowser.AccessibleName = "open link in default browser";
+            this.rOpenInBrowser.Checked = true;
+            this.rOpenInBrowser.Location = new System.Drawing.Point(29, 49);
+            this.rOpenInBrowser.Margin = new System.Windows.Forms.Padding(4);
+            this.rOpenInBrowser.Name = "rOpenInBrowser";
+            this.rOpenInBrowser.Size = new System.Drawing.Size(544, 21);
+            this.rOpenInBrowser.TabIndex = 1;
+            this.rOpenInBrowser.TabStop = true;
+            this.rOpenInBrowser.Text = "Open link in default browser";
+            this.rOpenInBrowser.UseVisualStyleBackColor = true;
+            this.rOpenInBrowser.CheckedChanged += new System.EventHandler(this.rOpenInBrowser_CheckedChanged);
+            // 
+            // gApp
+            // 
+            this.gApp.AccessibleDescription = "";
+            this.gApp.Controls.Add(this.chkShellMenus);
+            this.gApp.Controls.Add(this.bBrowseLogs);
+            this.gApp.Controls.Add(this.chkEnableLogging);
+            this.gApp.Controls.Add(this.chkShowNots);
+            this.gApp.Controls.Add(this.chkStartUp);
+            this.gApp.Location = new System.Drawing.Point(11, 151);
+            this.gApp.Margin = new System.Windows.Forms.Padding(4);
+            this.gApp.Name = "gApp";
+            this.gApp.Padding = new System.Windows.Forms.Padding(4);
+            this.gApp.Size = new System.Drawing.Size(599, 139);
+            this.gApp.TabIndex = 3;
+            this.gApp.TabStop = false;
+            this.gApp.Text = "Application";
+            // 
+            // chkShellMenus
+            // 
+            this.chkShellMenus.AccessibleName = "add program to windows right click menu";
+            this.chkShellMenus.Location = new System.Drawing.Point(12, 108);
+            this.chkShellMenus.Margin = new System.Windows.Forms.Padding(4);
+            this.chkShellMenus.Name = "chkShellMenus";
+            this.chkShellMenus.Size = new System.Drawing.Size(579, 21);
+            this.chkShellMenus.TabIndex = 11;
+            this.chkShellMenus.Text = "Add to context menu";
+            this.chkShellMenus.UseVisualStyleBackColor = true;
+            this.chkShellMenus.CheckedChanged += new System.EventHandler(this.chkShellMenus_CheckedChanged);
+            // 
+            // bBrowseLogs
+            // 
+            this.bBrowseLogs.AccessibleDescription = "opens the debug log file";
+            this.bBrowseLogs.Location = new System.Drawing.Point(255, 75);
+            this.bBrowseLogs.Margin = new System.Windows.Forms.Padding(4);
+            this.bBrowseLogs.Name = "bBrowseLogs";
+            this.bBrowseLogs.Size = new System.Drawing.Size(119, 28);
+            this.bBrowseLogs.TabIndex = 10;
+            this.bBrowseLogs.Text = "View Log";
+            this.bBrowseLogs.UseVisualStyleBackColor = true;
+            this.bBrowseLogs.Click += new System.EventHandler(this.bBrowseLogs_Click);
+            // 
+            // chkEnableLogging
+            // 
+            this.chkEnableLogging.AccessibleName = "enable logging";
+            this.chkEnableLogging.Location = new System.Drawing.Point(12, 80);
+            this.chkEnableLogging.Margin = new System.Windows.Forms.Padding(4);
+            this.chkEnableLogging.Name = "chkEnableLogging";
+            this.chkEnableLogging.Size = new System.Drawing.Size(579, 21);
+            this.chkEnableLogging.TabIndex = 9;
+            this.chkEnableLogging.Text = "Enable logging";
+            this.chkEnableLogging.UseVisualStyleBackColor = true;
+            this.chkEnableLogging.CheckedChanged += new System.EventHandler(this.chkEnableLogging_CheckedChanged);
+            // 
+            // chkShowNots
+            // 
+            this.chkShowNots.AccessibleDescription = "";
+            this.chkShowNots.AccessibleName = "show notifications";
+            this.chkShowNots.Checked = true;
+            this.chkShowNots.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowNots.Location = new System.Drawing.Point(12, 52);
+            this.chkShowNots.Margin = new System.Windows.Forms.Padding(4);
+            this.chkShowNots.Name = "chkShowNots";
+            this.chkShowNots.Size = new System.Drawing.Size(579, 21);
+            this.chkShowNots.TabIndex = 7;
+            this.chkShowNots.Text = "Show notifications";
+            this.chkShowNots.UseVisualStyleBackColor = true;
+            this.chkShowNots.CheckedChanged += new System.EventHandler(this.chkShowNots_CheckedChanged);
+            // 
+            // chkStartUp
+            // 
+            this.chkStartUp.AccessibleDescription = "";
+            this.chkStartUp.AccessibleName = "start on system startup";
+            this.chkStartUp.Location = new System.Drawing.Point(12, 23);
+            this.chkStartUp.Margin = new System.Windows.Forms.Padding(4);
+            this.chkStartUp.Name = "chkStartUp";
+            this.chkStartUp.Size = new System.Drawing.Size(579, 21);
+            this.chkStartUp.TabIndex = 6;
+            this.chkStartUp.Text = "Start on system start up";
+            this.chkStartUp.UseVisualStyleBackColor = true;
+            this.chkStartUp.CheckedChanged += new System.EventHandler(this.chkStartUp_CheckedChanged);
+            // 
+            // tabBandwidth
+            // 
+            this.tabBandwidth.Controls.Add(this.gSyncing);
+            this.tabBandwidth.Controls.Add(this.gLimits);
+            this.tabBandwidth.Location = new System.Drawing.Point(4, 25);
+            this.tabBandwidth.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBandwidth.Name = "tabBandwidth";
+            this.tabBandwidth.Padding = new System.Windows.Forms.Padding(4);
+            this.tabBandwidth.Size = new System.Drawing.Size(745, 659);
+            this.tabBandwidth.TabIndex = 3;
+            this.tabBandwidth.Text = "Bandwidth";
+            this.tabBandwidth.UseVisualStyleBackColor = true;
+            // 
+            // gSyncing
+            // 
+            this.gSyncing.Controls.Add(this.labSeconds);
+            this.gSyncing.Controls.Add(this.labSyncWhen);
+            this.gSyncing.Controls.Add(this.nSyncFrequency);
+            this.gSyncing.Controls.Add(this.cAuto);
+            this.gSyncing.Controls.Add(this.cManually);
+            this.gSyncing.Location = new System.Drawing.Point(11, 7);
+            this.gSyncing.Margin = new System.Windows.Forms.Padding(4);
+            this.gSyncing.Name = "gSyncing";
+            this.gSyncing.Padding = new System.Windows.Forms.Padding(4);
+            this.gSyncing.Size = new System.Drawing.Size(596, 153);
+            this.gSyncing.TabIndex = 2;
+            this.gSyncing.TabStop = false;
+            this.gSyncing.Text = "Syncing";
+            // 
+            // labSeconds
+            // 
+            this.labSeconds.Location = new System.Drawing.Point(155, 112);
+            this.labSeconds.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSeconds.Name = "labSeconds";
+            this.labSeconds.Size = new System.Drawing.Size(296, 16);
+            this.labSeconds.TabIndex = 5;
+            this.labSeconds.Text = "seconds";
+            // 
+            // labSyncWhen
+            // 
+            this.labSyncWhen.Location = new System.Drawing.Point(8, 27);
+            this.labSyncWhen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labSyncWhen.Name = "labSyncWhen";
+            this.labSyncWhen.Size = new System.Drawing.Size(580, 16);
+            this.labSyncWhen.TabIndex = 4;
+            this.labSyncWhen.Text = "Synchronize remote files:";
+            // 
+            // nSyncFrequency
+            // 
+            this.nSyncFrequency.AccessibleName = "synchronization interval in seconds";
+            this.nSyncFrequency.Location = new System.Drawing.Point(47, 110);
+            this.nSyncFrequency.Margin = new System.Windows.Forms.Padding(4);
+            this.nSyncFrequency.Maximum = new decimal(new int[] {
+            79228,
+            0,
+            0,
+            0});
+            this.nSyncFrequency.Name = "nSyncFrequency";
+            this.nSyncFrequency.Size = new System.Drawing.Size(100, 22);
+            this.nSyncFrequency.TabIndex = 2;
+            this.nSyncFrequency.ValueChanged += new System.EventHandler(this.nSyncFrequency_ValueChanged);
+            // 
+            // cAuto
+            // 
+            this.cAuto.AccessibleName = "synchronize automatically";
+            this.cAuto.Location = new System.Drawing.Point(29, 81);
+            this.cAuto.Margin = new System.Windows.Forms.Padding(4);
+            this.cAuto.Name = "cAuto";
+            this.cAuto.Size = new System.Drawing.Size(548, 21);
+            this.cAuto.TabIndex = 1;
+            this.cAuto.TabStop = true;
+            this.cAuto.Text = "automatically every";
+            this.cAuto.UseVisualStyleBackColor = true;
+            // 
+            // cManually
+            // 
+            this.cManually.AccessibleName = "synchronize manually";
+            this.cManually.Location = new System.Drawing.Point(29, 53);
+            this.cManually.Margin = new System.Windows.Forms.Padding(4);
+            this.cManually.Name = "cManually";
+            this.cManually.Size = new System.Drawing.Size(548, 21);
+            this.cManually.TabIndex = 0;
+            this.cManually.TabStop = true;
+            this.cManually.Text = "manually";
+            this.cManually.UseVisualStyleBackColor = true;
+            this.cManually.CheckedChanged += new System.EventHandler(this.cManually_CheckedChanged);
+            // 
+            // gLimits
+            // 
+            this.gLimits.Controls.Add(this.labNoLimits);
+            this.gLimits.Controls.Add(this.label4);
+            this.gLimits.Controls.Add(this.label3);
+            this.gLimits.Controls.Add(this.nUpLimit);
+            this.gLimits.Controls.Add(this.nDownLimit);
+            this.gLimits.Controls.Add(this.labUpSpeed);
+            this.gLimits.Controls.Add(this.labDownSpeed);
+            this.gLimits.Location = new System.Drawing.Point(11, 167);
+            this.gLimits.Margin = new System.Windows.Forms.Padding(4);
+            this.gLimits.Name = "gLimits";
+            this.gLimits.Padding = new System.Windows.Forms.Padding(4);
+            this.gLimits.Size = new System.Drawing.Size(596, 194);
+            this.gLimits.TabIndex = 1;
+            this.gLimits.TabStop = false;
+            this.gLimits.Text = "Speed Limits";
+            // 
+            // labNoLimits
+            // 
+            this.labNoLimits.Location = new System.Drawing.Point(29, 162);
+            this.labNoLimits.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labNoLimits.Name = "labNoLimits";
+            this.labNoLimits.Size = new System.Drawing.Size(548, 16);
+            this.labNoLimits.TabIndex = 14;
+            this.labNoLimits.Text = "( set to 0 for no limits )";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(159, 126);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(292, 16);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "KB/s";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(159, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(292, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "KB/s";
+            // 
+            // nUpLimit
+            // 
+            this.nUpLimit.AccessibleName = "upload speed limit";
+            this.nUpLimit.Location = new System.Drawing.Point(47, 123);
+            this.nUpLimit.Margin = new System.Windows.Forms.Padding(4);
+            this.nUpLimit.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nUpLimit.Name = "nUpLimit";
+            this.nUpLimit.Size = new System.Drawing.Size(100, 22);
+            this.nUpLimit.TabIndex = 9;
+            this.nUpLimit.ValueChanged += new System.EventHandler(this.nUpLimit_ValueChanged);
+            // 
+            // nDownLimit
+            // 
+            this.nDownLimit.AccessibleName = "download speed limit";
+            this.nDownLimit.Location = new System.Drawing.Point(47, 55);
+            this.nDownLimit.Margin = new System.Windows.Forms.Padding(4);
+            this.nDownLimit.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nDownLimit.Name = "nDownLimit";
+            this.nDownLimit.Size = new System.Drawing.Size(100, 22);
+            this.nDownLimit.TabIndex = 6;
+            this.nDownLimit.ValueChanged += new System.EventHandler(this.nDownLimit_ValueChanged);
+            // 
+            // labUpSpeed
+            // 
+            this.labUpSpeed.Location = new System.Drawing.Point(12, 95);
+            this.labUpSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labUpSpeed.Name = "labUpSpeed";
+            this.labUpSpeed.Size = new System.Drawing.Size(576, 16);
+            this.labUpSpeed.TabIndex = 6;
+            this.labUpSpeed.Text = "Limit Upload Speed:";
+            // 
+            // labDownSpeed
+            // 
+            this.labDownSpeed.Location = new System.Drawing.Point(8, 27);
+            this.labDownSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labDownSpeed.Name = "labDownSpeed";
+            this.labDownSpeed.Size = new System.Drawing.Size(580, 16);
+            this.labDownSpeed.TabIndex = 3;
+            this.labDownSpeed.Text = "Limit Download Speed:";
+            // 
+            // tabCredits
+            // 
+            this.tabCredits.Controls.Add(this.label26);
+            this.tabCredits.Controls.Add(this.label9);
+            this.tabCredits.Controls.Add(this.label8);
+            this.tabCredits.Controls.Add(this.label13);
+            this.tabCredits.Controls.Add(this.label12);
+            this.tabCredits.Controls.Add(this.label7);
+            this.tabCredits.Controls.Add(this.label5);
+            this.tabCredits.Controls.Add(this.label10);
+            this.tabCredits.Controls.Add(this.label6);
+            this.tabCredits.Controls.Add(this.label1);
+            this.tabCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCredits.Location = new System.Drawing.Point(4, 25);
+            this.tabCredits.Name = "tabCredits";
+            this.tabCredits.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCredits.Size = new System.Drawing.Size(745, 659);
+            this.tabCredits.TabIndex = 7;
+            this.tabCredits.Text = "Credits";
+            this.tabCredits.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label26.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label26.Location = new System.Drawing.Point(99, 195);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 31);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "CrabFu";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label9.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label9.Location = new System.Drawing.Point(167, 195);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(338, 46);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "A The Bad Doggo";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label8.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label8.Location = new System.Drawing.Point(215, 161);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(212, 46);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "FireAndIce";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label13.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label13.Location = new System.Drawing.Point(193, 297);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(273, 46);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "BoocerSmash";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label12.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label12.Location = new System.Drawing.Point(262, 263);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 46);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Remy";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label7.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label7.Location = new System.Drawing.Point(245, 127);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(152, 46);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "CrabFu";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label5.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label5.Location = new System.Drawing.Point(245, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 46);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "CrabFu";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label10.ForeColor = System.Drawing.Color.Crimson;
+            this.label10.Location = new System.Drawing.Point(225, 229);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(192, 46);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "--Assets--";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(249, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(142, 46);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "--Dev--";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.label1.ForeColor = System.Drawing.Color.Crimson;
+            this.label1.Location = new System.Drawing.Point(167, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(298, 46);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "--Project Lead--";
+            // 
+            // main_tab
+            // 
+            this.main_tab.Controls.Add(this.button1);
+            this.main_tab.Controls.Add(this.panel2);
+            this.main_tab.Controls.Add(this.button3);
+            this.main_tab.Controls.Add(this.totalSizeLabel);
+            this.main_tab.Controls.Add(this.files_info);
+            this.main_tab.Controls.Add(this.pictureBox2);
+            this.main_tab.Controls.Add(this.button2);
+            this.main_tab.Controls.Add(this.progressBar1);
+            this.main_tab.Controls.Add(this.label2);
+            this.main_tab.Location = new System.Drawing.Point(4, 25);
+            this.main_tab.Margin = new System.Windows.Forms.Padding(4);
+            this.main_tab.Name = "main_tab";
+            this.main_tab.Padding = new System.Windows.Forms.Padding(4);
+            this.main_tab.Size = new System.Drawing.Size(745, 659);
+            this.main_tab.TabIndex = 6;
+            this.main_tab.Text = "Status";
+            this.main_tab.UseVisualStyleBackColor = true;
+            this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1, 379);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(389, 286);
+            this.button1.TabIndex = 27;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.label28);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.label29);
+            this.panel2.Controls.Add(this.label27);
+            this.panel2.Controls.Add(this.label30);
+            this.panel2.Location = new System.Drawing.Point(313, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(399, 288);
+            this.panel2.TabIndex = 26;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Crimson;
+            this.label14.Location = new System.Drawing.Point(121, 253);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(181, 37);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "DarkRedTitan";
+            this.label14.UseCompatibleTextRendering = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label15.Location = new System.Drawing.Point(99, 226);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(219, 37);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "--Launcher Dev--";
+            this.label15.UseCompatibleTextRendering = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Crimson;
+            this.label24.Location = new System.Drawing.Point(120, 199);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(184, 37);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "BoocerSmash";
+            this.label24.UseCompatibleTextRendering = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Crimson;
+            this.label25.Location = new System.Drawing.Point(166, 172);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(82, 37);
+            this.label25.TabIndex = 26;
+            this.label25.Text = "Remy";
+            this.label25.UseCompatibleTextRendering = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label28.Location = new System.Drawing.Point(142, 145);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(130, 37);
+            this.label28.TabIndex = 28;
+            this.label28.Text = "--Assets--";
+            this.label28.UseCompatibleTextRendering = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Crimson;
+            this.label22.Location = new System.Drawing.Point(101, 118);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(230, 37);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "A The Bad Doggo";
+            this.label22.UseCompatibleTextRendering = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Crimson;
+            this.label23.Location = new System.Drawing.Point(134, 91);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(144, 37);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "FireAndIce";
+            this.label23.UseCompatibleTextRendering = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label29.Location = new System.Drawing.Point(158, 64);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(96, 37);
+            this.label29.TabIndex = 29;
+            this.label29.Text = "--Dev--";
+            this.label29.UseCompatibleTextRendering = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Crimson;
+            this.label27.Location = new System.Drawing.Point(156, 37);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(102, 37);
+            this.label27.TabIndex = 27;
+            this.label27.Text = "CrabFu";
+            this.label27.UseCompatibleTextRendering = true;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label30.Location = new System.Drawing.Point(75, 10);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(260, 37);
+            this.label30.TabIndex = 30;
+            this.label30.Text = "--Project Lead/Dev--";
+            this.label30.UseCompatibleTextRendering = true;
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.ForestGreen;
+            this.button3.Location = new System.Drawing.Point(407, 488);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(305, 56);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Download";
+            this.button3.UseCompatibleTextRendering = true;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // totalSizeLabel
+            // 
+            this.totalSizeLabel.AutoSize = true;
+            this.totalSizeLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.totalSizeLabel.Location = new System.Drawing.Point(221, 312);
+            this.totalSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.totalSizeLabel.Name = "totalSizeLabel";
+            this.totalSizeLabel.Size = new System.Drawing.Size(293, 16);
+            this.totalSizeLabel.TabIndex = 20;
+            this.totalSizeLabel.Text = "Please click Check to start checking for updates!";
+            // 
+            // files_info
+            // 
+            this.files_info.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.files_info.Location = new System.Drawing.Point(320, 0);
+            this.files_info.Multiline = true;
+            this.files_info.Name = "files_info";
+            this.files_info.ReadOnly = true;
+            this.files_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.files_info.Size = new System.Drawing.Size(415, 288);
+            this.files_info.TabIndex = 24;
+            this.files_info.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(317, 288);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.ForestGreen;
+            this.button2.Location = new System.Drawing.Point(407, 431);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(305, 56);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Check";
+            this.button2.UseCompatibleTextRendering = true;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(-1, 332);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(730, 42);
+            this.progressBar1.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(354, 346);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "0%";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.AccessibleDescription = "";
+            this.tabControl1.Controls.Add(this.main_tab);
+            this.tabControl1.Controls.Add(this.tabCredits);
+            this.tabControl1.Controls.Add(this.tabBandwidth);
+            this.tabControl1.Controls.Add(this.tabGeneral);
+            this.tabControl1.Controls.Add(this.tabAccount);
+            this.tabControl1.Controls.Add(this.tabFilters);
+            this.tabControl1.Controls.Add(this.tabAbout);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(753, 688);
+            this.tabControl1.TabIndex = 12;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(745, 659);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Bugs";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 17);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(742, 646);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 0);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(736, 659);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.VisibleChanged += new System.EventHandler(this.textBox1_VisibleChanged);
             // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 629);
+            this.ClientSize = new System.Drawing.Size(743, 686);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1584,48 +1672,51 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
             this.RightToLeftLayoutChanged += new System.EventHandler(this.fMain_RightToLeftLayoutChanged);
-            this.tabControl1.ResumeLayout(false);
-            this.main_tab.ResumeLayout(false);
-            this.main_tab.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabCredits.ResumeLayout(false);
-            this.tabCredits.PerformLayout();
-            this.tabBandwidth.ResumeLayout(false);
-            this.gSyncing.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nSyncFrequency)).EndInit();
-            this.gLimits.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nUpLimit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).EndInit();
-            this.tabGeneral.ResumeLayout(false);
-            this.gLanguage.ResumeLayout(false);
-            this.gLinks.ResumeLayout(false);
-            this.gApp.ResumeLayout(false);
-            this.tabAccount.ResumeLayout(false);
-            this.gAccount.ResumeLayout(false);
-            this.gAccount.PerformLayout();
-            this.tabFilters.ResumeLayout(false);
-            this.gFileFilters.ResumeLayout(false);
+            this.trayMenu.ResumeLayout(false);
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             this.gContribute.ResumeLayout(false);
             this.gContribute.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gNotes.ResumeLayout(false);
-            this.trayMenu.ResumeLayout(false);
+            this.tabFilters.ResumeLayout(false);
+            this.gFileFilters.ResumeLayout(false);
+            this.tabAccount.ResumeLayout(false);
+            this.gAccount.ResumeLayout(false);
+            this.gAccount.PerformLayout();
+            this.tabGeneral.ResumeLayout(false);
+            this.gLanguage.ResumeLayout(false);
+            this.gLinks.ResumeLayout(false);
+            this.gApp.ResumeLayout(false);
+            this.tabBandwidth.ResumeLayout(false);
+            this.gSyncing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nSyncFrequency)).EndInit();
+            this.gLimits.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nUpLimit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).EndInit();
+            this.tabCredits.ResumeLayout(false);
+            this.tabCredits.PerformLayout();
+            this.main_tab.ResumeLayout(false);
+            this.main_tab.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabGeneral;
-        private System.Windows.Forms.GroupBox gApp;
-        private System.Windows.Forms.CheckBox chkShowNots;
-        private System.Windows.Forms.CheckBox chkStartUp;
-        private System.Windows.Forms.TabPage tabAccount;
+        private System.Windows.Forms.NotifyIcon tray;
+        private System.Windows.Forms.ContextMenuStrip trayMenu;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem SyncToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.TabPage tabAbout;
         private System.Windows.Forms.Label labSupportMail;
         private System.Windows.Forms.LinkLabel linkLabel4;
@@ -1647,93 +1738,96 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labContactMe;
         private System.Windows.Forms.Label labFree;
-        private System.Windows.Forms.NotifyIcon tray;
-        private System.Windows.Forms.ContextMenuStrip trayMenu;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabBandwidth;
+        private System.Windows.Forms.TabPage tabFilters;
+        private System.Windows.Forms.GroupBox gFileFilters;
+        private System.Windows.Forms.Button bConfigureSelectiveSync;
+        private System.Windows.Forms.Button bConfigureExtensions;
+        private System.Windows.Forms.Label labSelectiveSync;
+        private System.Windows.Forms.Label labAlsoIgnore;
+        private System.Windows.Forms.CheckBox cIgnoreOldFiles;
+        private System.Windows.Forms.DateTimePicker dtpLastModTime;
+        private System.Windows.Forms.Label labSelectExtensions;
+        private System.Windows.Forms.CheckBox cIgnoreTempFiles;
+        private System.Windows.Forms.CheckBox cIgnoreDotfiles;
+        private System.Windows.Forms.TabPage tabAccount;
+        private System.Windows.Forms.Button bRemoveAccount;
+        private System.Windows.Forms.Button bAddAccount;
+        private System.Windows.Forms.ComboBox cProfiles;
+        private System.Windows.Forms.GroupBox gAccount;
+        private System.Windows.Forms.TextBox tTempPrefix;
+        private System.Windows.Forms.Label labTempPrefix;
+        private System.Windows.Forms.RadioButton rBothWaySync;
+        private System.Windows.Forms.Label labWayOfSync;
+        private System.Windows.Forms.RadioButton rRemoteToLocalOnly;
+        private System.Windows.Forms.RadioButton rLocalToRemoteOnly;
+        private System.Windows.Forms.LinkLabel labViewInBrowser;
+        private System.Windows.Forms.CheckBox chkWebInt;
+        private System.Windows.Forms.Button bConfigureAccount;
+        private System.Windows.Forms.Label labAccount;
+        private System.Windows.Forms.TabPage tabGeneral;
+        private System.Windows.Forms.GroupBox gLanguage;
+        private System.Windows.Forms.Button bTranslate;
+        private System.Windows.Forms.ComboBox cLanguages;
         private System.Windows.Forms.GroupBox gLinks;
+        private System.Windows.Forms.RadioButton rOpenLocal;
+        private System.Windows.Forms.Label labLinkClicked;
         private System.Windows.Forms.RadioButton rCopy2Clipboard;
         private System.Windows.Forms.RadioButton rOpenInBrowser;
-        private System.Windows.Forms.GroupBox gAccount;
-        private System.Windows.Forms.Label labAccount;
+        private System.Windows.Forms.GroupBox gApp;
+        private System.Windows.Forms.CheckBox chkShellMenus;
+        private System.Windows.Forms.Button bBrowseLogs;
+        private System.Windows.Forms.CheckBox chkEnableLogging;
+        private System.Windows.Forms.CheckBox chkShowNots;
+        private System.Windows.Forms.CheckBox chkStartUp;
+        private System.Windows.Forms.TabPage tabBandwidth;
+        private System.Windows.Forms.GroupBox gSyncing;
+        private System.Windows.Forms.Label labSeconds;
+        private System.Windows.Forms.Label labSyncWhen;
+        private System.Windows.Forms.NumericUpDown nSyncFrequency;
+        private System.Windows.Forms.RadioButton cAuto;
+        private System.Windows.Forms.RadioButton cManually;
         private System.Windows.Forms.GroupBox gLimits;
+        private System.Windows.Forms.Label labNoLimits;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nUpLimit;
         private System.Windows.Forms.NumericUpDown nDownLimit;
         private System.Windows.Forms.Label labUpSpeed;
         private System.Windows.Forms.Label labDownSpeed;
-        private System.Windows.Forms.RadioButton rOpenLocal;
-        private System.Windows.Forms.GroupBox gSyncing;
-        private System.Windows.Forms.NumericUpDown nSyncFrequency;
-        private System.Windows.Forms.RadioButton cAuto;
-        private System.Windows.Forms.RadioButton cManually;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem SyncToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.Label labSyncWhen;
-        private System.Windows.Forms.Label labSeconds;
-        private System.Windows.Forms.Label labNoLimits;
-        private System.Windows.Forms.TabPage tabFilters;
-        private System.Windows.Forms.GroupBox gFileFilters;
-        private System.Windows.Forms.Label labSelectExtensions;
-        private System.Windows.Forms.CheckBox cIgnoreTempFiles;
-        private System.Windows.Forms.CheckBox cIgnoreDotfiles;
-        private System.Windows.Forms.Label labAlsoIgnore;
-        private System.Windows.Forms.CheckBox cIgnoreOldFiles;
-        private System.Windows.Forms.DateTimePicker dtpLastModTime;
-        private System.Windows.Forms.Label labLinkClicked;
-        private System.Windows.Forms.ComboBox cProfiles;
-        private System.Windows.Forms.CheckBox chkEnableLogging;
-        private System.Windows.Forms.Button bBrowseLogs;
-        private System.Windows.Forms.Button bAddAccount;
-        private System.Windows.Forms.Button bRemoveAccount;
-        private System.Windows.Forms.GroupBox gLanguage;
-        private System.Windows.Forms.ComboBox cLanguages;
-        private System.Windows.Forms.Button bTranslate;
-        private System.Windows.Forms.Button bConfigureExtensions;
-        private System.Windows.Forms.Label labSelectiveSync;
-        private System.Windows.Forms.Button bConfigureSelectiveSync;
-        private System.Windows.Forms.Button bConfigureAccount;
-        private System.Windows.Forms.LinkLabel labViewInBrowser;
-        private System.Windows.Forms.CheckBox chkWebInt;
-        private System.Windows.Forms.RadioButton rBothWaySync;
-        private System.Windows.Forms.Label labWayOfSync;
-        private System.Windows.Forms.RadioButton rRemoteToLocalOnly;
-        private System.Windows.Forms.RadioButton rLocalToRemoteOnly;
-        private System.Windows.Forms.TextBox tTempPrefix;
-        private System.Windows.Forms.Label labTempPrefix;
-        private System.Windows.Forms.CheckBox chkShellMenus;
-        private System.Windows.Forms.TabPage main_tab;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label totalSizeLabel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tabCredits;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox files_info;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage main_tab;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox files_info;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label totalSizeLabel;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

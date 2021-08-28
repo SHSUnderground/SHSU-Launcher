@@ -28,6 +28,7 @@ using Newtonsoft.Json;
 using Settings = FTPboxLib.Settings;
 using Squirrel;
 using Microsoft.Extensions.DependencyInjection; // Titan
+using System.Drawing.Text; // Titan
 
 namespace FTPbox.Forms
 {
@@ -55,13 +56,131 @@ namespace FTPbox.Forms
             PopulateLanguages();
         }
 
+        private PrivateFontCollection pfc = new PrivateFontCollection();
+
         private async void fMain_Load(object sender, EventArgs e)
         {
-            button1.FlatStyle = FlatStyle.Flat; // Titan
-            button1.FlatAppearance.BorderSize = 0; // Titan
+            tray.Visible = false;
+            //button1.FlatStyle = FlatStyle.Flat; // Titan
+            //button1.FlatAppearance.BorderSize = 0; // Titan
             button2.Enabled = false; // Titan
-            totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
 
+            tabControl1.TabPages.Remove(tabAbout);
+            tabControl1.TabPages.Remove(tabGeneral);
+            tabControl1.TabPages.Remove(tabBandwidth);
+            tabControl1.TabPages.Remove(tabFilters);
+            tabControl1.TabPages.Remove(tabAccount);
+            tabControl1.TabPages.Remove(tabCredits);
+            //tabControl1.Visible = false;
+
+            Stream fontStream = this.GetType().Assembly.GetManifestResourceStream("FTPbox.ZOOOBRG.ttf");
+            byte[] fontdata = new byte[fontStream.Length];
+            fontStream.Read(fontdata, 0, (int)fontStream.Length);
+            fontStream.Close();
+            unsafe
+            {
+                fixed (byte* pFontData = fontdata)
+                {
+                    pfc.AddMemoryFont((System.IntPtr)pFontData, fontdata.Length);
+                }
+            }
+
+            textBox1.BackColor = Color.White;
+            ServicePointManager.ServerCertificateValidationCallback =
+           new System.Net.Security.RemoteCertificateValidationCallback(
+                delegate
+                { return true; });
+            System.Net.WebClient wc = new System.Net.WebClient();
+            string buglist = "Please check your internet connection. If issue still persists please report this to the devs!";
+            try
+            {
+                string webData = wc.DownloadString("https://retrosquadonline.com/index.php/forums/topic/in-game-bugs/");
+                string remlist = "";
+                //int index = webData.IndexOf("Monkey.D.Maxi");
+                int index = webData.IndexOf("class=\"bbp-author-name\">Monkey.D.Maxi</span></a><div class=\"bbp-author-role\">Participant</div>\n\t\t\n\t\t\n\t</div><!-- .bbp-reply-author -->\n\n\t<div class=\"bbp-reply-content\">\n\n\t\t\n\t\t<p>");
+                if (index >= 0)
+                {
+                    buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
+
+                    webData= webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
+                    //richTextBox1.SelectedText = "Monkey D. Mexyy";
+                    remlist = webData;
+                    string text = "";
+                    while (remlist.IndexOf("<p>") > -1)
+                    {
+                        richTextBox1.SelectionColor = Color.Red;
+                        //richTextBox1.SelectionFont = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+
+                        text = remlist.Substring(remlist.IndexOf("<p>"), remlist.IndexOf("</p>") - remlist.IndexOf("<p>")) + "</p>";
+                        text = text.Replace("<p>", "");
+                        text = text.Replace("</p>", "\n\n");
+                        text = text.Replace("\n<br>", "");
+                        text = text.Replace("<br />\n", "\n");
+                        text = text.Replace("&#8217;", "'");
+                        text = text.Replace("#8220;", "\"");
+                        text = text.Replace("#8221;", "\"");
+                        text = text.Replace("â€™", "'");
+
+                        richTextBox1.SelectedText = text;
+                        
+                        remlist = remlist.Remove(remlist.IndexOf("<p>"), 3);
+                        remlist = remlist.Substring(remlist.IndexOf("\n<p>"));
+
+                        richTextBox1.SelectionColor = Color.Black;
+                        //richTextBox1.SelectionFont= new Font("Times New Roman", 16, FontStyle.Regular);
+
+                        text = remlist.Substring(0, remlist.IndexOf("</p>"));
+                        text = text.Replace("<p>", "");
+                        text = text.Replace("</p>", "\n\n");
+                        text = text.Replace("<br />\n", "\n");
+                        text = text.Replace("&#8217;", "'");
+                        text = text.Replace("#8220;", "\"");
+                        text = text.Replace("#8221;", "\"");
+                        text = text.Replace("â€™", "'");
+
+                        richTextBox1.SelectedText = text;
+
+                        remlist = remlist.Substring(remlist.IndexOf("</p>"));
+                        remlist = remlist.Remove(remlist.IndexOf("</p>"), 4);
+
+                        richTextBox1.SelectedText = "\n\n";
+                        //remlist = remlist.Remove(remlist.IndexOf("</p>"), 3);
+
+                    }
+                    //richTextBox1.SelectionColor = Color.Red;
+                    //richTextBox1.SelectedText = remlist.Substring(0, remlist.IndexOf("\n<p>"));
+                    //remlist = remlist.Substring(remlist.IndexOf("\n<p>"));
+
+                    //buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
+                    buglist = buglist.Replace("<p>", "");
+                    buglist = buglist.Replace("</p>", "\r\n\r\n");
+                    buglist = buglist.Replace("<br />\n", "\r\n");
+                    buglist = buglist.Replace("&#8217;", "'");
+                    buglist = buglist.Replace("#8220;", "\"");
+                    buglist = buglist.Replace("#8221;", "\"");
+                    buglist = buglist.Replace("â€™", "'");
+                }
+            }
+            catch { };
+            textBox1.Text = buglist;
+            //richTextBox1.Text = buglist;
+            totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
+            //FTPbox.ZOOOBRG.ttf
+
+
+            //label14.UseCompatibleTextRendering = true;
+            label14.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label15.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label22.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label23.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label24.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label25.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label27.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label28.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label29.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label30.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            button2.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
+            button3.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
 
             //TODO: Should this stay?
@@ -100,7 +219,7 @@ namespace FTPbox.Forms
                 Link = Program.Account.WebInterfaceLink;
             };
             */
-            Notifications.TrayTextNotification += (o, n) => SetTray(o, n);
+           Notifications.TrayTextNotification += (o, n) => SetTray(o, n);
 
             _fSetup = new Setup {Tag = this};
             _ftranslate = new Translate {Tag = this};
@@ -120,8 +239,8 @@ namespace FTPbox.Forms
                 // retry
                 await StartUpWork();
             }
-            totalSizeLabel.Text = "Please click Check to start checking for updated files!";
-            _fTrayForm = new fTrayForm { Tag = this };
+            totalSizeLabel.Text = "Please click Check to start checking for updates!";
+            //_fTrayForm = new fTrayForm { Tag = this };
 
             //await CheckForUpdate(); // Commented out by Titan, uncessary check
 
@@ -145,14 +264,6 @@ namespace FTPbox.Forms
         /// </summary>
         private async Task StartUpWork()
         {
-
-            tabControl1.TabPages.Remove(tabAbout);
-            tabControl1.TabPages.Remove(tabGeneral);
-            tabControl1.TabPages.Remove(tabBandwidth);
-            tabControl1.TabPages.Remove(tabFilters);
-            tabControl1.TabPages.Remove(tabAccount);
-            tabControl1.TabPages.Remove(tabCredits);
-
             Log.Write(l.Debug, "Internet connection available: {0}", Win32.ConnectedToInternet());
             OfflineMode = false;
 
@@ -1069,11 +1180,12 @@ namespace FTPbox.Forms
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ExitedFromTray && e.CloseReason != CloseReason.WindowsShutDown)
+            /*if (!ExitedFromTray && e.CloseReason != CloseReason.WindowsShutDown)
             {
                 e.Cancel = true;
                 Hide();
-            }
+            }*/
+            KillTheProcess();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1172,7 +1284,7 @@ namespace FTPbox.Forms
             .AddOptions()
             .Configure<DiscordServiceOptions>(options =>
             {
-                options.BotToken = "NzkyODI3MDYxNzEwNDg3NTUz.X-jXvQ.rg0cTYPQHpBs12eNClmha8r95wU";
+                options.BotToken = "ODc5NDA0MDA4MjgyOTMxMjAw.YSPOzg.8cZudpFnqjokaI1CI-xF_CakqE8";
             })
             .AddSingleton<IDiscordService, DiscordService>()
             .AddLogging()
@@ -1186,10 +1298,11 @@ namespace FTPbox.Forms
         // maybe call other methods here?
         // write a discord message?
         var channel = _services.GetService<IDiscordService>()
-            .GetSocketTextChannel(878583516319875092);
+            .GetSocketTextChannel(835828591430074368);
             var patchnotes = await channel.GetMessagesAsync(1).FirstOrDefaultAsync();
             //files_info.Text = patchnotes.ToString();
             string patchtxt = patchnotes.Last().ToString().Replace("\n", "\r\n");
+            patchtxt = patchtxt.Replace("```", "");
             return patchtxt;//patchnotes.Last().ToString();
 
             //await channel.SendMessageAsync("Hello World!");
@@ -1203,9 +1316,17 @@ namespace FTPbox.Forms
         {
             button2.Enabled = false;
             button2.Text = "Checking...";
-            panel1.Visible = false;
+            panel2.Visible = false;
+            files_info.BackColor= Color.White;
             files_info.Visible = true;
-            files_info.Text = await getpatchnotesfromdiscord();
+            try
+            {
+                files_info.Text = await getpatchnotesfromdiscord();
+            }
+            catch
+            {
+                files_info.Text = "Couldn't get the patch notes, please report this to the devs or check your internet connection!";
+            }
             files_info.Refresh();
 
             totalSizeLabel.Text = "Getting Remote FIle Info...Please Wait";
@@ -1223,10 +1344,12 @@ namespace FTPbox.Forms
             {
                 button1.Enabled = true;
                 button3.Enabled = false;
+                totalSizeLabel.Text = "No updates required. Click Play Now to play!";
             }
             else
             {
                 button3.Enabled = true;
+                totalSizeLabel.Text = "Please click Download to start downloading.";
             }
             //panel1.Visible = false;
             //files_info.Visible = true;
@@ -1242,6 +1365,33 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.folderchecked = true;
             FTPboxLib.SyncQueue.startsync = true;
             await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+            totalSizeLabel.Text = "Download Complete. Click Play Now to play!";
+            button1.Enabled = true;
+        }
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            button1.Image = Resources.playnow_hold;
+        }
+
+        private void button1_MouseUp(object sender, MouseEventArgs e)
+        {
+            button1.Image = Resources.playnow_green;
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.Image = Resources.playnow_green;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.Image = Resources.playnow_red;
+        }
+
+        private void textBox1_VisibleChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

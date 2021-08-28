@@ -1,4 +1,4 @@
-﻿/* License
+/* License
  * This file is part of FTPbox - Copyright (C) 2012-2013 ftpbox.org
  * FTPbox is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published 
  * by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed 
@@ -85,7 +85,7 @@ namespace FTPbox.Forms
                 }
             }
 
-            textBox1.BackColor = Color.White;
+            richTextBox1.BackColor = Color.White;
             ServicePointManager.ServerCertificateValidationCallback =
            new System.Net.Security.RemoteCertificateValidationCallback(
                 delegate
@@ -95,23 +95,21 @@ namespace FTPbox.Forms
             try
             {
                 string webData = wc.DownloadString("https://retrosquadonline.com/index.php/forums/topic/in-game-bugs/");
-                string remlist = "";
+                //string buglist = "";
                 //int index = webData.IndexOf("Monkey.D.Maxi");
                 int index = webData.IndexOf("class=\"bbp-author-name\">Monkey.D.Maxi</span></a><div class=\"bbp-author-role\">Participant</div>\n\t\t\n\t\t\n\t</div><!-- .bbp-reply-author -->\n\n\t<div class=\"bbp-reply-content\">\n\n\t\t\n\t\t<p>");
                 if (index >= 0)
                 {
-                    buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
-
-                    webData= webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
+                    webData = webData.Substring(index + 175, webData.IndexOf("</p>\n\n\n<ul id") - index - 4);
                     //richTextBox1.SelectedText = "Monkey D. Mexyy";
-                    remlist = webData;
+                    buglist = webData;
                     string text = "";
-                    while (remlist.IndexOf("<p>") > -1)
+                    while (buglist.IndexOf("<p>") > -1)
                     {
                         richTextBox1.SelectionColor = Color.Red;
                         //richTextBox1.SelectionFont = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
 
-                        text = remlist.Substring(remlist.IndexOf("<p>"), remlist.IndexOf("</p>") - remlist.IndexOf("<p>")) + "</p>";
+                        text = buglist.Substring(buglist.IndexOf("<p>"), buglist.IndexOf("</p>") - buglist.IndexOf("<p>")) + "</p>";
                         text = text.Replace("<p>", "");
                         text = text.Replace("</p>", "\n\n");
                         text = text.Replace("\n<br>", "");
@@ -123,14 +121,14 @@ namespace FTPbox.Forms
 
                         richTextBox1.SelectedText = text;
                         
-                        remlist = remlist.Remove(remlist.IndexOf("<p>"), 3);
-                        remlist = remlist.Substring(remlist.IndexOf("\n<p>"));
+                        buglist = buglist.Remove(buglist.IndexOf("<p>"), 3);
+                        buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
 
                         richTextBox1.SelectionColor = Color.Black;
                         //richTextBox1.SelectionFont= new Font("Times New Roman", 16, FontStyle.Regular);
 
-                        text = remlist.Substring(0, remlist.IndexOf("</p>"));
-                        text = text.Replace("<p>", "");
+                        text = buglist.Substring(0, buglist.IndexOf("</p>"));
+                        text = text.Replace("\n<p>", ""); // to fix double empty lines
                         text = text.Replace("</p>", "\n\n");
                         text = text.Replace("<br />\n", "\n");
                         text = text.Replace("&#8217;", "'");
@@ -140,16 +138,16 @@ namespace FTPbox.Forms
 
                         richTextBox1.SelectedText = text;
 
-                        remlist = remlist.Substring(remlist.IndexOf("</p>"));
-                        remlist = remlist.Remove(remlist.IndexOf("</p>"), 4);
+                        buglist = buglist.Substring(buglist.IndexOf("</p>"));
+                        buglist = buglist.Remove(buglist.IndexOf("</p>"), 4);
 
                         richTextBox1.SelectedText = "\n\n";
-                        //remlist = remlist.Remove(remlist.IndexOf("</p>"), 3);
+                        //buglist = buglist.Remove(buglist.IndexOf("</p>"), 3);
 
                     }
                     //richTextBox1.SelectionColor = Color.Red;
-                    //richTextBox1.SelectedText = remlist.Substring(0, remlist.IndexOf("\n<p>"));
-                    //remlist = remlist.Substring(remlist.IndexOf("\n<p>"));
+                    //richTextBox1.SelectedText = buglist.Substring(0, buglist.IndexOf("\n<p>"));
+                    //buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
 
                     //buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
                     buglist = buglist.Replace("<p>", "");
@@ -162,23 +160,23 @@ namespace FTPbox.Forms
                 }
             }
             catch { };
-            textBox1.Text = buglist;
+            //textBox1.Text = buglist;
             //richTextBox1.Text = buglist;
             totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
             //FTPbox.ZOOOBRG.ttf
 
 
             //label14.UseCompatibleTextRendering = true;
-            label14.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label15.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label22.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label23.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label24.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label25.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label27.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label28.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label29.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-            label30.Font = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+            label14.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label15.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label22.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label23.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label24.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label25.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label27.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label28.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label29.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
+            label30.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
             button2.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             button3.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
@@ -1316,7 +1314,7 @@ namespace FTPbox.Forms
         {
             button2.Enabled = false;
             button2.Text = "Checking...";
-            panel2.Visible = false;
+            //panel2.Visible = false;
             files_info.BackColor= Color.White;
             files_info.Visible = true;
             try
@@ -1371,27 +1369,127 @@ namespace FTPbox.Forms
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
-            button1.Image = Resources.playnow_hold;
+            button1.BackgroundImage = Resources.playnow_hold;
         }
 
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
-            button1.Image = Resources.playnow_green;
+            button1.BackgroundImage = Resources.playnow_green;
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            button1.Image = Resources.playnow_green;
+            button1.BackgroundImage = Resources.playnow_green;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.Image = Resources.playnow_red;
+            button1.BackgroundImage = Resources.playnow_red;
         }
 
         private void textBox1_VisibleChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start("IEXPLORE.EXE", "https://retrosquadonline.com/index.php/forums/");
+            string url = "https://retrosquadonline.com/index.php/forums/";
+            try
+            {
+                Process.Start(url);
+            }
+            catch
+            {
+                // hack because of this: https://github.com/dotnet/corefx/issues/10361
+                if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                }
+                else if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void button5_MouseHover(object sender, EventArgs e)
+        {
+            button5.BackgroundImage = Resources.SHSO_Launcher_Banner;
+        }
+
+        private void richTextBox1_DoubleClick(object sender, EventArgs e)
+        {
+            System.Net.WebClient wc = new System.Net.WebClient();
+            string buglist = "Please check your internet connection and doubleclick this field to refresh. If the issue still persists please report this to the devs!";
+            try
+            {
+                string webData = wc.DownloadString("https://retrosquadonline.com/index.php/forums/topic/in-game-bugs/");
+                //string buglist = "";
+                //int index = webData.IndexOf("Monkey.D.Maxi");
+                int index = webData.IndexOf("class=\"bbp-author-name\">Monkey.D.Maxi</span></a><div class=\"bbp-author-role\">Participant</div>\n\t\t\n\t\t\n\t</div><!-- .bbp-reply-author -->\n\n\t<div class=\"bbp-reply-content\">\n\n\t\t\n\t\t<p>");
+                if (index >= 0)
+                {
+                    //buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
+
+                    webData = webData.Substring(index + 175, webData.IndexOf("</p>\n\n\n<ul id") - index - 4);
+                    //richTextBox1.SelectedText = "Monkey D. Mexyy";
+                    buglist = webData;
+                    string text = "";
+                    while (buglist.IndexOf("<p>") > -1)
+                    {
+                        richTextBox1.SelectionColor = Color.Red;
+                        //richTextBox1.SelectionFont = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
+
+                        text = buglist.Substring(buglist.IndexOf("<p>"), buglist.IndexOf("</p>") - buglist.IndexOf("<p>")) + "</p>";
+                        text = text.Replace("<p>", "");
+                        text = text.Replace("</p>", "\n\n");
+                        text = text.Replace("\n<br>", "");
+                        text = text.Replace("<br />\n", "\n");
+                        text = text.Replace("&#8217;", "'");
+                        text = text.Replace("#8220;", "\"");
+                        text = text.Replace("#8221;", "\"");
+                        text = text.Replace("â€™", "'");
+
+                        richTextBox1.SelectedText = text;
+
+                        buglist = buglist.Remove(buglist.IndexOf("<p>"), 3);
+                        buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
+
+                        richTextBox1.SelectionColor = Color.Black;
+                        //richTextBox1.SelectionFont= new Font("Times New Roman", 16, FontStyle.Regular);
+
+                        text = buglist.Substring(0, buglist.IndexOf("</p>"));
+                        text = text.Replace("<p>", "");
+                        text = text.Replace("</p>", "\n\n");
+                        text = text.Replace("<br />\n", "\n");
+                        text = text.Replace("&#8217;", "'");
+                        text = text.Replace("#8220;", "\"");
+                        text = text.Replace("#8221;", "\"");
+                        text = text.Replace("â€™", "'");
+
+                        richTextBox1.SelectedText = text;
+
+                        buglist = buglist.Substring(buglist.IndexOf("</p>"));
+                        buglist = buglist.Remove(buglist.IndexOf("</p>"), 4);
+
+                        richTextBox1.SelectedText = "\n\n";
+                        //buglist = buglist.Remove(buglist.IndexOf("</p>"), 3);
+
+                    }
+                }
+            }
+            catch { };
         }
     }
 }

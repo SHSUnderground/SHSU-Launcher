@@ -1492,5 +1492,15 @@ namespace FTPbox.Forms
             playnow_Button.BackgroundImage = Resources.playnow_red;
             //pictureBox2.FlatAppearance.BorderSize = 0;
         }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            banner_Button.BackgroundImage = Resources.SHSO_Launcher_Banner_Hover;
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            banner_Button.BackgroundImage = Resources.SHSO_Launcher_Banner;
+        }
     }
 }

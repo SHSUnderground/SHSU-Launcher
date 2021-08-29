@@ -127,18 +127,18 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.main_tab = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.files_info = new System.Windows.Forms.TextBox();
-            this.totalSizeLabel = new System.Windows.Forms.Label();
-            this.download_Button = new System.Windows.Forms.Button();
-            this.check_Button = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.playnow_Button = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.playnow_Button = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.check_Button = new System.Windows.Forms.Button();
+            this.download_Button = new System.Windows.Forms.Button();
+            this.totalSizeLabel = new System.Windows.Forms.Label();
+            this.files_info = new System.Windows.Forms.TextBox();
+            this.banner_Button = new System.Windows.Forms.PictureBox();
+            this.main_tab = new System.Windows.Forms.TabPage();
             this.trayMenu.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.gContribute.SuspendLayout();
@@ -159,11 +159,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUpLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).BeginInit();
             this.tabCredits.SuspendLayout();
-            this.main_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banner_Button)).BeginInit();
+            this.main_tab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tray
@@ -1357,127 +1357,6 @@
             this.label30.Text = "--Project Lead/Dev--";
             this.label30.UseCompatibleTextRendering = true;
             // 
-            // main_tab
-            // 
-            this.main_tab.BackgroundImage = global::FTPbox.Properties.Resources.lnchbg;
-            this.main_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.main_tab.Controls.Add(this.pictureBox3);
-            this.main_tab.Controls.Add(this.files_info);
-            this.main_tab.Controls.Add(this.totalSizeLabel);
-            this.main_tab.Controls.Add(this.download_Button);
-            this.main_tab.Controls.Add(this.check_Button);
-            this.main_tab.Controls.Add(this.label2);
-            this.main_tab.Controls.Add(this.progressBar1);
-            this.main_tab.Controls.Add(this.playnow_Button);
-            this.main_tab.Location = new System.Drawing.Point(4, 25);
-            this.main_tab.Margin = new System.Windows.Forms.Padding(4);
-            this.main_tab.Name = "main_tab";
-            this.main_tab.Padding = new System.Windows.Forms.Padding(4);
-            this.main_tab.Size = new System.Drawing.Size(1015, 629);
-            this.main_tab.TabIndex = 6;
-            this.main_tab.Text = "Status";
-            this.main_tab.UseVisualStyleBackColor = true;
-            this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::FTPbox.Properties.Resources.SHSO_Launcher_Banner;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(185, 32);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(529, 128);
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.banner_Button_Click);
-            // 
-            // files_info
-            // 
-            this.files_info.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.files_info.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.files_info.Location = new System.Drawing.Point(11, 183);
-            this.files_info.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.files_info.Multiline = true;
-            this.files_info.Name = "files_info";
-            this.files_info.ReadOnly = true;
-            this.files_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.files_info.Size = new System.Drawing.Size(997, 249);
-            this.files_info.TabIndex = 24;
-            // 
-            // totalSizeLabel
-            // 
-            this.totalSizeLabel.AutoSize = true;
-            this.totalSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalSizeLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.totalSizeLabel.Location = new System.Drawing.Point(313, 524);
-            this.totalSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.totalSizeLabel.Name = "totalSizeLabel";
-            this.totalSizeLabel.Size = new System.Drawing.Size(374, 20);
-            this.totalSizeLabel.TabIndex = 20;
-            this.totalSizeLabel.Text = "Please click Check to start checking for updates!";
-            // 
-            // download_Button
-            // 
-            this.download_Button.Enabled = false;
-            this.download_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.download_Button.ForeColor = System.Drawing.Color.ForestGreen;
-            this.download_Button.Location = new System.Drawing.Point(704, 455);
-            this.download_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.download_Button.Name = "download_Button";
-            this.download_Button.Size = new System.Drawing.Size(305, 57);
-            this.download_Button.TabIndex = 25;
-            this.download_Button.Text = "Download";
-            this.download_Button.UseCompatibleTextRendering = true;
-            this.download_Button.UseVisualStyleBackColor = true;
-            this.download_Button.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // check_Button
-            // 
-            this.check_Button.BackColor = System.Drawing.Color.Transparent;
-            this.check_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.check_Button.ForeColor = System.Drawing.Color.ForestGreen;
-            this.check_Button.Location = new System.Drawing.Point(12, 455);
-            this.check_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.check_Button.Name = "check_Button";
-            this.check_Button.Size = new System.Drawing.Size(305, 57);
-            this.check_Button.TabIndex = 19;
-            this.check_Button.Text = "Check";
-            this.check_Button.UseCompatibleTextRendering = true;
-            this.check_Button.UseVisualStyleBackColor = false;
-            this.check_Button.Click += new System.EventHandler(this.check_Button_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(495, 571);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 16);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "0%";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(19, 559);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(979, 42);
-            this.progressBar1.TabIndex = 22;
-            // 
-            // playnow_Button
-            // 
-            this.playnow_Button.BackgroundImage = global::FTPbox.Properties.Resources.playnow_red;
-            this.playnow_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.playnow_Button.Location = new System.Drawing.Point(681, -25);
-            this.playnow_Button.Name = "playnow_Button";
-            this.playnow_Button.Size = new System.Drawing.Size(334, 218);
-            this.playnow_Button.TabIndex = 29;
-            this.playnow_Button.TabStop = false;
-            this.playnow_Button.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.playnow_Button.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseDown);
-            this.playnow_Button.MouseEnter += new System.EventHandler(this.playnow_Button_MouseHover);
-            this.playnow_Button.MouseLeave += new System.EventHandler(this.playnow_Button_MouseLeave);
-            this.playnow_Button.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseUp);
-            // 
             // tabControl1
             // 
             this.tabControl1.AccessibleDescription = "";
@@ -1520,6 +1399,129 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.DoubleClick += new System.EventHandler(this.buglist_Textbox_DoubleClick);
             // 
+            // playnow_Button
+            // 
+            this.playnow_Button.BackgroundImage = global::FTPbox.Properties.Resources.playnow_red;
+            this.playnow_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.playnow_Button.Location = new System.Drawing.Point(681, -25);
+            this.playnow_Button.Name = "playnow_Button";
+            this.playnow_Button.Size = new System.Drawing.Size(334, 218);
+            this.playnow_Button.TabIndex = 29;
+            this.playnow_Button.TabStop = false;
+            this.playnow_Button.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.playnow_Button.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseDown);
+            this.playnow_Button.MouseEnter += new System.EventHandler(this.playnow_Button_MouseHover);
+            this.playnow_Button.MouseLeave += new System.EventHandler(this.playnow_Button_MouseLeave);
+            this.playnow_Button.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseUp);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(19, 559);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(979, 42);
+            this.progressBar1.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(495, 571);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "0%";
+            // 
+            // check_Button
+            // 
+            this.check_Button.BackColor = System.Drawing.Color.Transparent;
+            this.check_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_Button.ForeColor = System.Drawing.Color.ForestGreen;
+            this.check_Button.Location = new System.Drawing.Point(12, 455);
+            this.check_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.check_Button.Name = "check_Button";
+            this.check_Button.Size = new System.Drawing.Size(305, 57);
+            this.check_Button.TabIndex = 19;
+            this.check_Button.Text = "Check";
+            this.check_Button.UseCompatibleTextRendering = true;
+            this.check_Button.UseVisualStyleBackColor = false;
+            this.check_Button.Click += new System.EventHandler(this.check_Button_Click);
+            // 
+            // download_Button
+            // 
+            this.download_Button.Enabled = false;
+            this.download_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.download_Button.ForeColor = System.Drawing.Color.ForestGreen;
+            this.download_Button.Location = new System.Drawing.Point(704, 455);
+            this.download_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.download_Button.Name = "download_Button";
+            this.download_Button.Size = new System.Drawing.Size(305, 57);
+            this.download_Button.TabIndex = 25;
+            this.download_Button.Text = "Download";
+            this.download_Button.UseCompatibleTextRendering = true;
+            this.download_Button.UseVisualStyleBackColor = true;
+            this.download_Button.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // totalSizeLabel
+            // 
+            this.totalSizeLabel.AutoSize = true;
+            this.totalSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSizeLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.totalSizeLabel.Location = new System.Drawing.Point(313, 524);
+            this.totalSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.totalSizeLabel.Name = "totalSizeLabel";
+            this.totalSizeLabel.Size = new System.Drawing.Size(374, 20);
+            this.totalSizeLabel.TabIndex = 20;
+            this.totalSizeLabel.Text = "Please click Check to start checking for updates!";
+            // 
+            // files_info
+            // 
+            this.files_info.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.files_info.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.files_info.Location = new System.Drawing.Point(11, 183);
+            this.files_info.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.files_info.Multiline = true;
+            this.files_info.Name = "files_info";
+            this.files_info.ReadOnly = true;
+            this.files_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.files_info.Size = new System.Drawing.Size(997, 249);
+            this.files_info.TabIndex = 24;
+            // 
+            // banner_Button
+            // 
+            this.banner_Button.BackgroundImage = global::FTPbox.Properties.Resources.SHSO_Launcher_Banner;
+            this.banner_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.banner_Button.Location = new System.Drawing.Point(192, 32);
+            this.banner_Button.Name = "banner_Button";
+            this.banner_Button.Size = new System.Drawing.Size(529, 128);
+            this.banner_Button.TabIndex = 30;
+            this.banner_Button.TabStop = false;
+            this.banner_Button.Click += new System.EventHandler(this.banner_Button_Click);
+            this.banner_Button.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
+            this.banner_Button.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
+            // 
+            // main_tab
+            // 
+            this.main_tab.BackgroundImage = global::FTPbox.Properties.Resources.lnchbg;
+            this.main_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.main_tab.Controls.Add(this.banner_Button);
+            this.main_tab.Controls.Add(this.files_info);
+            this.main_tab.Controls.Add(this.totalSizeLabel);
+            this.main_tab.Controls.Add(this.download_Button);
+            this.main_tab.Controls.Add(this.check_Button);
+            this.main_tab.Controls.Add(this.label2);
+            this.main_tab.Controls.Add(this.progressBar1);
+            this.main_tab.Controls.Add(this.playnow_Button);
+            this.main_tab.Location = new System.Drawing.Point(4, 25);
+            this.main_tab.Margin = new System.Windows.Forms.Padding(4);
+            this.main_tab.Name = "main_tab";
+            this.main_tab.Padding = new System.Windows.Forms.Padding(4);
+            this.main_tab.Size = new System.Drawing.Size(1015, 629);
+            this.main_tab.TabIndex = 6;
+            this.main_tab.Text = "Status";
+            this.main_tab.UseVisualStyleBackColor = true;
+            this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1561,12 +1563,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).EndInit();
             this.tabCredits.ResumeLayout(false);
             this.tabCredits.PerformLayout();
-            this.main_tab.ResumeLayout(false);
-            this.main_tab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banner_Button)).EndInit();
+            this.main_tab.ResumeLayout(false);
+            this.main_tab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1658,14 +1660,7 @@
         private System.Windows.Forms.Label labUpSpeed;
         private System.Windows.Forms.Label labDownSpeed;
         private System.Windows.Forms.TabPage tabCredits;
-        private System.Windows.Forms.TabPage main_tab;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Button download_Button;
-        private System.Windows.Forms.TextBox files_info;
-        private System.Windows.Forms.Button check_Button;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label totalSizeLabel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label14;
@@ -1679,7 +1674,14 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage main_tab;
+        private System.Windows.Forms.PictureBox banner_Button;
+        private System.Windows.Forms.TextBox files_info;
+        private System.Windows.Forms.Label totalSizeLabel;
+        private System.Windows.Forms.Button download_Button;
+        private System.Windows.Forms.Button check_Button;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.PictureBox playnow_Button;
-        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

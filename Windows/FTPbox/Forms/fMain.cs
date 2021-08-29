@@ -63,19 +63,7 @@ namespace FTPbox.Forms
             tray.Visible = false;
             //button1.FlatStyle = FlatStyle.Flat; // Titan
             //button1.FlatAppearance.BorderSize = 0; // Titan
-            button2.Enabled = false; // Titan
-            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button4.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button5.FlatAppearance.MouseOverBackColor = Color.Transparent;
-
-            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button4.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button5.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            check_Button.Enabled = false; // Titan
 
             tabControl1.TabPages.Remove(tabAbout);
             tabControl1.TabPages.Remove(tabGeneral);
@@ -131,7 +119,7 @@ namespace FTPbox.Forms
                         text = text.Replace("â€™", "'");
 
                         richTextBox1.SelectedText = text;
-                        
+
                         buglist = buglist.Remove(buglist.IndexOf("<p>"), 3);
                         buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
 
@@ -188,8 +176,8 @@ namespace FTPbox.Forms
             label28.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
             label29.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
             label30.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
-            button2.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
-            button3.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
+            check_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
+            download_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
 
             //TODO: Should this stay?
@@ -228,10 +216,10 @@ namespace FTPbox.Forms
                 Link = Program.Account.WebInterfaceLink;
             };
             */
-           Notifications.TrayTextNotification += (o, n) => SetTray(o, n);
+            Notifications.TrayTextNotification += (o, n) => SetTray(o, n);
 
-            _fSetup = new Setup {Tag = this};
-            _ftranslate = new Translate {Tag = this};
+            _fSetup = new Setup { Tag = this };
+            _ftranslate = new Translate { Tag = this };
             _fSelective = new fSelectiveSync();
 
             if (!string.IsNullOrEmpty(Settings.General.Language))
@@ -263,7 +251,7 @@ namespace FTPbox.Forms
                 });
             */
             await ContextMenuManager.RunServer();
-            button2.Enabled = true;
+            check_Button.Enabled = true;
         }
 
         /// <summary>
@@ -317,7 +305,7 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.totalSizeLabel = totalSizeLabel;  // CSP
             FTPboxLib.SyncQueue.progressBar1 = progressBar1;
             FTPboxLib.SyncQueue.label2 = label2;  // progress % text
-            FTPboxLib.SyncQueue.button1 = button1;   // play button
+            //FTPboxLib.SyncQueue.pictureBox2 = playnow_Button;   // play button
             FTPboxLib.SyncQueue.logtext = files_info; // Titan - add textbox to display log-like info
             Program.Account.SyncQueue.CancelAutoSync();
             // await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
@@ -1245,7 +1233,7 @@ namespace FTPbox.Forms
                 {
                     Process.Start(link);
                 }
-                catch { }                
+                catch { }
             }
         }
 
@@ -1261,7 +1249,7 @@ namespace FTPbox.Forms
             //totalSizeLabel.Text = FTPboxLib.SyncQueue.totalSize.ToString();  // CSP
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1294,27 +1282,27 @@ namespace FTPbox.Forms
 
         private static IServiceProvider _services;
 
-    static async Task<string> getpatchnotesfromdiscord() // Titan
-    {
-        _services = new ServiceCollection()
-            .AddOptions()
-            .Configure<DiscordServiceOptions>(options =>
-            {
-                options.BotToken = "ODc5NDA0MDA4MjgyOTMxMjAw.YSPOzg.8cZudpFnqjokaI1CI-xF_CakqE8";
-            })
-            .AddSingleton<IDiscordService, DiscordService>()
-            .AddLogging()
-            .BuildServiceProvider();
+        static async Task<string> getpatchnotesfromdiscord() // Titan
+        {
+            _services = new ServiceCollection()
+                .AddOptions()
+                .Configure<DiscordServiceOptions>(options =>
+                {
+                    options.BotToken = "ODc5NDA0MDA4MjgyOTMxMjAw.YSPOzg.8cZudpFnqjokaI1CI-xF_CakqE8";
+                })
+                .AddSingleton<IDiscordService, DiscordService>()
+                .AddLogging()
+                .BuildServiceProvider();
 
-        Task discordReady = _services.GetService<IDiscordService>()
-            .Ready();
+            Task discordReady = _services.GetService<IDiscordService>()
+                .Ready();
 
-        await discordReady;
+            await discordReady;
 
-        // maybe call other methods here?
-        // write a discord message?
-        var channel = _services.GetService<IDiscordService>()
-            .GetSocketTextChannel(835828591430074368);
+            // maybe call other methods here?
+            // write a discord message?
+            var channel = _services.GetService<IDiscordService>()
+                .GetSocketTextChannel(835828591430074368);
             var patchnotes = await channel.GetMessagesAsync(1).FirstOrDefaultAsync();
             //files_info.Text = patchnotes.ToString();
             string patchtxt = patchnotes.Last().ToString().Replace("\n", "\r\n");
@@ -1324,16 +1312,16 @@ namespace FTPbox.Forms
             //await channel.SendMessageAsync("Hello World!");
 
             //await Task.Delay(-1);
-    }
+        }
 
 
 
-        private async void button2_Click(object sender, EventArgs e)   // Titan
+        private async void check_Button_Click(object sender, EventArgs e)   // Titan
         {
-            button2.Enabled = false;
-            button2.Text = "Checking...";
+            check_Button.Enabled = false;
+            check_Button.Text = "Checking...";
             //panel2.Visible = false;
-            files_info.BackColor= Color.White;
+            files_info.BackColor = Color.White;
             files_info.Visible = true;
             try
             {
@@ -1354,24 +1342,24 @@ namespace FTPbox.Forms
             await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
             /////////// Titan ////////////
             //await Program.Account.SyncQueue.StartQueue();
-            files_info.AppendText("\r\n---Total download size: " + FTPboxLib.SyncQueue.totaldownloadsize / 1024 + " KB = " 
+            files_info.AppendText("\r\n---Total download size: " + FTPboxLib.SyncQueue.totaldownloadsize / 1024 + " KB = "
                                                         + FTPboxLib.SyncQueue.totaldownloadsize / (1024 * 1024) + " MB---");
-            if(FTPboxLib.SyncQueue.totaldownloadsize == 0)
+            if (FTPboxLib.SyncQueue.totaldownloadsize == 0)
             {
-                button1.Enabled = true;
-                button3.Enabled = false;
+                //pictureBox2.Enabled = true;
+                download_Button.Enabled = false;
                 totalSizeLabel.Text = "No updates required. Click Play Now to play!";
             }
             else
             {
-                button3.Enabled = true;
+                download_Button.Enabled = true;
                 totalSizeLabel.Text = "Please click Download to start downloading.";
             }
             //panel1.Visible = false;
             //files_info.Visible = true;
             //await getpatchnotesfromdiscord();
-            button2.Text = "Check";
-            button2.Enabled = true;
+            check_Button.Text = "Check";
+            check_Button.Enabled = true;
             //////////////////////////////
 
         }
@@ -1382,35 +1370,10 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.startsync = true;
             await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
             totalSizeLabel.Text = "Download Complete. Click Play Now to play!";
-            button1.Enabled = true;
+            //playnow_Button.Enabled = true;
         }
 
-        private void button1_MouseDown(object sender, MouseEventArgs e)
-        {
-            button1.BackgroundImage = Resources.playnow_hold;
-            //button1.FlatAppearance.BorderSize = 0;
-
-        }
-
-        private void button1_MouseUp(object sender, MouseEventArgs e)
-        {
-            button1.BackgroundImage = Resources.playnow_green;
-            //button1.FlatAppearance.BorderSize = 0;
-        }
-
-        private void button1_MouseHover(object sender, EventArgs e)
-        {
-            button1.BackgroundImage = Resources.playnow_green;
-            //button1.FlatAppearance.BorderSize = 0;
-        }
-
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            button1.BackgroundImage = Resources.playnow_red;
-            //button1.FlatAppearance.BorderSize = 0;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void banner_Button_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start("IEXPLORE.EXE", "https://retrosquadonline.com/index.php/forums/");
             string url = "https://retrosquadonline.com/";
@@ -1441,12 +1404,7 @@ namespace FTPbox.Forms
             }
         }
 
-        private void button5_MouseHover(object sender, EventArgs e)
-        {
-            button5.BackgroundImage = Resources.SHSO_Launcher_Banner;
-        }
-
-        private void richTextBox1_DoubleClick(object sender, EventArgs e)
+        private void buglist_Textbox_DoubleClick(object sender, EventArgs e)
         {
             System.Net.WebClient wc = new System.Net.WebClient();
             string buglist = "Please check your internet connection and doubleclick this field to refresh. If the issue still persists please report this to the devs!";
@@ -1508,6 +1466,31 @@ namespace FTPbox.Forms
                 }
             }
             catch { };
+        }
+
+        private void playnow_Button_MouseDown(object sender, MouseEventArgs e)
+        {
+            playnow_Button.BackgroundImage = Resources.playnow_hold;
+            //pictureBox2.FlatAppearance.BorderSize = 0;
+
+        }
+
+        private void playnow_Button_MouseUp(object sender, MouseEventArgs e)
+        {
+            playnow_Button.BackgroundImage = Resources.playnow_green;
+            //pictureBox2.FlatAppearance.BorderSize = 0;
+        }
+
+        private void playnow_Button_MouseHover(object sender, EventArgs e)
+        {
+            playnow_Button.BackgroundImage = Resources.playnow_green;
+            //pictureBox2.FlatAppearance.BorderSize = 0;
+        }
+
+        private void playnow_Button_MouseLeave(object sender, EventArgs e)
+        {
+            playnow_Button.BackgroundImage = Resources.playnow_red;
+            //pictureBox2.FlatAppearance.BorderSize = 0;
         }
     }
 }

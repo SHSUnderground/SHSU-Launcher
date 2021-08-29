@@ -128,14 +128,14 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.main_tab = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.files_info = new System.Windows.Forms.TextBox();
             this.totalSizeLabel = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.download_Button = new System.Windows.Forms.Button();
+            this.check_Button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.playnow_Button = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -160,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nDownLimit)).BeginInit();
             this.tabCredits.SuspendLayout();
             this.main_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -244,9 +246,9 @@
             this.tabAbout.Controls.Add(this.gContribute);
             this.tabAbout.Controls.Add(this.gNotes);
             this.tabAbout.Location = new System.Drawing.Point(4, 25);
-            this.tabAbout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAbout.Margin = new System.Windows.Forms.Padding(4);
             this.tabAbout.Name = "tabAbout";
-            this.tabAbout.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(4);
             this.tabAbout.Size = new System.Drawing.Size(1015, 629);
             this.tabAbout.TabIndex = 2;
             this.tabAbout.Text = "About";
@@ -379,9 +381,9 @@
             this.gContribute.Controls.Add(this.linkLabel2);
             this.gContribute.Controls.Add(this.linkLabel1);
             this.gContribute.Location = new System.Drawing.Point(11, 236);
-            this.gContribute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gContribute.Margin = new System.Windows.Forms.Padding(4);
             this.gContribute.Name = "gContribute";
-            this.gContribute.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gContribute.Padding = new System.Windows.Forms.Padding(4);
             this.gContribute.Size = new System.Drawing.Size(596, 59);
             this.gContribute.TabIndex = 1;
             this.gContribute.TabStop = false;
@@ -404,7 +406,7 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::FTPbox.Properties.Resources.donate;
             this.pictureBox1.Location = new System.Drawing.Point(489, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(74, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -445,9 +447,9 @@
             this.gNotes.Controls.Add(this.labContactMe);
             this.gNotes.Controls.Add(this.labFree);
             this.gNotes.Location = new System.Drawing.Point(11, 303);
-            this.gNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gNotes.Margin = new System.Windows.Forms.Padding(4);
             this.gNotes.Name = "gNotes";
-            this.gNotes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gNotes.Padding = new System.Windows.Forms.Padding(4);
             this.gNotes.Size = new System.Drawing.Size(596, 85);
             this.gNotes.TabIndex = 0;
             this.gNotes.TabStop = false;
@@ -487,9 +489,9 @@
             // 
             this.tabFilters.Controls.Add(this.gFileFilters);
             this.tabFilters.Location = new System.Drawing.Point(4, 25);
-            this.tabFilters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabFilters.Margin = new System.Windows.Forms.Padding(4);
             this.tabFilters.Name = "tabFilters";
-            this.tabFilters.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabFilters.Padding = new System.Windows.Forms.Padding(4);
             this.tabFilters.Size = new System.Drawing.Size(1015, 629);
             this.tabFilters.TabIndex = 5;
             this.tabFilters.Text = "Filters";
@@ -507,9 +509,9 @@
             this.gFileFilters.Controls.Add(this.cIgnoreTempFiles);
             this.gFileFilters.Controls.Add(this.cIgnoreDotfiles);
             this.gFileFilters.Location = new System.Drawing.Point(11, 7);
-            this.gFileFilters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gFileFilters.Margin = new System.Windows.Forms.Padding(4);
             this.gFileFilters.Name = "gFileFilters";
-            this.gFileFilters.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gFileFilters.Padding = new System.Windows.Forms.Padding(4);
             this.gFileFilters.Size = new System.Drawing.Size(596, 244);
             this.gFileFilters.TabIndex = 5;
             this.gFileFilters.TabStop = false;
@@ -519,7 +521,7 @@
             // 
             this.bConfigureSelectiveSync.AccessibleDescription = "Open form to configure selective sync";
             this.bConfigureSelectiveSync.Location = new System.Drawing.Point(433, 23);
-            this.bConfigureSelectiveSync.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bConfigureSelectiveSync.Margin = new System.Windows.Forms.Padding(4);
             this.bConfigureSelectiveSync.Name = "bConfigureSelectiveSync";
             this.bConfigureSelectiveSync.Size = new System.Drawing.Size(143, 28);
             this.bConfigureSelectiveSync.TabIndex = 13;
@@ -531,7 +533,7 @@
             // 
             this.bConfigureExtensions.AccessibleDescription = "Open form to configure ignored extensions";
             this.bConfigureExtensions.Location = new System.Drawing.Point(433, 59);
-            this.bConfigureExtensions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bConfigureExtensions.Margin = new System.Windows.Forms.Padding(4);
             this.bConfigureExtensions.Name = "bConfigureExtensions";
             this.bConfigureExtensions.Size = new System.Drawing.Size(143, 28);
             this.bConfigureExtensions.TabIndex = 12;
@@ -560,7 +562,7 @@
             // cIgnoreOldFiles
             // 
             this.cIgnoreOldFiles.Location = new System.Drawing.Point(29, 177);
-            this.cIgnoreOldFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cIgnoreOldFiles.Margin = new System.Windows.Forms.Padding(4);
             this.cIgnoreOldFiles.Name = "cIgnoreOldFiles";
             this.cIgnoreOldFiles.Size = new System.Drawing.Size(544, 21);
             this.cIgnoreOldFiles.TabIndex = 9;
@@ -574,7 +576,7 @@
             this.dtpLastModTime.Enabled = false;
             this.dtpLastModTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpLastModTime.Location = new System.Drawing.Point(53, 206);
-            this.dtpLastModTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpLastModTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpLastModTime.Name = "dtpLastModTime";
             this.dtpLastModTime.Size = new System.Drawing.Size(307, 22);
             this.dtpLastModTime.TabIndex = 8;
@@ -594,7 +596,7 @@
             // 
             this.cIgnoreTempFiles.AccessibleDescription = "Check to ignore temporary files";
             this.cIgnoreTempFiles.Location = new System.Drawing.Point(29, 121);
-            this.cIgnoreTempFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cIgnoreTempFiles.Margin = new System.Windows.Forms.Padding(4);
             this.cIgnoreTempFiles.Name = "cIgnoreTempFiles";
             this.cIgnoreTempFiles.Size = new System.Drawing.Size(544, 21);
             this.cIgnoreTempFiles.TabIndex = 0;
@@ -606,7 +608,7 @@
             // 
             this.cIgnoreDotfiles.AccessibleDescription = "Check to ignore dotfiles";
             this.cIgnoreDotfiles.Location = new System.Drawing.Point(29, 149);
-            this.cIgnoreDotfiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cIgnoreDotfiles.Margin = new System.Windows.Forms.Padding(4);
             this.cIgnoreDotfiles.Name = "cIgnoreDotfiles";
             this.cIgnoreDotfiles.Size = new System.Drawing.Size(544, 21);
             this.cIgnoreDotfiles.TabIndex = 1;
@@ -622,9 +624,9 @@
             this.tabAccount.Controls.Add(this.cProfiles);
             this.tabAccount.Controls.Add(this.gAccount);
             this.tabAccount.Location = new System.Drawing.Point(4, 25);
-            this.tabAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAccount.Margin = new System.Windows.Forms.Padding(4);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAccount.Padding = new System.Windows.Forms.Padding(4);
             this.tabAccount.Size = new System.Drawing.Size(1015, 629);
             this.tabAccount.TabIndex = 1;
             this.tabAccount.Text = "Account";
@@ -634,7 +636,7 @@
             // 
             this.bRemoveAccount.AccessibleName = "Remove this account";
             this.bRemoveAccount.Location = new System.Drawing.Point(507, 12);
-            this.bRemoveAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bRemoveAccount.Margin = new System.Windows.Forms.Padding(4);
             this.bRemoveAccount.Name = "bRemoveAccount";
             this.bRemoveAccount.Size = new System.Drawing.Size(100, 28);
             this.bRemoveAccount.TabIndex = 17;
@@ -646,7 +648,7 @@
             // 
             this.bAddAccount.AccessibleName = "Add a new account";
             this.bAddAccount.Location = new System.Drawing.Point(399, 12);
-            this.bAddAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAddAccount.Margin = new System.Windows.Forms.Padding(4);
             this.bAddAccount.Name = "bAddAccount";
             this.bAddAccount.Size = new System.Drawing.Size(100, 28);
             this.bAddAccount.TabIndex = 16;
@@ -661,7 +663,7 @@
             this.cProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cProfiles.FormattingEnabled = true;
             this.cProfiles.Location = new System.Drawing.Point(11, 14);
-            this.cProfiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cProfiles.Margin = new System.Windows.Forms.Padding(4);
             this.cProfiles.Name = "cProfiles";
             this.cProfiles.Size = new System.Drawing.Size(379, 24);
             this.cProfiles.TabIndex = 15;
@@ -682,9 +684,9 @@
             this.gAccount.Controls.Add(this.bConfigureAccount);
             this.gAccount.Controls.Add(this.labAccount);
             this.gAccount.Location = new System.Drawing.Point(11, 62);
-            this.gAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gAccount.Margin = new System.Windows.Forms.Padding(4);
             this.gAccount.Name = "gAccount";
-            this.gAccount.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gAccount.Padding = new System.Windows.Forms.Padding(4);
             this.gAccount.Size = new System.Drawing.Size(596, 262);
             this.gAccount.TabIndex = 3;
             this.gAccount.TabStop = false;
@@ -694,7 +696,7 @@
             // 
             this.tTempPrefix.AccessibleDescription = "the prefix added to temporary files created by the application";
             this.tTempPrefix.Location = new System.Drawing.Point(28, 223);
-            this.tTempPrefix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tTempPrefix.Margin = new System.Windows.Forms.Padding(4);
             this.tTempPrefix.Name = "tTempPrefix";
             this.tTempPrefix.Size = new System.Drawing.Size(543, 22);
             this.tTempPrefix.TabIndex = 24;
@@ -717,7 +719,7 @@
             this.rBothWaySync.AccessibleName = "";
             this.rBothWaySync.Checked = true;
             this.rBothWaySync.Location = new System.Drawing.Point(28, 167);
-            this.rBothWaySync.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBothWaySync.Margin = new System.Windows.Forms.Padding(4);
             this.rBothWaySync.Name = "rBothWaySync";
             this.rBothWaySync.Size = new System.Drawing.Size(544, 21);
             this.rBothWaySync.TabIndex = 21;
@@ -741,7 +743,7 @@
             this.rRemoteToLocalOnly.AccessibleDescription = "only download files to local machine";
             this.rRemoteToLocalOnly.AccessibleName = "";
             this.rRemoteToLocalOnly.Location = new System.Drawing.Point(28, 139);
-            this.rRemoteToLocalOnly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rRemoteToLocalOnly.Margin = new System.Windows.Forms.Padding(4);
             this.rRemoteToLocalOnly.Name = "rRemoteToLocalOnly";
             this.rRemoteToLocalOnly.Size = new System.Drawing.Size(544, 21);
             this.rRemoteToLocalOnly.TabIndex = 20;
@@ -754,7 +756,7 @@
             this.rLocalToRemoteOnly.AccessibleDescription = "only upload files to server";
             this.rLocalToRemoteOnly.AccessibleName = "";
             this.rLocalToRemoteOnly.Location = new System.Drawing.Point(28, 111);
-            this.rLocalToRemoteOnly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rLocalToRemoteOnly.Margin = new System.Windows.Forms.Padding(4);
             this.rLocalToRemoteOnly.Name = "rLocalToRemoteOnly";
             this.rLocalToRemoteOnly.Size = new System.Drawing.Size(544, 21);
             this.rLocalToRemoteOnly.TabIndex = 19;
@@ -781,7 +783,7 @@
             this.chkWebInt.AccessibleDescription = "";
             this.chkWebInt.AccessibleName = "use the web interface?";
             this.chkWebInt.Location = new System.Drawing.Point(11, 55);
-            this.chkWebInt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkWebInt.Margin = new System.Windows.Forms.Padding(4);
             this.chkWebInt.Name = "chkWebInt";
             this.chkWebInt.Size = new System.Drawing.Size(577, 21);
             this.chkWebInt.TabIndex = 15;
@@ -794,7 +796,7 @@
             this.bConfigureAccount.AccessibleDescription = "opens a form with details of this account";
             this.bConfigureAccount.AccessibleName = "Account details";
             this.bConfigureAccount.Location = new System.Drawing.Point(433, 20);
-            this.bConfigureAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bConfigureAccount.Margin = new System.Windows.Forms.Padding(4);
             this.bConfigureAccount.Name = "bConfigureAccount";
             this.bConfigureAccount.Size = new System.Drawing.Size(143, 28);
             this.bConfigureAccount.TabIndex = 14;
@@ -819,9 +821,9 @@
             this.tabGeneral.Controls.Add(this.gLinks);
             this.tabGeneral.Controls.Add(this.gApp);
             this.tabGeneral.Location = new System.Drawing.Point(4, 25);
-            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
             this.tabGeneral.Size = new System.Drawing.Size(1015, 629);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
@@ -832,9 +834,9 @@
             this.gLanguage.Controls.Add(this.bTranslate);
             this.gLanguage.Controls.Add(this.cLanguages);
             this.gLanguage.Location = new System.Drawing.Point(11, 298);
-            this.gLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.gLanguage.Name = "gLanguage";
-            this.gLanguage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLanguage.Padding = new System.Windows.Forms.Padding(4);
             this.gLanguage.Size = new System.Drawing.Size(599, 66);
             this.gLanguage.TabIndex = 13;
             this.gLanguage.TabStop = false;
@@ -843,7 +845,7 @@
             // bTranslate
             // 
             this.bTranslate.Location = new System.Drawing.Point(255, 21);
-            this.bTranslate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bTranslate.Margin = new System.Windows.Forms.Padding(4);
             this.bTranslate.Name = "bTranslate";
             this.bTranslate.Size = new System.Drawing.Size(119, 28);
             this.bTranslate.TabIndex = 11;
@@ -862,7 +864,7 @@
             "require explicit FTP over TLS",
             "require implicit FTP over TLS"});
             this.cLanguages.Location = new System.Drawing.Point(12, 23);
-            this.cLanguages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cLanguages.Margin = new System.Windows.Forms.Padding(4);
             this.cLanguages.Name = "cLanguages";
             this.cLanguages.Size = new System.Drawing.Size(233, 24);
             this.cLanguages.TabIndex = 1;
@@ -875,9 +877,9 @@
             this.gLinks.Controls.Add(this.rCopy2Clipboard);
             this.gLinks.Controls.Add(this.rOpenInBrowser);
             this.gLinks.Location = new System.Drawing.Point(11, 7);
-            this.gLinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLinks.Margin = new System.Windows.Forms.Padding(4);
             this.gLinks.Name = "gLinks";
-            this.gLinks.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLinks.Padding = new System.Windows.Forms.Padding(4);
             this.gLinks.Size = new System.Drawing.Size(599, 137);
             this.gLinks.TabIndex = 12;
             this.gLinks.TabStop = false;
@@ -888,7 +890,7 @@
             this.rOpenLocal.AccessibleDescription = "";
             this.rOpenLocal.AccessibleName = "open the local file";
             this.rOpenLocal.Location = new System.Drawing.Point(29, 106);
-            this.rOpenLocal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rOpenLocal.Margin = new System.Windows.Forms.Padding(4);
             this.rOpenLocal.Name = "rOpenLocal";
             this.rOpenLocal.Size = new System.Drawing.Size(544, 21);
             this.rOpenLocal.TabIndex = 3;
@@ -911,7 +913,7 @@
             this.rCopy2Clipboard.AccessibleDescription = "";
             this.rCopy2Clipboard.AccessibleName = "copy link to clipboard";
             this.rCopy2Clipboard.Location = new System.Drawing.Point(29, 78);
-            this.rCopy2Clipboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rCopy2Clipboard.Margin = new System.Windows.Forms.Padding(4);
             this.rCopy2Clipboard.Name = "rCopy2Clipboard";
             this.rCopy2Clipboard.Size = new System.Drawing.Size(544, 21);
             this.rCopy2Clipboard.TabIndex = 2;
@@ -925,7 +927,7 @@
             this.rOpenInBrowser.AccessibleName = "open link in default browser";
             this.rOpenInBrowser.Checked = true;
             this.rOpenInBrowser.Location = new System.Drawing.Point(29, 49);
-            this.rOpenInBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rOpenInBrowser.Margin = new System.Windows.Forms.Padding(4);
             this.rOpenInBrowser.Name = "rOpenInBrowser";
             this.rOpenInBrowser.Size = new System.Drawing.Size(544, 21);
             this.rOpenInBrowser.TabIndex = 1;
@@ -943,9 +945,9 @@
             this.gApp.Controls.Add(this.chkShowNots);
             this.gApp.Controls.Add(this.chkStartUp);
             this.gApp.Location = new System.Drawing.Point(11, 151);
-            this.gApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gApp.Margin = new System.Windows.Forms.Padding(4);
             this.gApp.Name = "gApp";
-            this.gApp.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gApp.Padding = new System.Windows.Forms.Padding(4);
             this.gApp.Size = new System.Drawing.Size(599, 139);
             this.gApp.TabIndex = 3;
             this.gApp.TabStop = false;
@@ -955,7 +957,7 @@
             // 
             this.chkShellMenus.AccessibleName = "add program to windows right click menu";
             this.chkShellMenus.Location = new System.Drawing.Point(12, 108);
-            this.chkShellMenus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkShellMenus.Margin = new System.Windows.Forms.Padding(4);
             this.chkShellMenus.Name = "chkShellMenus";
             this.chkShellMenus.Size = new System.Drawing.Size(579, 21);
             this.chkShellMenus.TabIndex = 11;
@@ -967,7 +969,7 @@
             // 
             this.bBrowseLogs.AccessibleDescription = "opens the debug log file";
             this.bBrowseLogs.Location = new System.Drawing.Point(255, 75);
-            this.bBrowseLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bBrowseLogs.Margin = new System.Windows.Forms.Padding(4);
             this.bBrowseLogs.Name = "bBrowseLogs";
             this.bBrowseLogs.Size = new System.Drawing.Size(119, 28);
             this.bBrowseLogs.TabIndex = 10;
@@ -979,7 +981,7 @@
             // 
             this.chkEnableLogging.AccessibleName = "enable logging";
             this.chkEnableLogging.Location = new System.Drawing.Point(12, 80);
-            this.chkEnableLogging.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkEnableLogging.Margin = new System.Windows.Forms.Padding(4);
             this.chkEnableLogging.Name = "chkEnableLogging";
             this.chkEnableLogging.Size = new System.Drawing.Size(579, 21);
             this.chkEnableLogging.TabIndex = 9;
@@ -994,7 +996,7 @@
             this.chkShowNots.Checked = true;
             this.chkShowNots.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowNots.Location = new System.Drawing.Point(12, 52);
-            this.chkShowNots.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkShowNots.Margin = new System.Windows.Forms.Padding(4);
             this.chkShowNots.Name = "chkShowNots";
             this.chkShowNots.Size = new System.Drawing.Size(579, 21);
             this.chkShowNots.TabIndex = 7;
@@ -1007,7 +1009,7 @@
             this.chkStartUp.AccessibleDescription = "";
             this.chkStartUp.AccessibleName = "start on system startup";
             this.chkStartUp.Location = new System.Drawing.Point(12, 23);
-            this.chkStartUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkStartUp.Margin = new System.Windows.Forms.Padding(4);
             this.chkStartUp.Name = "chkStartUp";
             this.chkStartUp.Size = new System.Drawing.Size(579, 21);
             this.chkStartUp.TabIndex = 6;
@@ -1021,9 +1023,9 @@
             this.tabBandwidth.Controls.Add(this.gSyncing);
             this.tabBandwidth.Controls.Add(this.gLimits);
             this.tabBandwidth.Location = new System.Drawing.Point(4, 25);
-            this.tabBandwidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabBandwidth.Margin = new System.Windows.Forms.Padding(4);
             this.tabBandwidth.Name = "tabBandwidth";
-            this.tabBandwidth.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabBandwidth.Padding = new System.Windows.Forms.Padding(4);
             this.tabBandwidth.Size = new System.Drawing.Size(1015, 629);
             this.tabBandwidth.TabIndex = 3;
             this.tabBandwidth.Text = "Bandwidth";
@@ -1038,7 +1040,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.Location = new System.Drawing.Point(323, 139);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(445, 289);
             this.button4.TabIndex = 28;
@@ -1052,9 +1054,9 @@
             this.gSyncing.Controls.Add(this.cAuto);
             this.gSyncing.Controls.Add(this.cManually);
             this.gSyncing.Location = new System.Drawing.Point(11, 7);
-            this.gSyncing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gSyncing.Margin = new System.Windows.Forms.Padding(4);
             this.gSyncing.Name = "gSyncing";
-            this.gSyncing.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gSyncing.Padding = new System.Windows.Forms.Padding(4);
             this.gSyncing.Size = new System.Drawing.Size(596, 153);
             this.gSyncing.TabIndex = 2;
             this.gSyncing.TabStop = false;
@@ -1082,7 +1084,7 @@
             // 
             this.nSyncFrequency.AccessibleName = "synchronization interval in seconds";
             this.nSyncFrequency.Location = new System.Drawing.Point(47, 110);
-            this.nSyncFrequency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nSyncFrequency.Margin = new System.Windows.Forms.Padding(4);
             this.nSyncFrequency.Maximum = new decimal(new int[] {
             79228,
             0,
@@ -1097,7 +1099,7 @@
             // 
             this.cAuto.AccessibleName = "synchronize automatically";
             this.cAuto.Location = new System.Drawing.Point(29, 81);
-            this.cAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cAuto.Margin = new System.Windows.Forms.Padding(4);
             this.cAuto.Name = "cAuto";
             this.cAuto.Size = new System.Drawing.Size(548, 21);
             this.cAuto.TabIndex = 1;
@@ -1109,7 +1111,7 @@
             // 
             this.cManually.AccessibleName = "synchronize manually";
             this.cManually.Location = new System.Drawing.Point(29, 53);
-            this.cManually.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cManually.Margin = new System.Windows.Forms.Padding(4);
             this.cManually.Name = "cManually";
             this.cManually.Size = new System.Drawing.Size(548, 21);
             this.cManually.TabIndex = 0;
@@ -1128,9 +1130,9 @@
             this.gLimits.Controls.Add(this.labUpSpeed);
             this.gLimits.Controls.Add(this.labDownSpeed);
             this.gLimits.Location = new System.Drawing.Point(11, 167);
-            this.gLimits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLimits.Margin = new System.Windows.Forms.Padding(4);
             this.gLimits.Name = "gLimits";
-            this.gLimits.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gLimits.Padding = new System.Windows.Forms.Padding(4);
             this.gLimits.Size = new System.Drawing.Size(596, 194);
             this.gLimits.TabIndex = 1;
             this.gLimits.TabStop = false;
@@ -1167,7 +1169,7 @@
             // 
             this.nUpLimit.AccessibleName = "upload speed limit";
             this.nUpLimit.Location = new System.Drawing.Point(47, 123);
-            this.nUpLimit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nUpLimit.Margin = new System.Windows.Forms.Padding(4);
             this.nUpLimit.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1182,7 +1184,7 @@
             // 
             this.nDownLimit.AccessibleName = "download speed limit";
             this.nDownLimit.Location = new System.Drawing.Point(47, 55);
-            this.nDownLimit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nDownLimit.Margin = new System.Windows.Forms.Padding(4);
             this.nDownLimit.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1359,61 +1361,38 @@
             // 
             this.main_tab.BackgroundImage = global::FTPbox.Properties.Resources.lnchbg;
             this.main_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.main_tab.Controls.Add(this.button5);
-            this.main_tab.Controls.Add(this.button1);
+            this.main_tab.Controls.Add(this.pictureBox3);
             this.main_tab.Controls.Add(this.files_info);
             this.main_tab.Controls.Add(this.totalSizeLabel);
-            this.main_tab.Controls.Add(this.button3);
-            this.main_tab.Controls.Add(this.button2);
+            this.main_tab.Controls.Add(this.download_Button);
+            this.main_tab.Controls.Add(this.check_Button);
             this.main_tab.Controls.Add(this.label2);
             this.main_tab.Controls.Add(this.progressBar1);
+            this.main_tab.Controls.Add(this.playnow_Button);
             this.main_tab.Location = new System.Drawing.Point(4, 25);
-            this.main_tab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_tab.Margin = new System.Windows.Forms.Padding(4);
             this.main_tab.Name = "main_tab";
-            this.main_tab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_tab.Padding = new System.Windows.Forms.Padding(4);
             this.main_tab.Size = new System.Drawing.Size(1015, 629);
             this.main_tab.TabIndex = 6;
             this.main_tab.Text = "Status";
             this.main_tab.UseVisualStyleBackColor = true;
             this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // button5
+            // pictureBox3
             // 
-            this.button5.BackgroundImage = global::FTPbox.Properties.Resources.SHSO_Launcher_Banner;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(185, 32);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(529, 128);
-            this.button5.TabIndex = 28;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            this.button5.MouseHover += new System.EventHandler(this.button5_MouseHover);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::FTPbox.Properties.Resources.playnow_red;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(669, -20);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(343, 204);
-            this.button1.TabIndex = 27;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
-            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
+            this.pictureBox3.BackgroundImage = global::FTPbox.Properties.Resources.SHSO_Launcher_Banner;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(185, 32);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(529, 128);
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.banner_Button_Click);
             // 
             // files_info
             // 
+            this.files_info.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.files_info.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.files_info.Location = new System.Drawing.Point(11, 183);
             this.files_info.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1436,35 +1415,35 @@
             this.totalSizeLabel.TabIndex = 20;
             this.totalSizeLabel.Text = "Please click Check to start checking for updates!";
             // 
-            // button3
+            // download_Button
             // 
-            this.button3.Enabled = false;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button3.Location = new System.Drawing.Point(704, 455);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(305, 57);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "Download";
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.download_Button.Enabled = false;
+            this.download_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.download_Button.ForeColor = System.Drawing.Color.ForestGreen;
+            this.download_Button.Location = new System.Drawing.Point(704, 455);
+            this.download_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.download_Button.Name = "download_Button";
+            this.download_Button.Size = new System.Drawing.Size(305, 57);
+            this.download_Button.TabIndex = 25;
+            this.download_Button.Text = "Download";
+            this.download_Button.UseCompatibleTextRendering = true;
+            this.download_Button.UseVisualStyleBackColor = true;
+            this.download_Button.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // check_Button
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button2.Location = new System.Drawing.Point(12, 455);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(305, 57);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Check";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.check_Button.BackColor = System.Drawing.Color.Transparent;
+            this.check_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_Button.ForeColor = System.Drawing.Color.ForestGreen;
+            this.check_Button.Location = new System.Drawing.Point(12, 455);
+            this.check_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.check_Button.Name = "check_Button";
+            this.check_Button.Size = new System.Drawing.Size(305, 57);
+            this.check_Button.TabIndex = 19;
+            this.check_Button.Text = "Check";
+            this.check_Button.UseCompatibleTextRendering = true;
+            this.check_Button.UseVisualStyleBackColor = false;
+            this.check_Button.Click += new System.EventHandler(this.check_Button_Click);
             // 
             // label2
             // 
@@ -1479,10 +1458,25 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(19, 559);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(979, 42);
             this.progressBar1.TabIndex = 22;
+            // 
+            // playnow_Button
+            // 
+            this.playnow_Button.BackgroundImage = global::FTPbox.Properties.Resources.playnow_red;
+            this.playnow_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.playnow_Button.Location = new System.Drawing.Point(681, -25);
+            this.playnow_Button.Name = "playnow_Button";
+            this.playnow_Button.Size = new System.Drawing.Size(334, 218);
+            this.playnow_Button.TabIndex = 29;
+            this.playnow_Button.TabStop = false;
+            this.playnow_Button.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.playnow_Button.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseDown);
+            this.playnow_Button.MouseEnter += new System.EventHandler(this.playnow_Button_MouseHover);
+            this.playnow_Button.MouseLeave += new System.EventHandler(this.playnow_Button_MouseLeave);
+            this.playnow_Button.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseUp);
             // 
             // tabControl1
             // 
@@ -1496,7 +1490,7 @@
             this.tabControl1.Controls.Add(this.tabAbout);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(-3, 2);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1023, 658);
@@ -1524,7 +1518,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(1011, 626);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.DoubleClick += new System.EventHandler(this.richTextBox1_DoubleClick);
+            this.richTextBox1.DoubleClick += new System.EventHandler(this.buglist_Textbox_DoubleClick);
             // 
             // fMain
             // 
@@ -1534,7 +1528,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "fMain";
@@ -1569,6 +1563,8 @@
             this.tabCredits.PerformLayout();
             this.main_tab.ResumeLayout(false);
             this.main_tab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playnow_Button)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1664,10 +1660,9 @@
         private System.Windows.Forms.TabPage tabCredits;
         private System.Windows.Forms.TabPage main_tab;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button download_Button;
         private System.Windows.Forms.TextBox files_info;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button check_Button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label totalSizeLabel;
@@ -1684,6 +1679,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox playnow_Button;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

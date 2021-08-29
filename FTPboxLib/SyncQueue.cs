@@ -32,7 +32,7 @@ namespace FTPboxLib
         public static Label totalSizeLabel = null;  // CSP
         public static Label label2 = null;  // CSP
         public static ProgressBar progressBar1 = null; // CSP
-        public static Button button1 = null; // CSP
+        //public static Button button1 = null; // CSP
         public static bool startsync = false; // Titan
         public static TextBox logtext = null; // Titan
         public static float totaldownloadsize = 0; // Titan
@@ -536,7 +536,7 @@ namespace FTPboxLib
             {
                 if (totalSize == 0)
                 {
-                    button1.Enabled = true;
+                    //button1.Enabled = true;
                     return StatusType.Success;
                 }
                 list = newlist;

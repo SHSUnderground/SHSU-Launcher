@@ -64,13 +64,24 @@ namespace FTPbox.Forms
             //button1.FlatStyle = FlatStyle.Flat; // Titan
             //button1.FlatAppearance.BorderSize = 0; // Titan
             button2.Enabled = false; // Titan
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button4.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button5.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button4.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button5.FlatAppearance.MouseDownBackColor = Color.Transparent;
 
             tabControl1.TabPages.Remove(tabAbout);
             tabControl1.TabPages.Remove(tabGeneral);
             tabControl1.TabPages.Remove(tabBandwidth);
             tabControl1.TabPages.Remove(tabFilters);
             tabControl1.TabPages.Remove(tabAccount);
-            tabControl1.TabPages.Remove(tabCredits);
             //tabControl1.Visible = false;
 
             Stream fontStream = this.GetType().Assembly.GetManifestResourceStream("FTPbox.ZOOOBRG.ttf");
@@ -1252,15 +1263,22 @@ namespace FTPbox.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // CSP launch SHSO game here....
-            //Process.Start("C:\\SHSO\\shso.exe");
+            try
+            {
+                // CSP launch SHSO game here....
+                //Process.Start("C:\\SHSO\\shso.exe");
 
-            ProcessStartInfo _processStartInfo = new ProcessStartInfo();
-            _processStartInfo.WorkingDirectory = "C:\\SHSO\\";
-            _processStartInfo.FileName = "shso.exe";
-            //_processStartInfo.Arguments = "test.txt";
-            //_processStartInfo.CreateNoWindow = true;
-            Process myProcess = Process.Start(_processStartInfo);
+                ProcessStartInfo _processStartInfo = new ProcessStartInfo();
+                _processStartInfo.WorkingDirectory = "C:\\SHSO\\";
+                _processStartInfo.FileName = "shso.exe";
+                //_processStartInfo.Arguments = "test.txt";
+                //_processStartInfo.CreateNoWindow = true;
+                Process myProcess = Process.Start(_processStartInfo);
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't launch the game, please check and download first.\nIf problem still persists please report on the website and create a ticket (Support -> Create Support Ticket), and send the file called \"Debug\" or \"Debug.html\" located in SHSO_Launcher\\Config as well.");
+            }
         }
 
         // Titan
@@ -1370,32 +1388,32 @@ namespace FTPbox.Forms
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             button1.BackgroundImage = Resources.playnow_hold;
+            //button1.FlatAppearance.BorderSize = 0;
+
         }
 
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             button1.BackgroundImage = Resources.playnow_green;
+            //button1.FlatAppearance.BorderSize = 0;
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
             button1.BackgroundImage = Resources.playnow_green;
+            //button1.FlatAppearance.BorderSize = 0;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackgroundImage = Resources.playnow_red;
-        }
-
-        private void textBox1_VisibleChanged(object sender, EventArgs e)
-        {
-
+            //button1.FlatAppearance.BorderSize = 0;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start("IEXPLORE.EXE", "https://retrosquadonline.com/index.php/forums/");
-            string url = "https://retrosquadonline.com/index.php/forums/";
+            string url = "https://retrosquadonline.com/";
             try
             {
                 Process.Start(url);

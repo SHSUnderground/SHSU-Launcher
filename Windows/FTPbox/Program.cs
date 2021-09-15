@@ -37,12 +37,12 @@ namespace FTPbox
 
             ////////// block added by CSP ////////////////
             //Program.Account.
-            Program.Account.AddAccount("172.96.189.242", "sftpuser", "shso", 22);
-            Program.Account.Account.Protocol = FtpProtocol.SFTP;
-            Program.Account.Account.FtpsMethod = (FtpsMethod)2; // CSP force to explicit encrytpion  //cEncryption.SelectedIndex;
+            Program.Account.AddAccount("127.0.0.1", "sftpuser", "shso", 8080);
+            Program.Account.Account.Protocol = FtpProtocol.FTP;
+            Program.Account.Account.FtpsMethod = (FtpsMethod)0; // CSP force to explicit encrytpion  //cEncryption.SelectedIndex;
             Program.Account.Account.PrivateKeyFile = null;
             Directory.CreateDirectory("C:\\SHSO");
-            Program.Account.AddPaths("/www/shso", "C:\\SHSO", "172.96.189.242/www/shso");
+            Program.Account.AddPaths("/SHSO", "C:\\SHSO", "127.0.0.1/SHSO");
             Program.Account.Account.SyncDirection = SyncDirection.Local;
             //////////////////////////////////////////////
 

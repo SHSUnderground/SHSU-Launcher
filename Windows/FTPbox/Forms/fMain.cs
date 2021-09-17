@@ -90,7 +90,7 @@ namespace FTPbox.Forms
             check_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             download_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
 
-            string strArguments = " -jar " + "google-drive-ftp-adapter-jar-with-dependencies.jar";
+            string strArguments = " -jar " + "Config/google-drive-ftp-adapter-jar-with-dependencies.jar";
             processJar.StartInfo.FileName = "\"" + @"java" + "\"";
             processJar.StartInfo.Arguments = strArguments;
             processJar.StartInfo.WorkingDirectory = ""; //Give the working directory of the application;
@@ -1294,7 +1294,7 @@ namespace FTPbox.Forms
             // maybe call other methods here?
             // write a discord message?
             var channel = _services.GetService<IDiscordService>()
-                .GetSocketTextChannel(835828591430074368);
+                .GetSocketTextChannel(817778921146679296);
 
             //IDs:
             /*
@@ -1316,7 +1316,7 @@ namespace FTPbox.Forms
                 buglist = buglist.Replace("```", "");
             }
             catch {
-                buglist = "Error happened with bug list, please report this to the devs or check your internet connection!";
+                buglist = "Error happened with bug list, please report this to the devs or check your internet connection, double click to refresh.";
             };
 
             return buglist;//patchnotes.Last().ToString();

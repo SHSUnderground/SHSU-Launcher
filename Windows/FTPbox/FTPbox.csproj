@@ -150,6 +150,7 @@
     <Reference Include="System.Linq.Async, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Async.4.0.0\lib\net461\System.Linq.Async.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -270,6 +271,18 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="Config\configuration.properties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\general.conf" />
+    <None Include="Config\profiles.conf" />
+    <None Include="Config\trusted_certificates.conf" />
+    <None Include="Config\data\cache\default.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\data\google\default\StoredCredential">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Resources\app.config" />
     <None Include="Properties\Settings.settings">
@@ -289,6 +302,10 @@
     <None Include="Resources\btn_donate_SM.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Debug.html" />
+    <Content Include="Config\google-drive-ftp-adapter-jar-with-dependencies.jar">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\folder.jpg" />
     <None Include="Resources\playnow_red.png" />
     <None Include="Resources\playnow_green.png" />

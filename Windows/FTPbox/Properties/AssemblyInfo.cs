@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FTPbox")]
-[assembly: AssemblyDescription("sync to your host via ftp")]
+[assembly: AssemblyTitle("SHSO_Launcher")]
+[assembly: AssemblyDescription("Download SHSO game files")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ftpbox.org")]
-[assembly: AssemblyProduct("FTPbox")]
-[assembly: AssemblyCopyright("Copyright ©  2012-2013")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SHSO_Launcher")]
+[assembly: AssemblyCopyright("Copyright © 2012-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

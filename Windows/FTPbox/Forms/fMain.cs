@@ -29,6 +29,7 @@ using Settings = FTPboxLib.Settings;
 using Squirrel;
 using Microsoft.Extensions.DependencyInjection; // Titan
 using System.Drawing.Text; // Titan
+using System.Management;
 
 namespace FTPbox.Forms
 {
@@ -49,6 +50,7 @@ namespace FTPbox.Forms
         public string LocLink = string.Empty; //The local path to the last-changed file
 
         public static Label totalSizePublic;
+        public Process processJar = new Process();
 
         public fMain()
         {
@@ -61,16 +63,7 @@ namespace FTPbox.Forms
         private async void fMain_Load(object sender, EventArgs e)
         {
             tray.Visible = false;
-            //button1.FlatStyle = FlatStyle.Flat; // Titan
-            //button1.FlatAppearance.BorderSize = 0; // Titan
-            check_Button.Enabled = false; // Titan
-
-            tabControl1.TabPages.Remove(tabAbout);
-            tabControl1.TabPages.Remove(tabGeneral);
-            tabControl1.TabPages.Remove(tabBandwidth);
-            tabControl1.TabPages.Remove(tabFilters);
-            tabControl1.TabPages.Remove(tabAccount);
-            //tabControl1.Visible = false;
+            totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
 
             Stream fontStream = this.GetType().Assembly.GetManifestResourceStream("FTPbox.ZOOOBRG.ttf");
             byte[] fontdata = new byte[fontStream.Length];
@@ -83,88 +76,6 @@ namespace FTPbox.Forms
                     pfc.AddMemoryFont((System.IntPtr)pFontData, fontdata.Length);
                 }
             }
-
-            richTextBox1.BackColor = Color.White;
-            ServicePointManager.ServerCertificateValidationCallback =
-           new System.Net.Security.RemoteCertificateValidationCallback(
-                delegate
-                { return true; });
-            System.Net.WebClient wc = new System.Net.WebClient();
-            string buglist = "Please check your internet connection. If issue still persists please report this to the devs!";
-            try
-            {
-                string webData = wc.DownloadString("https://retrosquadonline.com/index.php/forums/topic/in-game-bugs/");
-                //string buglist = "";
-                //int index = webData.IndexOf("Monkey.D.Maxi");
-                int index = webData.IndexOf("class=\"bbp-author-name\">Monkey.D.Maxi</span></a><div class=\"bbp-author-role\">Participant</div>\n\t\t\n\t\t\n\t</div><!-- .bbp-reply-author -->\n\n\t<div class=\"bbp-reply-content\">\n\n\t\t\n\t\t<p>");
-                if (index >= 0)
-                {
-                    webData = webData.Substring(index + 175, webData.IndexOf("</p>\n\n\n<ul id") - index - 4);
-                    //richTextBox1.SelectedText = "Monkey D. Mexyy";
-                    buglist = webData;
-                    string text = "";
-                    while (buglist.IndexOf("<p>") > -1)
-                    {
-                        richTextBox1.SelectionColor = Color.Red;
-                        //richTextBox1.SelectionFont = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-
-                        text = buglist.Substring(buglist.IndexOf("<p>"), buglist.IndexOf("</p>") - buglist.IndexOf("<p>")) + "</p>";
-                        text = text.Replace("<p>", "");
-                        text = text.Replace("</p>", "\n\n");
-                        text = text.Replace("\n<br>", "");
-                        text = text.Replace("<br />\n", "\n");
-                        text = text.Replace("&#8217;", "'");
-                        text = text.Replace("#8220;", "\"");
-                        text = text.Replace("#8221;", "\"");
-                        text = text.Replace("â€™", "'");
-
-                        richTextBox1.SelectedText = text;
-
-                        buglist = buglist.Remove(buglist.IndexOf("<p>"), 3);
-                        buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
-
-                        richTextBox1.SelectionColor = Color.Black;
-                        //richTextBox1.SelectionFont= new Font("Times New Roman", 16, FontStyle.Regular);
-
-                        text = buglist.Substring(0, buglist.IndexOf("</p>"));
-                        text = text.Replace("\n<p>", ""); // to fix double empty lines
-                        text = text.Replace("</p>", "\n\n");
-                        text = text.Replace("<br />\n", "\n");
-                        text = text.Replace("&#8217;", "'");
-                        text = text.Replace("#8220;", "\"");
-                        text = text.Replace("#8221;", "\"");
-                        text = text.Replace("â€™", "'");
-
-                        richTextBox1.SelectedText = text;
-
-                        buglist = buglist.Substring(buglist.IndexOf("</p>"));
-                        buglist = buglist.Remove(buglist.IndexOf("</p>"), 4);
-
-                        richTextBox1.SelectedText = "\n\n";
-                        //buglist = buglist.Remove(buglist.IndexOf("</p>"), 3);
-
-                    }
-                    //richTextBox1.SelectionColor = Color.Red;
-                    //richTextBox1.SelectedText = buglist.Substring(0, buglist.IndexOf("\n<p>"));
-                    //buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
-
-                    //buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
-                    buglist = buglist.Replace("<p>", "");
-                    buglist = buglist.Replace("</p>", "\r\n\r\n");
-                    buglist = buglist.Replace("<br />\n", "\r\n");
-                    buglist = buglist.Replace("&#8217;", "'");
-                    buglist = buglist.Replace("#8220;", "\"");
-                    buglist = buglist.Replace("#8221;", "\"");
-                    buglist = buglist.Replace("â€™", "'");
-                }
-            }
-            catch { };
-            //textBox1.Text = buglist;
-            //richTextBox1.Text = buglist;
-            totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
-            //FTPbox.ZOOOBRG.ttf
-
-
             //label14.UseCompatibleTextRendering = true;
             label14.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
             label15.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
@@ -178,6 +89,33 @@ namespace FTPbox.Forms
             label30.Font = new Font(pfc.Families[0], (float)24, FontStyle.Regular);
             check_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             download_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
+
+            string strArguments = " -jar " + "google-drive-ftp-adapter-jar-with-dependencies.jar";
+            processJar.StartInfo.FileName = "\"" + @"java" + "\"";
+            processJar.StartInfo.Arguments = strArguments;
+            processJar.StartInfo.WorkingDirectory = ""; //Give the working directory of the application;
+            processJar.StartInfo.UseShellExecute = true;
+            //processJar.StartInfo.RedirectStandardOutput = true;
+            processJar.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processJar.Start();
+            //processJar.CloseMainWindow();
+
+
+            //button1.FlatStyle = FlatStyle.Flat; // Titan
+            //button1.FlatAppearance.BorderSize = 0; // Titan
+            check_Button.Enabled = false; // Titan
+
+            tabControl1.TabPages.Remove(tabAbout);
+            tabControl1.TabPages.Remove(tabGeneral);
+            tabControl1.TabPages.Remove(tabBandwidth);
+            tabControl1.TabPages.Remove(tabFilters);
+            tabControl1.TabPages.Remove(tabAccount);
+            //tabControl1.Visible = false;
+
+            
+
+            richTextBox1.Text = await getbuglistfromdiscord();
+            //FTPbox.ZOOOBRG.ttf
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
 
             //TODO: Should this stay?
@@ -464,13 +402,44 @@ namespace FTPbox.Forms
             try
             {
                 tray.Visible = false;
-                Process.GetCurrentProcess().Kill();
+                KillProcessAndChildren(Process.GetCurrentProcess().Id);
+                //Process.GetCurrentProcess().Kill();
             }
             catch
             {
                 Application.Exit();
             }
         }
+
+        /// <summary>
+        /// Kill a process, and all of its children, grandchildren, etc.
+        /// </summary>
+        /// <param name="pid">Process ID.</param>
+        private static void KillProcessAndChildren(int pid)
+        {
+            // Cannot close 'system idle process'.
+            if (pid == 0)
+            {
+                return;
+            }
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher
+                    ("Select * From Win32_Process Where ParentProcessID=" + pid);
+            ManagementObjectCollection moc = searcher.Get();
+            foreach (ManagementObject mo in moc)
+            {
+                KillProcessAndChildren(Convert.ToInt32(mo["ProcessID"]));
+            }
+            try
+            {
+                Process proc = Process.GetProcessById(pid);
+                proc.Kill();
+            }
+            catch (ArgumentException)
+            {
+                // Process already exited.
+            }
+        }
+
 
         #region Update System
 
@@ -1182,6 +1151,7 @@ namespace FTPbox.Forms
                 e.Cancel = true;
                 Hide();
             }*/
+            
             KillTheProcess();
         }
 
@@ -1239,17 +1209,7 @@ namespace FTPbox.Forms
 
         #endregion
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            //totalSizeLabel.Text = FTPboxLib.SyncQueue.totalSize.ToString();  // CSP
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void playnow_Button_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1314,6 +1274,57 @@ namespace FTPbox.Forms
             //await Task.Delay(-1);
         }
 
+        static async Task<string> getbuglistfromdiscord() // Titan
+        {
+            _services = new ServiceCollection()
+                .AddOptions()
+                .Configure<DiscordServiceOptions>(options =>
+                {
+                    options.BotToken = "ODc5NDA0MDA4MjgyOTMxMjAw.YSPOzg.8cZudpFnqjokaI1CI-xF_CakqE8";
+                })
+                .AddSingleton<IDiscordService, DiscordService>()
+                .AddLogging()
+                .BuildServiceProvider();
+
+            Task discordReady = _services.GetService<IDiscordService>()
+                .Ready();
+
+            await discordReady;
+
+            // maybe call other methods here?
+            // write a discord message?
+            var channel = _services.GetService<IDiscordService>()
+                .GetSocketTextChannel(835828591430074368);
+
+            //IDs:
+            /*
+             887779522538274896
+             887779686783021096
+             887779739530584114
+             */
+            string buglist = "";
+            try
+            {
+                var buglistmsg = await channel.GetMessageAsync(887779522538274896);
+                buglist += buglistmsg.Content + "\n";
+                buglistmsg = await channel.GetMessageAsync(887779686783021096);
+                buglist += buglistmsg.Content + "\n";
+                buglistmsg = await channel.GetMessageAsync(887779739530584114);
+                buglist += buglistmsg.Content + "\n";
+                //files_info.Text = patchnotes.ToString();
+                buglist = buglist.Replace("\n", "\r\n");
+                buglist = buglist.Replace("```", "");
+            }
+            catch {
+                buglist = "Error happened with bug list, please report this to the devs or check your internet connection!";
+            };
+
+            return buglist;//patchnotes.Last().ToString();
+
+            //await channel.SendMessageAsync("Hello World!");
+
+            //await Task.Delay(-1);
+        }
 
 
         private async void check_Button_Click(object sender, EventArgs e)   // Titan
@@ -1364,11 +1375,14 @@ namespace FTPbox.Forms
 
         }
 
-        private async void button3_Click(object sender, EventArgs e) // Titan
+        private async void download_Button_Click(object sender, EventArgs e) // Titan
         {
             FTPboxLib.SyncQueue.folderchecked = true;
             FTPboxLib.SyncQueue.startsync = true;
-            await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+            for (int i = 0; i < 10; i++)
+            {
+                await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+            }
             totalSizeLabel.Text = "Download Complete. Click Play Now to play!";
             //playnow_Button.Enabled = true;
         }
@@ -1376,7 +1390,7 @@ namespace FTPbox.Forms
         private void banner_Button_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start("IEXPLORE.EXE", "https://retrosquadonline.com/index.php/forums/");
-            string url = "https://retrosquadonline.com/";
+            string url = "https://discord.gg/cVSYeVa2Gg";
             try
             {
                 Process.Start(url);
@@ -1404,9 +1418,9 @@ namespace FTPbox.Forms
             }
         }
 
-        private void buglist_Textbox_DoubleClick(object sender, EventArgs e)
+        private async void buglist_Textbox_DoubleClick(object sender, EventArgs e)
         {
-            System.Net.WebClient wc = new System.Net.WebClient();
+            /*System.Net.WebClient wc = new System.Net.WebClient();
             string buglist = "Please check your internet connection and doubleclick this field to refresh. If the issue still persists please report this to the devs!";
             try
             {
@@ -1466,6 +1480,8 @@ namespace FTPbox.Forms
                 }
             }
             catch { };
+            */
+            richTextBox1.Text = await getbuglistfromdiscord();
         }
 
         private void playnow_Button_MouseDown(object sender, MouseEventArgs e)

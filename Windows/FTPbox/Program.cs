@@ -42,7 +42,7 @@ namespace FTPbox
             Program.Account.Account.FtpsMethod = (FtpsMethod)0; // CSP force to explicit encrytpion  //cEncryption.SelectedIndex;
             Program.Account.Account.PrivateKeyFile = null;
             Directory.CreateDirectory("C:\\SHSO");
-            Program.Account.AddPaths("/SHSO", "C:\\SHSO", "127.0.0.1/SHSO");
+            Program.Account.AddPaths("/", "C:\\SHSO", "127.0.0.1");
             Program.Account.Account.SyncDirection = SyncDirection.Local;
             //////////////////////////////////////////////
 

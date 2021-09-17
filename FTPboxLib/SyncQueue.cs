@@ -781,8 +781,10 @@ namespace FTPboxLib
             var remDif = remLwt - remLog;
             var locDif = locLwt - locLog;
             //FileInfo tmpfile = new FileInfo(item.PathToFile);
-            var locSize = File.OpenRead(item.LocalPath).Length;
+            var filevar = File.OpenRead(item.LocalPath);
+            var locSize = filevar.Length;
             var remSize = item.Item.Size;
+            filevar.Close();
 
             // Set to TransferStatus.None by default, incase none of the following
             // conditions are met (which means the file is up-to-date already)

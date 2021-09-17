@@ -1395,7 +1395,6 @@
             this.main_tab.TabIndex = 6;
             this.main_tab.Text = "Status";
             this.main_tab.UseVisualStyleBackColor = true;
-            this.main_tab.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // banner_Button
             // 
@@ -1448,7 +1447,7 @@
             this.download_Button.Text = "Download";
             this.download_Button.UseCompatibleTextRendering = true;
             this.download_Button.UseVisualStyleBackColor = true;
-            this.download_Button.Click += new System.EventHandler(this.button3_Click);
+            this.download_Button.Click += new System.EventHandler(this.download_Button_Click);
             // 
             // check_Button
             // 
@@ -1492,7 +1491,7 @@
             this.playnow_Button.Size = new System.Drawing.Size(334, 218);
             this.playnow_Button.TabIndex = 29;
             this.playnow_Button.TabStop = false;
-            this.playnow_Button.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.playnow_Button.Click += new System.EventHandler(this.playnow_Button_Click);
             this.playnow_Button.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playnow_Button_MouseDown);
             this.playnow_Button.MouseEnter += new System.EventHandler(this.playnow_Button_MouseHover);
             this.playnow_Button.MouseLeave += new System.EventHandler(this.playnow_Button_MouseLeave);

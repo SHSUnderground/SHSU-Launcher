@@ -271,16 +271,16 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Config\configuration.properties">
+    <None Include="configuration.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Config\general.conf" />
     <None Include="Config\profiles.conf" />
     <None Include="Config\trusted_certificates.conf" />
-    <None Include="Config\data\cache\default.db">
+    <None Include="data\cache\default.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Config\data\google\default\StoredCredential">
+    <None Include="data\google\default\StoredCredential">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -303,7 +303,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Debug.html" />
-    <Content Include="Config\google-drive-ftp-adapter-jar-with-dependencies.jar">
+    <Content Include="google-drive-ftp-adapter-jar-with-dependencies.jar">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\folder.jpg" />
@@ -315,6 +315,7 @@
     <Content Include="Resources\settings.jpg" />
     <None Include="Resources\SHSO_Launcher_Banner.png" />
     <None Include="Resources\SHSO_Launcher_Banner_Hover.png" />
+    <Content Include="SHSO_Logo.ico" />
     <Content Include="shso__icon.ico" />
     <Content Include="translations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -124,9 +124,6 @@
   <data name="all_synced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\all synced.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SHSO_Launcher_Banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SHSO_Launcher_Banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="syncing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\syncing.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +159,9 @@
   </data>
   <data name="donate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_donate_SM.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SHSO_Launcher_Banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SHSO_Launcher_Banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SHSO_Launcher_Banner_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SHSO_Launcher_Banner_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

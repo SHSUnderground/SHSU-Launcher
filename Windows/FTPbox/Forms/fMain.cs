@@ -90,15 +90,15 @@ namespace FTPbox.Forms
             check_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             download_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
 
-            string strArguments = " -jar " + "Config/google-drive-ftp-adapter-jar-with-dependencies.jar";
+            string strArguments = " -jar " + "google-drive-ftp-adapter-jar-with-dependencies.jar";
             processJar.StartInfo.FileName = "\"" + @"java" + "\"";
             processJar.StartInfo.Arguments = strArguments;
             processJar.StartInfo.WorkingDirectory = ""; //Give the working directory of the application;
-            processJar.StartInfo.UseShellExecute = true;
-            //processJar.StartInfo.RedirectStandardOutput = true;
-            processJar.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processJar.StartInfo.UseShellExecute = false;
+            processJar.StartInfo.RedirectStandardOutput = true;
+            //processJar.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processJar.StartInfo.CreateNoWindow = true;
             processJar.Start();
-            //processJar.CloseMainWindow();
 
 
             //button1.FlatStyle = FlatStyle.Flat; // Titan
@@ -176,7 +176,7 @@ namespace FTPbox.Forms
             totalSizeLabel.Text = "Please click Check to start checking for updates!";
             //_fTrayForm = new fTrayForm { Tag = this };
 
-            //await CheckForUpdate(); // Commented out by Titan, uncessary check
+            await CheckForUpdate(); // Commented out by Titan, uncessary check
 
             // Check local folder for changes
             /*var cpath = Program.Account.GetCommonPath(Program.Account.Paths.Local, true);
@@ -1377,14 +1377,23 @@ namespace FTPbox.Forms
 
         private async void download_Button_Click(object sender, EventArgs e) // Titan
         {
+            playnow_Button.Enabled = false;
+            check_Button.Enabled = false;
+            download_Button.Enabled = false;
+            download_Button.Text = "Downloading...";
             FTPboxLib.SyncQueue.folderchecked = true;
             FTPboxLib.SyncQueue.startsync = true;
-            for (int i = 0; i < 10; i++)
+            FTPboxLib.SyncQueue.firstDownloadLoopIteration = true;
+            while(!FTPboxLib.SyncQueue.downloadComplete)
             {
                 await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
+                FTPboxLib.SyncQueue.firstDownloadLoopIteration = false;
             }
+            download_Button.Text = "Download";
+            download_Button.Enabled = true;
             totalSizeLabel.Text = "Download Complete. Click Play Now to play!";
-            //playnow_Button.Enabled = true;
+            check_Button.Enabled = true;
+            playnow_Button.Enabled = true;
         }
 
         private void banner_Button_Click(object sender, EventArgs e)

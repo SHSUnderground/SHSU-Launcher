@@ -41,7 +41,12 @@ namespace FTPboxLib
         //long gbsize = 1073741824; // Titan
         string sizeunitstring = " MB"; // Titan
         List<ClientItem> newlist = Enumerable.Empty<ClientItem>().ToList(); // Titan
-
+        public static bool downloadComplete = false;
+        public static bool firstDownloadLoopIteration = false;
+        //public static bool over400mb = false;
+        //float maxsize = 0;
+        DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
+        long sizeBeforeDownload = 0;
 
         public SyncQueue(AccountController account)
         {
@@ -490,6 +495,26 @@ namespace FTPboxLib
             }
         }
 
+
+        public static long DirSize(DirectoryInfo d)
+        {
+            long size = 0;
+            // Add file sizes.
+            FileInfo[] fis = d.GetFiles();
+            foreach (FileInfo fi in fis)
+            {
+                size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                size += DirSize(di);
+            }
+            return size;
+        }
+
+
         /// <summary>
         /// Synchronize the specified item with ActionType of changed or created.
         /// If the sync destination is our local folder, check if the item is already up-to-date first.
@@ -540,12 +565,17 @@ namespace FTPboxLib
                     return StatusType.Success;
                 }
                 list = newlist;
-                totalSize = 0;
-                currSize = 0;
+                totalSize = totaldownloadsize;
+                if (firstDownloadLoopIteration)
+                {
+                    currSize = 0;
+                }
             }
             else
             {
                 list = (List<ClientItem>)await _controller.Client.ListRecursive(item.CommonPath);
+                totalSize = 0;
+                currSize = 0;
             }
             //////////////////////////////
             if (_controller.Client.ListingFailed)
@@ -554,14 +584,17 @@ namespace FTPboxLib
                 return StatusType.Failure;
             }
 
-            /////// block added by CSP ///////////////
-            foreach (var f in list)
+            /////// block added by CSP, Edited by Titan ///////////////
+            if (!startsync)
             {
-                totalSize += f.Size;
+                foreach (var f in list)
+                {
+                    totalSize += f.Size;
+                }
+                Console.WriteLine("totalSize = " + totalSize);  // CSP
+                if (totalSizeLabel != null)
+                    totalSizeLabel.Text = "";  // "Total Size: " + (totalSize / 1048576).ToString() + " MB";
             }
-            Console.WriteLine("totalSize = " + totalSize);  // CSP
-            if (totalSizeLabel != null)
-                totalSizeLabel.Text = "";  // "Total Size: " + (totalSize / 1048576).ToString() + " MB";
             progressBar1.Minimum = 0;
             /////////// Titan ////////////
             if (totalSize < 1048576)
@@ -581,6 +614,7 @@ namespace FTPboxLib
             }*/
             //////////////////////////////
             progressBar1.Maximum = (int)(totalSize / sizeunit);
+            long filessize = DirSize(info);
             ///////////////////////////////////////////
 
             foreach (var f in list)
@@ -657,17 +691,22 @@ namespace FTPboxLib
                         }
                         else if (startsync)
                         {
+                            sizeBeforeDownload = DirSize(info);
                             status = await _controller.Client.SafeDownload(sqi);
 
                             /////////// block added by CSP ////////////////////
                             totalSizeLabel.Text = "New file: " + f.Name;
                             totalSizeLabel.Refresh();
-                            currSize += f.Size;
+                            currSize += DirSize(info) - sizeBeforeDownload;
                             progressBar1.Value = (int)(currSize / sizeunit);
                             int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
                             label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                             label2.Refresh();
                             Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
+                            if (currSize == totalSize)
+                            {
+                                downloadComplete = true;
+                            }
                             ///////////////////////////////////////////////////////////
                         }
                     }
@@ -801,6 +840,7 @@ namespace FTPboxLib
             {
                 if (startsync) // Titan
                 {
+                    sizeBeforeDownload = DirSize(info);
                     status = await _controller.Client.SafeDownload(item);
                 }
                 else
@@ -813,12 +853,16 @@ namespace FTPboxLib
                 /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
-                currSize += item.Item.Size;
+                currSize += DirSize(info) - sizeBeforeDownload;
                 progressBar1.Value = (int)(currSize / sizeunit);
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
                 label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();
                 Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
+                if (currSize == totalSize)
+                {
+                    downloadComplete = true;
+                }
                 ///////////////////////////////////////////////////////////
             }
             //////////////////// block commented out by CSP
@@ -840,7 +884,7 @@ namespace FTPboxLib
             //        SyncTo = SyncTo.Remote
             //    });
             //}
-            else  // else block added by CSP
+            else if (!startsync)  // else block added by CSP, edited by Titan
             {
                 /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Skipping file: " + item.Item.Name;

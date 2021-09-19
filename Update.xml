@@ -2,6 +2,6 @@
 <item>
     <version>2.77</version>
     <url>https://cdn.discordapp.com/attachments/888888762988367942/888891015023460372/Update.zip</url>
-    <changelog>https://github.com/SHSO-Launcher/Launcher/blob/master/Changelog.txt</changelog>
+    <changelog>https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Changelog.txt</changelog>
     <mandatory>false</mandatory>
 </item>

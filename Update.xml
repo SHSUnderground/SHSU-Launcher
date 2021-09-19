@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
     <version>3.0</version>
-    <url>https://github.com/SHSO-Launcher/Launcher/releases/download/Mark-2.9/SHSO.Launcher.MKIII.exe</url>
+    <url>https://github.com/SHSO-Launcher/Launcher/releases/download/Mark-2.9/SHSO.Launcher.MKIII.zip</url>
     <changelog>https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Changelog.txt</changelog>
     <mandatory>false</mandatory>
 </item>

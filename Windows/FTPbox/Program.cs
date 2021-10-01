@@ -18,6 +18,8 @@ using FTPbox.Forms;
 using System.IO;
 using System.Diagnostics;
 using FTPboxLib;
+using AutoUpdaterDotNET;
+using System.Threading.Tasks;
 
 namespace FTPbox
 {
@@ -25,12 +27,21 @@ namespace FTPbox
     {
         public static AccountController Account;
 
+
+        private static void AutoUpdater_ApplicationExitEvent()
+        {
+            Process.GetCurrentProcess().Kill();
+        }
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
+
+            CheckforUpdates().GetAwaiter();
             Settings.Load();
             Account = new AccountController();
             Account = Settings.DefaultProfile;
@@ -167,6 +178,18 @@ namespace FTPbox
                         }
             }
             catch { }
+        }
+        async static Task CheckforUpdates()
+        {
+            AutoUpdater.InstalledVersion = new Version("3"); // MARK 3
+            DirectoryInfo DownloadPath = new DirectoryInfo(Application.StartupPath).Parent.Parent;
+            //AutoUpdater.DownloadPath = Application.StartupPath;
+            AutoUpdater.InstallationPath = Application.StartupPath;
+            AutoUpdater.RunUpdateAsAdmin = false;
+            AutoUpdater.Synchronous = true;
+            AutoUpdater.ApplicationExitEvent += AutoUpdater_ApplicationExitEvent;
+            //AutoUpdater.Mandatory = true;
+            AutoUpdater.Start("https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Update.xml");
         }
     }
 }

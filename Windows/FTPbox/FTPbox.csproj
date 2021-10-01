@@ -53,12 +53,18 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>shso__icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="AutoUpdater.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.7.0\lib\net45\AutoUpdater.NET.dll</HintPath>
+    </Reference>
     <Reference Include="DeltaCompressionDotNet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=1d14d6e5194e7f4a, processorArchitecture=MSIL">
       <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.dll</HintPath>
     </Reference>
@@ -119,17 +125,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NuGet.Squirrel, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\squirrel.windows.1.7.8\lib\Net45\NuGet.Squirrel.dll</HintPath>
-    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="SharpCompress, Version=0.17.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.17.1\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.1.6.2\lib\Net45\Splat.dll</HintPath>
-    </Reference>
-    <Reference Include="Squirrel, Version=1.7.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\squirrel.windows.1.7.8\lib\Net45\Squirrel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -161,6 +162,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -168,7 +170,9 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextMenuManager.cs" />
@@ -274,9 +278,15 @@
     <None Include="configuration.properties">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Config\general.conf" />
-    <None Include="Config\profiles.conf" />
-    <None Include="Config\trusted_certificates.conf" />
+    <None Include="Config\general.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\profiles.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\trusted_certificates.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="data\cache\default.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -302,7 +312,9 @@
     <None Include="Resources\btn_donate_SM.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Debug.html" />
+    <Content Include="Config\Debug.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="google-drive-ftp-adapter-jar-with-dependencies.jar">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -324,9 +336,7 @@
     <None Include="Resources\regular_60.ico" />
     <None Include="Resources\offline.ico" />
     <None Include="Resources\regular.ico" />
-    <Content Include="ftpboxnew.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="ftpboxnew.ico" />
     <Content Include="regular.ico" />
     <None Include="Resources\all synced.ico" />
     <Content Include="regular_125.ico" />
@@ -353,8 +363,15 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release if "$(DefineConstants)" == "TRACE" powershell.exe -NoProfile -ExecutionPolicy ByPass -File $(ProjectDir)pack.ps1 $(TargetName) $(ProjectDir) $(TargetDir) $(TargetPath)
-if $(ConfigurationName) == Release if "$(DefineConstants)" == "TRACE;PORTABLE" powershell.exe -NoProfile -ExecutionPolicy ByPass -File $(ProjectDir)pack_portable.ps1 $(TargetDir) $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release del "$(TargetDir)*.xml", "$(TargetDir)*.pdb"
+mkdir "$(ProjectDir)bin\SHSO_Launcher\SHSO_Launcher"
+if $(ConfigurationName) == Release del /Q /F "$(ProjectDir)bin\SHSO_Launcher\SHSO_Launcher\*"
+if $(ConfigurationName) == Release xcopy /E /Y "$(TargetDir)" "$(ProjectDir)bin\SHSO_Launcher\SHSO_Launcher"
+if $(ConfigurationName) == Release del /Q /F "$(ProjectDir)bin\SHSO_Launcher\SHSO_Launcher\Releases"
+if $(ConfigurationName) == Release copy /Y "$(SolutionDir)FTPbox\translations.xml" "$(TargetDir)translations.xml"
+
+if $(ConfigurationName) == Release powershell.exe -command Compress-Archive -Path $(TargetDir)* -DestinationPath "$(ProjectDir)bin\SHSO_Launcher_Update.zip" -Force
+if $(ConfigurationName) == Release powershell.exe -command Compress-Archive -Path $(ProjectDir)bin\SHSO_Launcher -DestinationPath "$(ProjectDir)bin\SHSO_Launcher.zip" -Force</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

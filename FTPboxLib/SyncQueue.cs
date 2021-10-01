@@ -27,17 +27,17 @@ namespace FTPboxLib
         private readonly AccountController _controller;
 
         int totalCnt = 0;   // CSP
-        public static float totalSize = 0; // CSP
-        public static float currSize = 0; // CSP
+        public static double totalSize = 0; // CSP
+        public static double currSize = 0; // CSP
         public static Label totalSizeLabel = null;  // CSP
         public static Label label2 = null;  // CSP
         public static ProgressBar progressBar1 = null; // CSP
         //public static Button button1 = null; // CSP
         public static bool startsync = false; // Titan
         public static TextBox logtext = null; // Titan
-        public static float totaldownloadsize = 0; // Titan
+        public static double totaldownloadsize = 0; // Titan
         public static bool folderchecked = false; // Titan
-        long sizeunit = 1048576; // Titan
+        double sizeunit = 1048576; // Titan
         //long gbsize = 1073741824; // Titan
         string sizeunitstring = " MB"; // Titan
         List<ClientItem> newlist = Enumerable.Empty<ClientItem>().ToList(); // Titan
@@ -46,7 +46,9 @@ namespace FTPboxLib
         //public static bool over400mb = false;
         //float maxsize = 0;
         DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
-        long sizeBeforeDownload = 0;
+        double sizeBeforeDownload = 0;
+        //static string sizelogfile = Environment.CurrentDirectory+"\\Config\\sizelog.txt";
+        //FileStream sizelog = File.Create(sizelogfile);
 
         public SyncQueue(AccountController account)
         {
@@ -564,12 +566,12 @@ namespace FTPboxLib
                     //button1.Enabled = true;
                     return StatusType.Success;
                 }
-                list = newlist;
-                totalSize = totaldownloadsize;
                 if (firstDownloadLoopIteration)
                 {
+                    totalSize = totaldownloadsize;
                     currSize = 0;
                 }
+                list = newlist;
             }
             else
             {
@@ -642,7 +644,7 @@ namespace FTPboxLib
                 //currSize += f.Size;
                 //progressBar1.Value = (int)(currSize / 1048576);   
                 //int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                //label2.Text = progressBar1.Value + " / " + (int)(totalSize / 1048576) + " MB"; //percentVal.ToString() + "%";
+                //label2.Text = (currSize / sizeunit).ToString("0.00") + " / " + (int)(totalSize / 1048576) + " MB"; //percentVal.ToString() + "%";
                 //Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / 1048576) + " MB");
                 ///////////////////////////////////////////////////////////
 
@@ -688,6 +690,13 @@ namespace FTPboxLib
                             logtext.Refresh();
                             //Console.WriteLine("\nTotal download size: " + totaldownloadsize / 1024 + " KB = " + totaldownloadsize / (1024 * 1024) + " MB");
                             newlist.Add(sqi.Item);
+                            totalSizeLabel.Text = "New file: " + f.Name;
+                            totalSizeLabel.Refresh();
+                            currSize += sqi.Item.Size;
+                            progressBar1.Value = (int)(currSize / sizeunit);
+                            int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
+                            label2.Text = (currSize / sizeunit).ToString("0.00") + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
+                            label2.Refresh();
                         }
                         else if (startsync)
                         {
@@ -695,18 +704,22 @@ namespace FTPboxLib
                             status = await _controller.Client.SafeDownload(sqi);
 
                             /////////// block added by CSP ////////////////////
-                            totalSizeLabel.Text = "New file: " + f.Name;
+                            totalSizeLabel.Text = "Downloading file: " + f.Name;
                             totalSizeLabel.Refresh();
                             currSize += DirSize(info) - sizeBeforeDownload;
                             progressBar1.Value = (int)(currSize / sizeunit);
                             int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                            label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
+                            label2.Text = (currSize / sizeunit).ToString("0.00") + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                             label2.Refresh();
                             Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                             if (currSize == totalSize)
                             {
                                 downloadComplete = true;
+                                return StatusType.Success;
                             }
+                            /*string totalSizestring = string.Format("{0:F20}", totalSize);
+                            string currSizestring = string.Format("{0:F20}", currSize);
+                            File.AppendAllText(sizelogfile, currSizestring + "/" + totalSizestring + "\n");*/
                             ///////////////////////////////////////////////////////////
                         }
                     }
@@ -842,6 +855,7 @@ namespace FTPboxLib
                 {
                     sizeBeforeDownload = DirSize(info);
                     status = await _controller.Client.SafeDownload(item);
+                    currSize += DirSize(info) - sizeBeforeDownload;
                 }
                 else
                 {
@@ -849,20 +863,23 @@ namespace FTPboxLib
                     logtext.AppendText("\r\nFile update found: " + item.Item.Name);
                     logtext.Refresh();
                     totaldownloadsize += item.Item.Size;
+                    currSize += item.Item.Size;
                 }
                 /////////// block added by CSP, edited by Titan ////////////////////
                 totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
-                currSize += DirSize(info) - sizeBeforeDownload;
                 progressBar1.Value = (int)(currSize / sizeunit);
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
+                label2.Text = (currSize / sizeunit).ToString("0.00") + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();
                 Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                 if (currSize == totalSize)
                 {
                     downloadComplete = true;
                 }
+                /*string totalSizestring = string.Format("{0:F20}", totalSize);
+                string currSizestring = string.Format("{0:F20}", currSize);
+                File.AppendAllText(sizelogfile, currSizestring + "/" + totalSizestring + "\n");*/
                 ///////////////////////////////////////////////////////////
             }
             //////////////////// block commented out by CSP
@@ -892,12 +909,22 @@ namespace FTPboxLib
                 currSize += item.Item.Size;
                 progressBar1.Value = (int)(currSize / sizeunit);
                 int percentVal = (int)((progressBar1.Value / progressBar1.Maximum) * 100);
-                label2.Text = progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
+                label2.Text = (currSize / sizeunit).ToString("0.00") + " / " + (int)(totalSize / sizeunit) + sizeunitstring; //percentVal.ToString() + "%";
                 label2.Refresh();
                 Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                 ///////////////////////////////////////////////////////////
             }
 
+            /*else
+            {
+                double dir = DirSize(info) / sizeunit;
+                double tsize = totalSize / sizeunit;
+                if (dir == tsize)
+                {
+                    downloadComplete = true;
+                    return (TransferStatus)StatusType.Success;
+                }
+            }*/
             return status;
         }
 

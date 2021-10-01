@@ -26,10 +26,10 @@ using FTPboxLib;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Settings = FTPboxLib.Settings;
-using Squirrel;
 using Microsoft.Extensions.DependencyInjection; // Titan
 using System.Drawing.Text; // Titan
 using System.Management;
+using AutoUpdaterDotNET;
 
 namespace FTPbox.Forms
 {
@@ -60,9 +60,20 @@ namespace FTPbox.Forms
 
         private PrivateFontCollection pfc = new PrivateFontCollection();
 
+
+        private static void AutoUpdater_ApplicationExitEvent()
+        {
+            Process.GetCurrentProcess().Kill();
+        }
+
+
         private async void fMain_Load(object sender, EventArgs e)
         {
             tray.Visible = false;
+            //totalSizeLabel.Text = "Program is checking for updates, please wait..."; // Titan
+
+            //await CheckForUpdate();
+
             totalSizeLabel.Text = "Program is starting up, please wait..."; // Titan
 
             Stream fontStream = this.GetType().Assembly.GetManifestResourceStream("FTPbox.ZOOOBRG.ttf");
@@ -100,9 +111,6 @@ namespace FTPbox.Forms
             processJar.StartInfo.CreateNoWindow = true;
             processJar.Start();
 
-
-            //button1.FlatStyle = FlatStyle.Flat; // Titan
-            //button1.FlatAppearance.BorderSize = 0; // Titan
             check_Button.Enabled = false; // Titan
 
             tabControl1.TabPages.Remove(tabAbout);
@@ -112,10 +120,7 @@ namespace FTPbox.Forms
             tabControl1.TabPages.Remove(tabAccount);
             //tabControl1.Visible = false;
 
-            
-
             richTextBox1.Text = await getbuglistfromdiscord();
-            //FTPbox.ZOOOBRG.ttf
             NetworkChange.NetworkAddressChanged += OnNetworkChange;
 
             //TODO: Should this stay?
@@ -176,8 +181,6 @@ namespace FTPbox.Forms
             totalSizeLabel.Text = "Please click Check to start checking for updates!";
             //_fTrayForm = new fTrayForm { Tag = this };
 
-            await CheckForUpdate(); // Commented out by Titan, uncessary check
-
             // Check local folder for changes
             /*var cpath = Program.Account.GetCommonPath(Program.Account.Paths.Local, true);
             await Program.Account.SyncQueue.Add(
@@ -226,10 +229,12 @@ namespace FTPbox.Forms
 
                 UpdateDetails();
 
-                var e = await Program.Account.WebInterface.CheckForUpdate();
+                /*
+                See yavar e = await Program.Account.WebInterface.CheckForUpdate();
                 chkWebInt.Checked = e;
                 labViewInBrowser.Enabled = e;
                 _changedfromcheck = false;
+                */
 
                 Program.Account.FolderWatcher.Setup();
             }
@@ -447,59 +452,18 @@ namespace FTPbox.Forms
         ///     checks for an update
         ///     called on each start-up of FTPbox.
         /// </summary>
-        private async Task CheckForUpdate()
+        /*private async Task CheckForUpdate()
         {
-#if PORTABLE
-            try
-            {
-                var wc = new WebClient();
-                // Find out what the latest version is
-                var latest = await wc.DownloadStringTaskAsync("http://ftpbox.org/releases/version");
-                var current = Application.ProductVersion;
-
-                Log.Write(l.Debug, $"Current Version: {latest} Installed Version: {current}");
-
-                if (Regex.IsMatch(latest, @"([0-9]+\.){3,4}") && latest != current)
-                {
-                    // show dialog box for  download now, learn more and remind me next time
-                    var nvform = new newversion();
-                    newversion.Newvers = latest;
-                    newversion.DownLink = current;
-                    nvform.ShowDialog();
-                    Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Write(l.Debug, "Error with version checking");
-                ex.LogException();
-            }
-#elif !DEBUG
-            using (var updateManager = new UpdateManager("http://ftpbox.org/releases"))
-            {
-                var info = await updateManager.CheckForUpdate();
-
-                if (info.CurrentlyInstalledVersion == null || info.FutureReleaseEntry == null)
-                    return;
-
-                Log.Write(l.Debug, $"Current Version: {info.CurrentlyInstalledVersion.Version} Installed Version: {info.FutureReleaseEntry.Version}");
-
-                if (info.FutureReleaseEntry.Version > info.CurrentlyInstalledVersion.Version)
-                {
-                    // show dialog box for download now, learn more and remind me next time
-                    var nvform = new newversion();
-                    newversion.Newvers = info.CurrentlyInstalledVersion.Version.ToString();
-                    newversion.DownLink = info.FutureReleaseEntry.Version.ToString();
-                    nvform.ShowDialog();
-
-                    if (newversion.update)
-                    {
-                        await updateManager.UpdateApp();
-                    }
-                }
-            }
-#endif
-        }
+            AutoUpdater.InstalledVersion = new Version("2.9.2"); // MARK 3
+            DirectoryInfo DownloadPath = new DirectoryInfo(Application.StartupPath).Parent.Parent;
+            //AutoUpdater.DownloadPath = Application.StartupPath;
+            AutoUpdater.InstallationPath = Application.StartupPath;
+            AutoUpdater.RunUpdateAsAdmin = false;
+            AutoUpdater.Synchronous = true;
+            AutoUpdater.ApplicationExitEvent += AutoUpdater_ApplicationExitEvent;
+            //AutoUpdater.Mandatory = true;
+            AutoUpdater.Start("https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Update.xml");
+        }*/
 
         #endregion
 
@@ -1259,8 +1223,6 @@ namespace FTPbox.Forms
 
             await discordReady;
 
-            // maybe call other methods here?
-            // write a discord message?
             var channel = _services.GetService<IDiscordService>()
                 .GetSocketTextChannel(835828591430074368);
             var patchnotes = await channel.GetMessagesAsync(1).FirstOrDefaultAsync();
@@ -1268,10 +1230,6 @@ namespace FTPbox.Forms
             string patchtxt = patchnotes.Last().ToString().Replace("\n", "\r\n");
             patchtxt = patchtxt.Replace("```", "");
             return patchtxt;//patchnotes.Last().ToString();
-
-            //await channel.SendMessageAsync("Hello World!");
-
-            //await Task.Delay(-1);
         }
 
         static async Task<string> getbuglistfromdiscord() // Titan
@@ -1331,6 +1289,7 @@ namespace FTPbox.Forms
         {
             check_Button.Enabled = false;
             check_Button.Text = "Checking...";
+            download_Button.Enabled = false;
             //panel2.Visible = false;
             files_info.BackColor = Color.White;
             files_info.Visible = true;
@@ -1384,6 +1343,7 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.folderchecked = true;
             FTPboxLib.SyncQueue.startsync = true;
             FTPboxLib.SyncQueue.firstDownloadLoopIteration = true;
+            FTPboxLib.SyncQueue.downloadComplete = false;
             while(!FTPboxLib.SyncQueue.downloadComplete)
             {
                 await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
@@ -1429,93 +1389,28 @@ namespace FTPbox.Forms
 
         private async void buglist_Textbox_DoubleClick(object sender, EventArgs e)
         {
-            /*System.Net.WebClient wc = new System.Net.WebClient();
-            string buglist = "Please check your internet connection and doubleclick this field to refresh. If the issue still persists please report this to the devs!";
-            try
-            {
-                string webData = wc.DownloadString("https://retrosquadonline.com/index.php/forums/topic/in-game-bugs/");
-                //string buglist = "";
-                //int index = webData.IndexOf("Monkey.D.Maxi");
-                int index = webData.IndexOf("class=\"bbp-author-name\">Monkey.D.Maxi</span></a><div class=\"bbp-author-role\">Participant</div>\n\t\t\n\t\t\n\t</div><!-- .bbp-reply-author -->\n\n\t<div class=\"bbp-reply-content\">\n\n\t\t\n\t\t<p>");
-                if (index >= 0)
-                {
-                    //buglist = webData.Substring(index + 175, webData.IndexOf("List made by Monkey.D.Mexyy") - index - 148);
-
-                    webData = webData.Substring(index + 175, webData.IndexOf("</p>\n\n\n<ul id") - index - 4);
-                    //richTextBox1.SelectedText = "Monkey D. Mexyy";
-                    buglist = webData;
-                    string text = "";
-                    while (buglist.IndexOf("<p>") > -1)
-                    {
-                        richTextBox1.SelectionColor = Color.Red;
-                        //richTextBox1.SelectionFont = new Font(pfc.Families[0], (float)16.2, FontStyle.Regular);
-
-                        text = buglist.Substring(buglist.IndexOf("<p>"), buglist.IndexOf("</p>") - buglist.IndexOf("<p>")) + "</p>";
-                        text = text.Replace("<p>", "");
-                        text = text.Replace("</p>", "\n\n");
-                        text = text.Replace("\n<br>", "");
-                        text = text.Replace("<br />\n", "\n");
-                        text = text.Replace("&#8217;", "'");
-                        text = text.Replace("#8220;", "\"");
-                        text = text.Replace("#8221;", "\"");
-                        text = text.Replace("â€™", "'");
-
-                        richTextBox1.SelectedText = text;
-
-                        buglist = buglist.Remove(buglist.IndexOf("<p>"), 3);
-                        buglist = buglist.Substring(buglist.IndexOf("\n<p>"));
-
-                        richTextBox1.SelectionColor = Color.Black;
-                        //richTextBox1.SelectionFont= new Font("Times New Roman", 16, FontStyle.Regular);
-
-                        text = buglist.Substring(0, buglist.IndexOf("</p>"));
-                        text = text.Replace("<p>", "");
-                        text = text.Replace("</p>", "\n\n");
-                        text = text.Replace("<br />\n", "\n");
-                        text = text.Replace("&#8217;", "'");
-                        text = text.Replace("#8220;", "\"");
-                        text = text.Replace("#8221;", "\"");
-                        text = text.Replace("â€™", "'");
-
-                        richTextBox1.SelectedText = text;
-
-                        buglist = buglist.Substring(buglist.IndexOf("</p>"));
-                        buglist = buglist.Remove(buglist.IndexOf("</p>"), 4);
-
-                        richTextBox1.SelectedText = "\n\n";
-                        //buglist = buglist.Remove(buglist.IndexOf("</p>"), 3);
-
-                    }
-                }
-            }
-            catch { };
-            */
             richTextBox1.Text = await getbuglistfromdiscord();
         }
 
         private void playnow_Button_MouseDown(object sender, MouseEventArgs e)
         {
             playnow_Button.BackgroundImage = Resources.playnow_hold;
-            //pictureBox2.FlatAppearance.BorderSize = 0;
 
         }
 
         private void playnow_Button_MouseUp(object sender, MouseEventArgs e)
         {
             playnow_Button.BackgroundImage = Resources.playnow_green;
-            //pictureBox2.FlatAppearance.BorderSize = 0;
         }
 
         private void playnow_Button_MouseHover(object sender, EventArgs e)
         {
-            playnow_Button.BackgroundImage = Resources.playnow_green;
-            //pictureBox2.FlatAppearance.BorderSize = 0;
+            playnow_Button.BackgroundImage = Resources.playnow_green;;
         }
 
         private void playnow_Button_MouseLeave(object sender, EventArgs e)
         {
             playnow_Button.BackgroundImage = Resources.playnow_red;
-            //pictureBox2.FlatAppearance.BorderSize = 0;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)

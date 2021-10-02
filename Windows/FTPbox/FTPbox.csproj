@@ -238,18 +238,23 @@
     <Compile Include="Win32.cs" />
     <EmbeddedResource Include="Forms\fAccountDetails.resx">
       <DependentUpon>fAccountDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fIgnoredExtensions.resx">
       <DependentUpon>fIgnoredExtensions.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fSelectiveSync.resx">
       <DependentUpon>fSelectiveSync.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fTrayForm.resx">
       <DependentUpon>fTrayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\newversion.resx">
       <DependentUpon>newversion.cs</DependentUpon>
@@ -257,12 +262,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setup.resx">
       <DependentUpon>Setup.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Translate.resx">
       <DependentUpon>Translate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\trayFormListItem.resx">
       <DependentUpon>trayFormListItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -287,9 +295,7 @@
     <None Include="Config\trusted_certificates.conf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\cache\default.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="data\cache\default.db" />
     <None Include="data\google\default\StoredCredential">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

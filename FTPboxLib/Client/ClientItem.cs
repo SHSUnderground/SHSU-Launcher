@@ -19,7 +19,7 @@ namespace FTPboxLib
     {
         public ClientItem(){}
 
-        public ClientItem(string name, string path, ClientItemType type, long size = 0x0, DateTime lastWriteTime = default(DateTime))
+        public ClientItem(string name, string path, ClientItemType type, long size = (long)0, DateTime lastWriteTime = default(DateTime))
         {
             Name = name;
             FullPath = path;
@@ -50,7 +50,7 @@ namespace FTPboxLib
             Name = info.Name;
             Type = ClientItemType.Folder;
             LastWriteTime = DateTime.MinValue;  // Doesn't matter
-            Size = 0x0;                         // Doesn't matter
+            Size = (long)0;                         // Doesn't matter
         }
 
         #region Properties

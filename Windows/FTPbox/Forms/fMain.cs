@@ -1344,7 +1344,9 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.startsync = true;
             FTPboxLib.SyncQueue.firstDownloadLoopIteration = true;
             FTPboxLib.SyncQueue.downloadComplete = false;
-            while(!FTPboxLib.SyncQueue.downloadComplete)
+            DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
+            FTPboxLib.SyncQueue.totalFolderSizeBeforeDownload = FTPboxLib.SyncQueue.DirSize(info);
+            while (!FTPboxLib.SyncQueue.downloadComplete)
             {
                 await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
                 FTPboxLib.SyncQueue.firstDownloadLoopIteration = false;
@@ -1421,6 +1423,11 @@ namespace FTPbox.Forms
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
             banner_Button.BackgroundImage = Resources.SHSO_Launcher_Banner;
+        }
+
+        private void label2_TextChanged(object sender, EventArgs e)
+        {
+            label2.Left = (this.Width - label2.Width) / 2;
         }
     }
 }

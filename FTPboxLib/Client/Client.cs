@@ -98,7 +98,7 @@ namespace FTPboxLib
         /// </summary>
         /// <param name="i">The item to download</param>
         /// <returns>TransferStatus.Success on success, TransferStatus.Success on failure</returns>
-        public async Task<TransferStatus> SafeDownload(SyncQueueItem i)
+        public async Task<TransferStatus> SafeDownload(SyncQueueItem i, int retrytime = 0)
         {
             Notifications.ChangeTrayText(MessageType.Downloading, i.Item.Name);
             var temp = Path.GetTempFileName();
@@ -118,6 +118,7 @@ namespace FTPboxLib
 
                     File.Move(temp, i.LocalPath);
                     Controller.FolderWatcher.Resume();
+                    FTPboxLib.SyncQueue.currSize += i.Item.Size;
                     return TransferStatus.Success;
                 }
             }
@@ -128,7 +129,10 @@ namespace FTPboxLib
             }
 
             Common.RecycleOrDeleteFile(i.LocalPath);
-
+            if (retrytime <= 10)
+            {
+                await SafeDownload(i, retrytime + 1);
+            }
             return TransferStatus.Failure;
         }
 

@@ -1467,12 +1467,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(495, 571);
+            this.label2.Location = new System.Drawing.Point(489, 570);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 16);
             this.label2.TabIndex = 23;
             this.label2.Text = "0%";
+            this.label2.TextChanged += new System.EventHandler(this.label2_TextChanged);
             // 
             // progressBar1
             // 

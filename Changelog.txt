@@ -1,3 +1,6 @@
+Mark 3.1 (Latest):
+Bundled Java so that it doesn't require any additional steps.
+
 Mark 3:
 - Add auto-update.
 - Connect to Google Drive mirror.

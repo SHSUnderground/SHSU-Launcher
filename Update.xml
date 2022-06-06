@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-    <version>3.1.0</version>
+    <version>3.1</version>
     <url>https://github.com/SHSO-Launcher/Launcher/releases/download/MKIII-Java/SHSO_Launcher_Update.zip</url>
     <changelog>https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Changelog.txt</changelog>
     <mandatory minVersion="9.9.9">true</mandatory>

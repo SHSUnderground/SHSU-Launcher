@@ -46,7 +46,7 @@ namespace FTPboxLib
         //public static bool over400mb = false;
         //float maxsize = 0;
         DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
-        double sizeBeforeDownload = 0;
+        //double sizeBeforeDownload = 0;
         public static double totalFolderSizeBeforeDownload = 0;
         //static string sizelogfile = Environment.CurrentDirectory+"\\Config\\sizelog.txt";
         //FileStream sizelog = File.Create(sizelogfile);
@@ -498,7 +498,7 @@ namespace FTPboxLib
             }
         }
 
-
+        /*
         public static long DirSize(DirectoryInfo d)
         {
             long size = 0;
@@ -516,7 +516,7 @@ namespace FTPboxLib
             }
             return size;
         }
-
+        */
 
         /// <summary>
         /// Synchronize the specified item with ActionType of changed or created.
@@ -576,6 +576,7 @@ namespace FTPboxLib
             }
             else
             {
+                //List<ClientItem> list = Enumerable.Empty<ClientItem>().ToList();
                 list = (List<ClientItem>)await _controller.Client.ListRecursive(item.CommonPath);
                 totalSize = 0;
                 currSize = 0;
@@ -597,6 +598,8 @@ namespace FTPboxLib
                 Console.WriteLine("totalSize = " + totalSize);  // CSP
                 if (totalSizeLabel != null)
                     totalSizeLabel.Text = "";  // "Total Size: " + (totalSize / 1048576).ToString() + " MB";
+                progressBar1.Value = 0;
+                //list = Enumerable.Empty<ClientItem>().ToList();
             }
             progressBar1.Minimum = 0;
             /////////// Titan ////////////
@@ -617,7 +620,7 @@ namespace FTPboxLib
             }*/
             //////////////////////////////
             progressBar1.Maximum = (int)(totalSize / sizeunit);
-            long filessize = DirSize(info);
+            //long filessize = DirSize(info);
             ///////////////////////////////////////////
 
             foreach (var f in list)
@@ -693,7 +696,7 @@ namespace FTPboxLib
                             newlist.Add(sqi.Item);
                             totalSizeLabel.Text = "New file: " + f.Name;
                             totalSizeLabel.Refresh();
-                            //currSize += sqi.Item.Size;
+                            currSize += sqi.Item.Size;
                             if ((int)(currSize / sizeunit) <= progressBar1.Maximum)
                             {
                                 progressBar1.Value = (int)(currSize / sizeunit) >= 0 ? (int)(currSize / sizeunit) : 0;
@@ -704,7 +707,7 @@ namespace FTPboxLib
                         }
                         else if (startsync)
                         {
-                            sizeBeforeDownload = DirSize(info);
+                            //sizeBeforeDownload = DirSize(info);
                             status = await _controller.Client.SafeDownload(sqi);
 
                             /////////// block added by CSP ////////////////////
@@ -724,9 +727,7 @@ namespace FTPboxLib
                                 downloadComplete = true;
                                 return StatusType.Success;
                             }
-                            /*string totalSizestring = string.Format("{0:F20}", totalSize);
-                            string currSizestring = string.Format("{0:F20}", currSize);
-                            File.AppendAllText(sizelogfile, currSizestring + "/" + totalSizestring + "\n");*/
+                            /*File.AppendAllText(sizelogfile, currSize.ToString() + "/" + totalSize.ToString() + "\n");*/
                             ///////////////////////////////////////////////////////////
                         }
                     }
@@ -860,20 +861,22 @@ namespace FTPboxLib
             {
                 if (startsync) // Titan
                 {
-                    sizeBeforeDownload = DirSize(info);
+                    //sizeBeforeDownload = DirSize(info);
                     status = await _controller.Client.SafeDownload(item);
                     //currSize += DirSize(info) - sizeBeforeDownload >= 0 ? DirSize(info) - sizeBeforeDownload : sizeBeforeDownload - DirSize(info);
+                    totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 }
                 else
                 {
                     newlist.Add(item.Item);
                     logtext.AppendText("\r\nFile update found: " + item.Item.Name);
+                    totalSizeLabel.Text = "File update: " + item.Item.Name;
                     logtext.Refresh();
                     totaldownloadsize += item.Item.Size;
                     currSize += item.Item.Size;
                 }
                 /////////// block added by CSP, edited by Titan ////////////////////
-                totalSizeLabel.Text = "Updating file: " + item.Item.Name;
+                //totalSizeLabel.Text = "Updating file: " + item.Item.Name;
                 totalSizeLabel.Refresh();
                 if ((int)(currSize / sizeunit) <= progressBar1.Maximum)
                 {
@@ -887,9 +890,7 @@ namespace FTPboxLib
                 {
                     downloadComplete = true;
                 }
-                /*string totalSizestring = string.Format("{0:F20}", totalSize);
-                string currSizestring = string.Format("{0:F20}", currSize);
-                File.AppendAllText(sizelogfile, currSizestring + "/" + totalSizestring + "\n");*/
+                /*File.AppendAllText(sizelogfile, currSize.ToString() + "/" + totalSize.ToString() + "\n");*/
                 ///////////////////////////////////////////////////////////
             }
             //////////////////// block commented out by CSP
@@ -927,8 +928,6 @@ namespace FTPboxLib
                 Console.WriteLine("progress: " + progressBar1.Value + " / " + (int)(totalSize / sizeunit) + sizeunitstring);
                 ///////////////////////////////////////////////////////////
             }
-
-
             else
             {
                 if (currSize == totalSize)
@@ -937,6 +936,8 @@ namespace FTPboxLib
                     return (TransferStatus)StatusType.Success;
                 }
             }
+            /*File.AppendAllText(sizelogfile, currSize.ToString() + "/" + totalSize.ToString() + "End of loop iteration\n");*/
+
             return status;
         }
 

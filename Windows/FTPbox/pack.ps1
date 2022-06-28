@@ -7,43 +7,36 @@ param (
     [string]$TargetPath
 )
 
-# Load built assembly and get the version
+# Names of files that will be added to zip file
+
+[array]$fileNames = Get-ChildItem *.* -Name
+
+# Version
 
 $assembly = [System.Reflection.Assembly]::LoadFile($TargetPath)
 $v = $assembly.GetName().Version;
 $version = [string]::Format("{0}.{1}.{2}",$v.Major, $v.Minor, $v.Build)
 
-# NuGet pack
+# Load Ionic.Zip
 
-$nuspec = "$ProjectDir$Name.nuspec"
-Write-Host "Path to nuspec file: " $nuspec
+$pathToAssembly = Join-Path -path $TargetDir -childpath "Ionic.Zip.Reduced.dll"
+[System.Reflection.Assembly]::LoadFrom($pathToAssembly)
 
-nuget pack $nuspec -Version $version -Properties Configuration=Release -OutputDirectory $TargetDir -BasePath $TargetDir
+$archive = new-object Ionic.Zip.ZipFile
 
-# Squirrel Releasify
+#  Add all files
 
-$icon = $ProjectDir + "regular.ico"
-Write-Host "Path to ico file: " $icon
+foreach ($f in $fileNames)
+{
+    Write-Host "adding to zip file: " $f
+    $archive.AddFile($f, "")
+}
 
-$nupkg = "FTPbox.$version.nupkg"
-Write-Host "Path to generated nupkg: " $nupkg
+# Save to .zip file
 
-New-Alias squirrel $ProjectDir\..\packages\squirrel.windows*\tools\Squirrel.exe -Force
+$zipfile = $TargetDir + "Releases\SHSO_Launcher_Update_" + $version + ".zip"
+Write-Host "path to zip file: " $zipfile
 
-squirrel --releasify $nupkg --setupIcon $icon --icon $icon | Write-Output
+$archive.Save($zipfile)
+$archive.Dispose()
 
-# Rename setup file
-
-$setup = $TargetDir + "Releases\Setup.exe"
-$newSetup = $TargetDir + "Releases\FTPbox-$version-Setup.exe"
-
-Move-Item $setup $newSetup -Force
-Write-Host "Setup path: " $newSetup
-
-# Rename msi file
-
-$msi = $TargetDir + "Releases\Setup.msi"
-$newmsi = $TargetDir + "Releases\FTPbox-$version-Setup.msi"
-
-Move-Item $msi $newmsi -Force
-Write-Host "msi path: " $newmsi

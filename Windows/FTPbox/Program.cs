@@ -181,7 +181,7 @@ namespace FTPbox
         }
         async static Task CheckforUpdates()
         {
-            AutoUpdater.InstalledVersion = new Version("3"); // MARK 3
+            AutoUpdater.InstalledVersion = new Version("3.1"); // MARK 3.1, Java is now bundled.
             DirectoryInfo DownloadPath = new DirectoryInfo(Application.StartupPath).Parent.Parent;
             //AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.InstallationPath = Application.StartupPath;

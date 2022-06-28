@@ -101,9 +101,9 @@ namespace FTPbox.Forms
             check_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
             download_Button.Font = new Font(pfc.Families[0], 24, FontStyle.Regular);
 
-            string strArguments = " -jar " + "google-drive-ftp-adapter-jar-with-dependencies.jar";
-            processJar.StartInfo.FileName = "\"" + @"java" + "\"";
-            processJar.StartInfo.Arguments = strArguments;
+            // string strArguments = " -jar " + "google-drive-ftp-adapter-jar-with-dependencies.jar";
+            processJar.StartInfo.FileName = "google-drive-ftp-adapter.exe";
+            // processJar.StartInfo.Arguments = strArguments;
             processJar.StartInfo.WorkingDirectory = ""; //Give the working directory of the application;
             processJar.StartInfo.UseShellExecute = false;
             processJar.StartInfo.RedirectStandardOutput = true;
@@ -1224,7 +1224,7 @@ namespace FTPbox.Forms
             await discordReady;
 
             var channel = _services.GetService<IDiscordService>()
-                .GetSocketTextChannel(835828591430074368);
+                .GetSocketTextChannel(894292893517357066);
             var patchnotes = await channel.GetMessagesAsync(1).FirstOrDefaultAsync();
             //files_info.Text = patchnotes.ToString();
             string patchtxt = patchnotes.Last().ToString().Replace("\n", "\r\n");
@@ -1329,7 +1329,7 @@ namespace FTPbox.Forms
             //files_info.Visible = true;
             //await getpatchnotesfromdiscord();
             check_Button.Text = "Check";
-            check_Button.Enabled = true;
+            //check_Button.Enabled = true;
             //////////////////////////////
 
         }
@@ -1344,17 +1344,17 @@ namespace FTPbox.Forms
             FTPboxLib.SyncQueue.startsync = true;
             FTPboxLib.SyncQueue.firstDownloadLoopIteration = true;
             FTPboxLib.SyncQueue.downloadComplete = false;
-            DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
-            FTPboxLib.SyncQueue.totalFolderSizeBeforeDownload = FTPboxLib.SyncQueue.DirSize(info);
+            //DirectoryInfo info = new DirectoryInfo(@"C:\SHSO");
+            //FTPboxLib.SyncQueue.totalFolderSizeBeforeDownload = FTPboxLib.SyncQueue.DirSize(info);
             while (!FTPboxLib.SyncQueue.downloadComplete)
             {
                 await Program.Account.SyncQueue.CheckRemoteToLocal();  // start syncing....
                 FTPboxLib.SyncQueue.firstDownloadLoopIteration = false;
             }
             download_Button.Text = "Download";
-            download_Button.Enabled = true;
+            //download_Button.Enabled = true;
             totalSizeLabel.Text = "Download Complete. Click Play Now to play!";
-            check_Button.Enabled = true;
+            //check_Button.Enabled = true;
             playnow_Button.Enabled = true;
         }
 

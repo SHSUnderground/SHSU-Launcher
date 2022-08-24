@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Launchpad</AssemblyName>
+    <TargetFramework>net461</TargetFramework>
+    <Platform>x86</Platform>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>7.1</LangVersion>
+    <Prefer32bit>true</Prefer32bit>
+  </PropertyGroup>
+
+  <!-- Workaround for https://github.com/dotnet/roslyn-project-system/issues/1739 -->
+  <PropertyGroup>
+    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>2.0.0</Version>
+    <Description>An open-source launcher for your games.</Description>
+    <Authors>Jarl Gullberg;jax</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Config.Net" Version="4.13.7" />
+    <PackageReference Include="GtkSharp" Version="3.22.25.24" />
+    <PackageReference Include="NLog" Version="4.6.6" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0002" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all" />
+    <PackageReference Include="NGettext" Version="0.6.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="app.manifest" />
+    <EmbeddedResource Include="Resources\**\*.*" />
+    <EmbeddedResource Include="Interface\Launchpad.glade" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="*.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\locale\**\*.po">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <InProject>false</InProject>
+    </Content>
+    <Content Include="../LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <InProject>false</InProject>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(ProjectDir)\..\stylecop.json">
+      <Link>stylecop.json</Link>
+      <InProject>false</InProject>
+    </AdditionalFiles>
+    <AdditionalFiles Include="$(ProjectDir)\..\stylecop.ruleset">
+      <Link>stylecop.ruleset</Link>
+      <InProject>false</InProject>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Launchpad.Common\Launchpad.Common.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyGTK" AfterTargets="Build">
+    <ItemGroup>
+      <GTKetc Include="$(SolutionDir)\lib\gtk+-3.16-bundle-win32\etc\**\*.*">
+        <Visible>false</Visible>
+      </GTKetc>
+      <GTKlib Include="$(SolutionDir)\lib\gtk+-3.16-bundle-win32\lib\**\*.*">
+        <Visible>false</Visible>
+      </GTKlib>
+      <GTKshare Include="$(SolutionDir)\lib\gtk+-3.16-bundle-win32\share\**\*.*">
+        <Visible>false</Visible>
+      </GTKshare>
+      <GTKbin Include="$(SolutionDir)\lib\gtk+-3.16-bundle-win32\bin\**\*.*">
+        <Visible>false</Visible>
+      </GTKbin>
+    </ItemGroup>
+    <Message Text="Copying GTK+ libraries..." />
+    <Copy SourceFiles="@(GTKetc)" DestinationFolder="$(OutputPath)\etc\%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(GTKlib)" DestinationFolder="$(OutputPath)\lib\%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(GTKshare)" DestinationFolder="$(OutputPath)\share\%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(GTKbin)" DestinationFolder="$(OutputPath)\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Import Project="..\props\netfx-mono.props" />
+</Project>

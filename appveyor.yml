@@ -1,0 +1,14 @@
+image: Visual Studio 2019
+init:
+  - git config --global url."https://github.com/".insteadOf "git@github.com:"
+configuration: Debug
+platform: x86
+before_build:
+  - dotnet restore
+build:
+  parallel: true
+  project: Launchpad.sln
+test:
+  assemblies:
+    only:
+      - Launchpad.Tests.dll

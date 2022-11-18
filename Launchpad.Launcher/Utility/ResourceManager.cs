@@ -1,4 +1,4 @@
-//
+﻿//
 //  ResourceManager.cs
 //
 //  Author:

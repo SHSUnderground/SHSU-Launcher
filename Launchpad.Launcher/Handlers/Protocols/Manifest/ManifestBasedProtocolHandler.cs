@@ -204,6 +204,7 @@ namespace Launchpad.Launcher.Handlers.Protocols.Manifest
 		/// <inheritdoc />
 		public override void VerifyModule(EModule module)
 		{
+			RefreshModuleManifest(module);
 			var manifest = this.FileManifestHandler.GetManifest((EManifestType)module, false);
 			var brokenFiles = new List<ManifestEntry>();
 

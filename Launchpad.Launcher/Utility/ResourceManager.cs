@@ -1,4 +1,4 @@
-﻿//
+//
 //  ResourceManager.cs
 //
 //  Author:
@@ -41,7 +41,7 @@ namespace Launchpad.Launcher.Utility
 		{
 			Assembly = Assembly.GetExecutingAssembly();
 
-			ApplicationIcon = Pixbuf.LoadFromResource("Launchpad.Launcher.Resources.Icon.png");
+			ApplicationIcon = Pixbuf.LoadFromResource("Launchpad.Launcher.Resources.shso_icon.ico");
 		}
 	}
 }

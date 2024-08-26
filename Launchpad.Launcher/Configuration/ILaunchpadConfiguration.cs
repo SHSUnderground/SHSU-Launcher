@@ -1,4 +1,4 @@
-﻿//
+//
 //  ILaunchpadConfiguration.cs
 //
 //  Author:
@@ -34,53 +34,53 @@ namespace Launchpad.Launcher.Configuration
 		// Launcher section
 		// ...
 
-		/// <summary>
-		/// Gets or sets the address where the changelog is hosted.
-		/// </summary>
-		[Option(Alias = "Launcher.ChangelogAddress", DefaultValue = "https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Changelog.txt")]
-		Uri ChangelogAddress { get; set; }
+    /// <summary>
+    /// Gets or sets the address where the changelog is hosted.
+    /// </summary>
+    [Option(Alias = "Launcher.ChangelogAddress", DefaultValue = "https://raw.githubusercontent.com/SHSO-Launcher/Launcher/master/Changelog.txt")]
+    Uri ChangelogAddress { get; set; }
 
-		/// <summary>
-		/// Gets or sets the system target of the launcher.
-		/// </summary>
-		[Option(Alias = "Launcher.SystemTarget", DefaultValue = "Win64")]
-		ESystemTarget SystemTarget { get; set; }
+    /// <summary>
+    /// Gets or sets the system target of the launcher.
+    /// </summary>
+    [Option(Alias = "Launcher.SystemTarget", DefaultValue = "Win64")]
+    ESystemTarget SystemTarget { get; set; }
 
 		// Game section
 		// ...
 
-		/// <summary>
-		/// Gets or sets the name of the game.
-		/// </summary>
-		[Option(Alias = "Game.Name", DefaultValue = "SHSO")]
-		string GameName { get; set; }
+    /// <summary>
+    /// Gets or sets the name of the game.
+    /// </summary>
+    [Option(Alias = "Game.Name", DefaultValue = "SHSO")]
+    string GameName { get; set; }
 
-		/// <summary>
-		/// Gets or sets the path to the game's executable, relative to the launcher.
-		/// </summary>
-		[Option(Alias = "Game.ExecutablePath", DefaultValue = "shso.exe")]
-		string ExecutablePath { get; set; }
+    /// <summary>
+    /// Gets or sets the path to the game's executable, relative to the launcher.
+    /// </summary>
+    [Option(Alias = "Game.ExecutablePath", DefaultValue = "shso.exe")]
+    string ExecutablePath { get; set; }
 
 		// Remote section
 		// ...
 
-		/// <summary>
-		/// Gets or sets the address of the remote server.
-		/// </summary>
-		[Option(Alias = "Remote.Address", DefaultValue = "ftp://ftp.retrosquadonline.com")]
-		Uri RemoteAddress { get; set; }
+    /// <summary>
+    /// Gets or sets the address of the remote server.
+    /// </summary>
+    [Option(Alias = "Remote.Address", DefaultValue = "https://files.retrosquadonline.com")]
+    Uri RemoteAddress { get; set; }
 
-		/// <summary>
-		/// Gets or sets the username to use when authenticating with the remote server.
-		/// </summary>
-		[Option(Alias = "Remote.Username", DefaultValue = "anonymous")]
-		string RemoteUsername { get; set; }
+    /// <summary>
+    /// Gets or sets the username to use when authenticating with the remote server.
+    /// </summary>
+    [Option(Alias = "Remote.Username", DefaultValue = "")]
+    string RemoteUsername { get; set; }
 
-		/// <summary>
-		/// Gets or sets the password to use when authenticating with the remote server.
-		/// </summary>
-		[Option(Alias = "Remote.Password", DefaultValue = "anonymous")]
-		string RemotePassword { get; set; }
+    /// <summary>
+    /// Gets or sets the password to use when authenticating with the remote server.
+    /// </summary>
+    [Option(Alias = "Remote.Password", DefaultValue = "")]
+    string RemotePassword { get; set; }
 
 		/// <summary>
 		/// Gets or sets the number of times to retry file downloads.

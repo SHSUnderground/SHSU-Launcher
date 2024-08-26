@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <AssemblyName>SHSO_Launcher</AssemblyName>
@@ -10,6 +10,8 @@
     <LangVersion>7.1</LangVersion>
     <Prefer32bit>true</Prefer32bit>
     <ApplicationIcon>Resources/shso_icon.ico</ApplicationIcon>
+    <Company>SHSU</Company>
+    <Product>SHSO_Launcher</Product>
   </PropertyGroup>
 
   <!-- Workaround for https://github.com/dotnet/roslyn-project-system/issues/1739 -->
